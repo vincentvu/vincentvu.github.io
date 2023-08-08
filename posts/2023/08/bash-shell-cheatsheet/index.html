@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="english">
 <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vincent Vu's Blog</title>
+    <title>Vincent Vu's Blog | Bash Shell Cheatsheet</title>
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
@@ -11,12 +11,14 @@
     <meta name="generator" content="Pelican" />
     <meta name="description" content="" />
     <meta name="author" content="Vincent Vu" />
+
+    <meta name="keywords" content="notes,bash" />
 </head>
 <body>
     <header>
         <nav style="overflow: hidden;">
             <ul>
-                <li class="selected"><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/pages/about.html">About</a></li>
             </ul>
         </nav>
@@ -28,89 +30,6 @@
     </header>
     <div id="wrapper">
         <div id="content">            <h4 class="date">Aug 08, 2023</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="/posts/2023/08/create-custom-command-lines/" rel="bookmark" title="Permanent Link to &quot;Create Custom Command Lines&quot;">Create Custom Command Lines</a>
-                </h2>
-
-                
-                
-
-                <p>These are some common bash command lines I used for personal works. I really hate to remember the commands in details, so I usually create functions in .bash_profile. Below are some examples:</p>
-<div class="highlight"><pre><span></span><code>v_set_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Configuring proxy ...&quot;</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">ALL_PROXY</span><span class="o">=[</span>my<span class="w"> </span>proxy<span class="w"> </span>config<span class="o">]</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="si">${</span><span class="nv">ALL_PROXY</span><span class="si">}</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="si">${</span><span class="nv">ALL_PROXY</span><span class="si">}</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">NO_PROXY</span><span class="o">=</span>localhost,127.0.0.1
-<span class="o">}</span>
-
-v_unset_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Removing proxy configuration ...&quot;</span>
-<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>ALL_PROXY
-<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>HTTP_PROXY
-<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>HTTPS_PROXY
-<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>NO_PROXY
-<span class="o">}</span>
-
-v_configure_java_home<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>.8<span class="k">)</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/opt/node@8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-v_configure_nodejs_home<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/opt/node@8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-v_configure_aliases<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">dk</span><span class="o">=</span><span class="s1">&#39;docker&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">dkc</span><span class="o">=</span><span class="s1">&#39;docker-compose&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gs</span><span class="o">=</span><span class="s1">&#39;git status&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gc</span><span class="o">=</span><span class="s1">&#39;git checkout&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gcm</span><span class="o">=</span><span class="s1">&#39;git checkout master&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -lthar&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">df</span><span class="o">=</span><span class="s1">&#39;df -H&#39;</span>
-<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">du</span><span class="o">=</span><span class="s1">&#39;du -ch&#39;</span>
-<span class="o">}</span>
-
-v_aes_decode<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d
-<span class="o">}</span>
-
-v_aes_encode<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-e
-<span class="o">}</span>
-
-v_update_all_git_repos<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Updating all git repos in current folder </span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span><span class="nv">FILES</span><span class="o">==</span><span class="k">$(</span>ls<span class="k">)</span>
-<span class="w">  </span><span class="nv">ROOT_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$FILES</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">      </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$i</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span>.git<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Updating </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>
-<span class="w">        </span>git<span class="w"> </span>fetch<span class="w"> </span>--all
-<span class="w">      </span><span class="k">fi</span>
-<span class="w">      </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ROOT_DIR</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="w">  </span><span class="k">done</span>
-<span class="o">}</span>
-</code></pre></div>
-
-<p>When I need to set proxy on my laptop. I just need to execute command <code>v_set_proxy</code>. </p>
-<p>Do I need to remember all of my custom command lines. The answer is NO. I just need to type <code>v_</code> and then tab, the terminal will display all of my custom commands which I can use.</p>
-<p>Just in case you wonder what is <code>v_</code> in my commands stands for, it's my name "Vincent". </p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="/posts/2023/08/create-custom-command-lines/">posted at 17:00</a>
-                    &nbsp;&middot;&nbsp;<a href="/category/devops.html" rel="tag">DevOps</a>
-                </div>
-            </article>            <h4 class="date">Aug 08, 2023</h4>
 
             <article class="post">
                 <h2 class="title">
@@ -421,137 +340,7 @@ psql<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
                     &nbsp;<a href="/tag/notes.html" class="tags">notes</a>
                     &nbsp;<a href="/tag/bash.html" class="tags">bash</a>
                 </div>
-            </article>            <h4 class="date">Aug 08, 2023</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="/posts/2023/08/java-keystore-cheatsheet/" rel="bookmark" title="Permanent Link to &quot;Java Keystore Cheatsheet&quot;">Java Keystore Cheatsheet</a>
-                </h2>
-
-                
-                
-
-                <h3>Create a java keystore</h3>
-<div class="highlight"><pre><span></span><code><span class="n">keytool</span><span class="w"> </span><span class="o">-</span><span class="n">importcert</span><span class="w"> </span><span class="o">-</span><span class="n">trustcacerts</span><span class="w"> </span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">example</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span><span class="w"> </span><span class="o">-</span><span class="n">alias</span><span class="w"> </span><span class="n">ca</span><span class="w"> </span><span class="o">-</span><span class="n">keystore</span><span class="w"> </span><span class="n">keystore</span><span class="o">.</span><span class="n">jks</span>
-</code></pre></div>
-
-<h3>List content of the key</h3>
-<div class="highlight"><pre><span></span><code><span class="n">keytool</span> <span class="o">-</span><span class="nb">list</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">keystore</span><span class="o">.</span><span class="n">jks</span>
- <span class="err">```</span>
-
-<span class="c1">### import .crt and .key files into jks</span>
-<span class="err">```</span><span class="n">bash</span>
-<span class="n">openssl</span> <span class="n">pkcs12</span> <span class="o">-</span><span class="n">export</span> <span class="o">-</span><span class="ow">in</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">logstash</span><span class="o">-</span><span class="n">forwarder</span><span class="o">.</span><span class="n">crt</span> <span class="o">-</span><span class="n">inkey</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">private</span><span class="o">/</span><span class="n">logstash</span><span class="o">-</span><span class="n">forwarder</span><span class="o">.</span><span class="n">key</span> <span class="o">-</span><span class="n">out</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">keystore</span><span class="o">/</span><span class="n">logstash</span><span class="o">-</span><span class="n">forwarder</span><span class="o">.</span><span class="n">p12</span>
-
-<span class="n">keytool</span> <span class="o">-</span><span class="n">importkeystore</span> <span class="o">-</span><span class="n">srckeystore</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">keystore</span><span class="o">/</span><span class="n">logstash</span><span class="o">-</span><span class="n">forwarder</span><span class="o">.</span><span class="n">p12</span>\
-        <span class="o">-</span><span class="n">srcstoretype</span> <span class="n">PKCS12</span> \
-        <span class="o">-</span><span class="n">destkeystore</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">keystore</span><span class="o">/</span><span class="n">logstash</span><span class="o">-</span><span class="n">forwarder</span><span class="o">.</span><span class="n">jks</span> \
-        <span class="o">-</span><span class="n">deststoretype</span> <span class="n">JKS</span>
-</code></pre></div>
-
-<h3>Get key file content</h3>
-<div class="highlight"><pre><span></span><code>keytool<span class="w"> </span>-v<span class="w"> </span>-list<span class="w"> </span>-keystore<span class="w">   </span>/etc/pki/tls/keystore/logstash-forwarder.jks
-</code></pre></div>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="/posts/2023/08/java-keystore-cheatsheet/">posted at 13:01</a>
-                    &nbsp;&middot;&nbsp;<a href="/category/devops.html" rel="tag">DevOps</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="/tag/notes.html" class="tags">notes</a>
-                    &nbsp;<a href="/tag/bash.html" class="tags">bash</a>
-                </div>
-            </article>            <h4 class="date">Aug 08, 2023</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="/posts/2023/08/openssl-cheatsheet/" rel="bookmark" title="Permanent Link to &quot;OpenSSL Cheatsheet&quot;">OpenSSL Cheatsheet</a>
-                </h2>
-
-                
-                
-
-                <blockquote>
-<p><strong><em>NOTE:</em></strong>  The content in this page is my personal note which I got from multiple sources and based on my personal experience.</p>
-</blockquote>
-<h3>Generate a new RSA key only</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>genrsa<span class="w"> </span>-aes256<span class="w"> </span>-out<span class="w"> </span>example.key<span class="w"> </span><span class="m">2048</span><span class="w">  </span>
-</code></pre></div>
-
-<h3>Create public key from private key</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>rsa<span class="w"> </span>-in<span class="w"> </span>example.key<span class="w"> </span>-pubout<span class="w"> </span>-out<span class="w"> </span>example.pub
-</code></pre></div>
-
-<h3>Generate SSH key from private key</h3>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w">  </span>-y<span class="w"> </span>-f<span class="w"> </span>example.key
-</code></pre></div>
-
-<h3>Check OpenSSL files</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>rsa<span class="w"> </span>-in<span class="w"> </span>example.key<span class="w"> </span>-noout<span class="w"> </span>-text
-openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> </span>filename.crt<span class="w"> </span>-text<span class="w"> </span>-noout
-openssl<span class="w"> </span>req<span class="w"> </span>-in<span class="w"> </span>filename.csr<span class="w"> </span>-text<span class="w"> </span>-noout
-openssl<span class="w"> </span>rsa<span class="w"> </span>-in<span class="w"> </span>filename.key<span class="w"> </span>-text<span class="w"> </span>-noout
-</code></pre></div>
-
-<h3>Generating a Self-Signed Certificate</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-in<span class="w"> </span>server.csr<span class="w"> </span>-signkey<span class="w"> </span>server.key<span class="w"> </span>-out<span class="w"> </span>server.crt
-</code></pre></div>
-
-<h3>Generate a Certificate Signing Request and new Key</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>new.key<span class="w"> </span>-out<span class="w"> </span>new.csr<span class="w"> </span>-nodes
-</code></pre></div>
-
-<h3>Encrypt/Decrypt a file in base64 format</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-in<span class="w"> </span>plaintext.file<span class="w"> </span>-out<span class="w"> </span>encryted.file
-openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-in<span class="w"> </span>encryted.file
-</code></pre></div>
-
-<h3>Package cert in a PKCS12 file</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>pkcs12<span class="w"> </span>-export<span class="w"> </span>-in<span class="w"> </span>example.crt<span class="w"> </span>-inkey<span class="w"> </span>example.key<span class="w"> </span>-out<span class="w"> </span>example.p12
-</code></pre></div>
-
-<h3>Create certificate request</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>graylog.key<span class="w"> </span>-subj<span class="w"> </span><span class="s1">&#39;/C=CA/ST=ON/L=Toronto/O=IT Insfrastructure/OU=DevOps/CN=example.com/emailAddress=admin@exampl.com&#39;</span><span class="w"> </span>-out<span class="w"> </span>graylog.csr<span class="w">  </span>-config<span class="w"> </span>openssl.cnf
-</code></pre></div>
-
-<h3>Create certificate</h3>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-extensions<span class="w"> </span>v3_req<span class="w"> </span>-in<span class="w"> </span>graylog.csr<span class="w"> </span>-signkey<span class="w"> </span>graylog.key<span class="w"> </span>-out<span class="w"> </span>graylog.crt<span class="w"> </span>-extfile<span class="w"> </span>openssl.cnf
-</code></pre></div>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="/posts/2023/08/openssl-cheatsheet/">posted at 13:00</a>
-                    &nbsp;&middot;&nbsp;<a href="/category/devops.html" rel="tag">DevOps</a>
-                    &nbsp;&middot;
-                    &nbsp;<a href="/tag/notes.html" class="tags">notes</a>
-                    &nbsp;<a href="/tag/bash.html" class="tags">bash</a>
-                    &nbsp;<a href="/tag/openssl.html" class="tags">openssl</a>
-                </div>
-            </article>            <h4 class="date">Aug 08, 2023</h4>
-
-            <article class="post">
-                <h2 class="title">
-                    <a href="/posts/2023/08/my-first-post/" rel="bookmark" title="Permanent Link to &quot;My first post&quot;">My first post</a>
-                </h2>
-
-                
-                
-
-                <p>There are many reasons:</p>
-<ul>
-<li>To share my knowledge about Software Engineer, DevOps, Cloud Engineer and Stock Investing. </li>
-<li>To save documents about things that I use frequently like a list of CLIs I use everyday, some common SQL queries</li>
-<li>To practice my writing skills, story telling, etc.</li>
-</ul>
-<p>This blog is written by using <a href="https://docs.getpelican.com/en/latest/quickstart.html">Pelican</a> which I feel really easy to use. I think one of the reasons is because I am pretty familiar to Python.</p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="/posts/2023/08/my-first-post/">posted at 08:00</a>
-                    &nbsp;&middot;&nbsp;<a href="/category/cloud-engineer.html" rel="tag">Cloud Engineer</a>
-                </div>
             </article>
-
         </div>
         <div class="clear"></div>
     </div>
