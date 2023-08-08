@@ -31,6 +31,88 @@
 
             <article class="post">
                 <h2 class="title">
+                    <a href="/posts/2023/08/common-bash-command-lines/" rel="bookmark" title="Permanent Link to &quot;Common Bash Command Lines&quot;">Common Bash Command Lines</a>
+                </h2>
+
+                
+                
+
+                <p>These are some common bash command lines I used for personal works. I really hate to remember the commands in details, so I usually create functions in .bash_profile. Below are some examples:</p>
+<div class="highlight"><pre><span></span><code>v_set_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Configuring proxy ...&quot;</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">ALL_PROXY</span><span class="o">=[</span>my<span class="w"> </span>proxy<span class="w"> </span>config<span class="o">]</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="si">${</span><span class="nv">ALL_PROXY</span><span class="si">}</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="si">${</span><span class="nv">ALL_PROXY</span><span class="si">}</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">NO_PROXY</span><span class="o">=</span>localhost,127.0.0.1
+<span class="o">}</span>
+
+v_unset_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Removing proxy configuration ...&quot;</span>
+<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>ALL_PROXY
+<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>HTTP_PROXY
+<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>HTTPS_PROXY
+<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>NO_PROXY
+<span class="o">}</span>
+
+v_configure_java_home<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="k">$(</span>/usr/libexec/java_home<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>.8<span class="k">)</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/opt/node@8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+v_configure_nodejs_home<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/opt/node@8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+v_configure_aliases<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">dk</span><span class="o">=</span>docker
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">dkc</span><span class="o">=</span>docker-compose
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gs</span><span class="o">=</span><span class="s1">&#39;git status&#39;</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gc</span><span class="o">=</span><span class="s1">&#39;git checkout&#39;</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">gcm</span><span class="o">=</span><span class="s1">&#39;git checkout master&#39;</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -lthar&#39;</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">df</span><span class="o">=</span><span class="s1">&#39;df -H&#39;</span>
+<span class="w">  </span><span class="nb">alias</span><span class="w"> </span><span class="nv">du</span><span class="o">=</span><span class="s1">&#39;du -ch&#39;</span>
+<span class="o">}</span>
+
+v_aes_decode<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d
+<span class="o">}</span>
+
+v_aes_encode<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-e
+<span class="o">}</span>
+
+v_update_all_git_repos<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Updating all git repos in current folder </span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">FILES</span><span class="o">==</span><span class="k">$(</span>ls<span class="k">)</span>
+<span class="w">  </span><span class="nv">ROOT_DIR</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$FILES</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$i</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span>.git<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Updating </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">        </span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">      </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ROOT_DIR</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">done</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>When I need to set proxy on my laptop. I just need to execute command <code>v_set_proxy</code>. </p>
+<p>Just in case you wonder what is <code>v</code> in my commands stands for, it's my name "Vincent". </p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="/posts/2023/08/common-bash-command-lines/">posted at 00:00</a>
+                    &nbsp;&middot;&nbsp;<a href="/category/devops.html" rel="tag">DevOps</a>
+                </div>
+            </article>            <h4 class="date">Aug 08, 2023</h4>
+
+            <article class="post">
+                <h2 class="title">
                     <a href="/posts/2023/08/my-first-post/" rel="bookmark" title="Permanent Link to &quot;My first post&quot;">My first post</a>
                 </h2>
 
