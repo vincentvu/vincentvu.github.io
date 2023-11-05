@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://vincentvu.ca/Blog/how%20I%20create%20this%20blog/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://vincentvu.ca/Blog/leetcode/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
@@ -36,17 +41,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/References/java-keystore-cheatsheet/</loc>
-         <lastmod>2023-11-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://vincentvu.ca/References/openssl-cheatsheet/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/References/shell-script-cheatsheet/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20Comparator/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20HashMap/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20List/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20Quick%20Select/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20Set/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20String/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/References/Java/Basic%20-%20java%20keystore%20cheatsheet/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>

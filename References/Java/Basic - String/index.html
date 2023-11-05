@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/References/java-keystore-cheatsheet/">
+        <link rel="canonical" href="https://vincentvu.ca/References/Java/Basic%20-%20String/">
       
       
-        <link rel="prev" href="../git-submodule/">
+        <link rel="prev" href="../Basic%20-%20Set/">
       
       
-        <link rel="next" href="../openssl-cheatsheet/">
+        <link rel="next" href="../Basic%20-%20java%20keystore%20cheatsheet/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
-        <title>Java Keystore Cheatsheet - vincentvu's Blog</title>
+        <title>Basic String - VincentVu's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-a-java-keystore" class="md-skip">
+        <a href="#convert-string-to-array-of-characters" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +83,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="vincentvu&#39;s Blog" class="md-header__button md-logo" aria-label="vincentvu's Blog" data-md-component="logo">
+    <a href="../../.." title="VincentVu&#39;s Blog" class="md-header__button md-logo" aria-label="VincentVu's Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -97,13 +97,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            vincentvu's Blog
+            VincentVu's Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Java Keystore Cheatsheet
+              Basic   String
             
           </span>
         </div>
@@ -175,13 +175,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="vincentvu&#39;s Blog" class="md-nav__button md-logo" aria-label="vincentvu's Blog" data-md-component="logo">
+    <a href="../../.." title="VincentVu&#39;s Blog" class="md-nav__button md-logo" aria-label="VincentVu's Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    vincentvu's Blog
+    VincentVu's Blog
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -192,7 +192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -247,7 +247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Blog/About/" class="md-nav__link">
+      <a href="../../../Blog/About/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -267,11 +267,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Blog/leetcode/" class="md-nav__link">
+      <a href="../../../Blog/how%20I%20create%20this%20blog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Some Common Leetcode Problems For Tech Interviews
+    how I create this blog
   </span>
   
 
@@ -287,11 +287,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Blog/my-first-blog/" class="md-nav__link">
+      <a href="../../../Blog/leetcode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    My first post
+    Leetcode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Blog/my-first-blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My first blog
   </span>
   
 
@@ -352,11 +372,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-bash-command-lines/" class="md-nav__link">
+      <a href="../../common-bash-command-lines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Create Custom Command Lines
+    Common bash command lines
   </span>
   
 
@@ -372,11 +392,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-mini-conda-commands/" class="md-nav__link">
+      <a href="../../common-mini-conda-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Common miniconda commands
+    Common mini conda commands
   </span>
   
 
@@ -392,11 +412,189 @@
   
   
     <li class="md-nav__item">
-      <a href="../git-submodule/" class="md-nav__link">
+      <a href="../../git-submodule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Git submodules
+    Git submodule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openssl-cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Openssl cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell-script-cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell script cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20-%20Comparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20-%20HashMap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   HashMap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20-%20List/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20-%20Quick%20Select/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kth Largest Element in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic%20-%20Set/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Set
   </span>
   
 
@@ -423,7 +621,7 @@
           
   
   <span class="md-ellipsis">
-    Java Keystore Cheatsheet
+    Basic   String
   </span>
   
 
@@ -434,7 +632,7 @@
         
   
   <span class="md-ellipsis">
-    Java Keystore Cheatsheet
+    Basic   String
   </span>
   
 
@@ -454,22 +652,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-java-keystore" class="md-nav__link">
-    Create a java keystore
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#list-content-of-the-key" class="md-nav__link">
-    List content of the key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-key-file-content" class="md-nav__link">
-    Get key file content
+  <a href="#convert-string-to-array-of-characters" class="md-nav__link">
+    Convert string to array of characters
   </a>
   
 </li>
@@ -489,11 +673,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../openssl-cheatsheet/" class="md-nav__link">
+      <a href="../Basic%20-%20java%20keystore%20cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OpenSSL Cheatsheet
+    Basic   java keystore cheatsheet
   </span>
   
 
@@ -503,21 +687,9 @@
 
               
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../shell-script-cheatsheet/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Bash Shell Cheatsheet
-  </span>
-  
-
-      </a>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -555,22 +727,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-java-keystore" class="md-nav__link">
-    Create a java keystore
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#list-content-of-the-key" class="md-nav__link">
-    List content of the key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-key-file-content" class="md-nav__link">
-    Get key file content
+  <a href="#convert-string-to-array-of-characters" class="md-nav__link">
+    Convert string to array of characters
   </a>
   
 </li>
@@ -590,27 +748,10 @@
                   
 
 
-  <h1>Java Keystore Cheatsheet</h1>
+  <h1>Basic   String</h1>
 
-<h3 id="create-a-java-keystore">Create a java keystore</h3>
-<pre><code>keytool -importcert -trustcacerts -file example-cert.pem -alias ca -keystore keystore.jks
-</code></pre>
-<h3 id="list-content-of-the-key">List content of the key</h3>
-<pre><code>keytool -list -v -keystore keystore.jks
- ```
-
-### import .crt and .key files into jks
-```bash
-openssl pkcs12 -export -in /etc/pki/tls/certs/logstash-forwarder.crt -inkey /etc/pki/tls/private/logstash-forwarder.key -out /etc/pki/tls/keystore/logstash-forwarder.p12
-
-keytool -importkeystore -srckeystore /etc/pki/tls/keystore/logstash-forwarder.p12\
-        -srcstoretype PKCS12 \
-        -destkeystore /etc/pki/tls/keystore/logstash-forwarder.jks \
-        -deststoretype JKS
-</code></pre>
-<h3 id="get-key-file-content">Get key file content</h3>
-<pre><code class="language-bash">keytool -v -list -keystore   /etc/pki/tls/keystore/logstash-forwarder.jks
-</code></pre>
+<h3 id="convert-string-to-array-of-characters">Convert string to array of characters</h3>
+<p><code>char[] t = s.toCharArray();</code></p>
 
 
 
@@ -649,10 +790,10 @@ keytool -importkeystore -srckeystore /etc/pki/tls/keystore/logstash-forwarder.p1
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>
