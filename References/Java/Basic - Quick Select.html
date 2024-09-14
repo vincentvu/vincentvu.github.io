@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/shell-script-cheatsheet/">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Java/Basic%20-%20Quick%20Select.html">
       
       
-        <link rel="prev" href="../openssl-cheatsheet/">
+        <link rel="prev" href="Basic%20-%20List.html">
       
       
-        <link rel="next" href="../Azure%20notes/network/">
+        <link rel="next" href="Basic%20-%20Set.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,17 +22,22 @@
     
     
       
-        <title>Bash Shell Cheatsheet - Vincent Vu's Documents</title>
+        <title>Kth Largest Element in an Array - Vincent Vu's Documents</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
       
 
 
     
     
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
       
     
     
@@ -55,7 +60,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -67,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-redirection" class="md-skip">
+        <a href="#kth-largest-element-in-an-array" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +95,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,12 +115,48 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bash Shell Cheatsheet
+              Kth Largest Element in an Array
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
     
@@ -175,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -192,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -236,7 +284,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../blog/index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -308,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023/" class="md-nav__link">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -382,7 +430,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -414,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-bash-command-lines/" class="md-nav__link">
+      <a href="../common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-mini-conda-commands/" class="md-nav__link">
+      <a href="../common-mini-conda-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git-submodule/" class="md-nav__link">
+      <a href="../git-submodule.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -474,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openssl-cheatsheet/" class="md-nav__link">
+      <a href="../openssl-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,27 +540,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Bash Shell Cheatsheet
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../shell-script-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -521,129 +551,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#file-redirection" class="md-nav__link">
-    File Redirection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-text-file-line-by-line" class="md-nav__link">
-    Read text file line by line
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#while-loop" class="md-nav__link">
-    While loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-loop" class="md-nav__link">
-    For loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#until-loop" class="md-nav__link">
-    Until loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select-loop" class="md-nav__link">
-    Select loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-tests" class="md-nav__link">
-    File tests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#string-tests" class="md-nav__link">
-    String tests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logical-test" class="md-nav__link">
-    Logical test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#variable-substitution" class="md-nav__link">
-    Variable substitution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset-varibales" class="md-nav__link">
-    Preset Varibales
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passing-an-indirect-reference-to-a-function" class="md-nav__link">
-    Passing an indirect reference to a function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-input-from-command-line" class="md-nav__link">
-    Read input from command line
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell-script-with-parameter-expansion" class="md-nav__link">
-    Shell script with parameter expansion
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -695,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Azure%20notes/network/" class="md-nav__link">
+      <a href="../Azure%20notes/network.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -721,6 +628,8 @@
                 
   
   
+    
+  
   
     
     
@@ -743,12 +652,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
         
           
           <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
@@ -762,7 +671,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -775,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Comparator/" class="md-nav__link">
+      <a href="Basic%20-%20Comparator.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -795,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20HashMap/" class="md-nav__link">
+      <a href="Basic%20-%20HashMap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20List/" class="md-nav__link">
+      <a href="Basic%20-%20List.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -833,9 +742,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Quick%20Select/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="Basic%20-%20Quick%20Select.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -844,6 +762,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -855,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Set/" class="md-nav__link">
+      <a href="Basic%20-%20Set.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -875,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20String/" class="md-nav__link">
+      <a href="Basic%20-%20String.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -895,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20java%20keystore%20cheatsheet/" class="md-nav__link">
+      <a href="Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -941,119 +860,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#file-redirection" class="md-nav__link">
-    File Redirection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-text-file-line-by-line" class="md-nav__link">
-    Read text file line by line
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#while-loop" class="md-nav__link">
-    While loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-loop" class="md-nav__link">
-    For loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#until-loop" class="md-nav__link">
-    Until loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select-loop" class="md-nav__link">
-    Select loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-tests" class="md-nav__link">
-    File tests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#string-tests" class="md-nav__link">
-    String tests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logical-test" class="md-nav__link">
-    Logical test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#variable-substitution" class="md-nav__link">
-    Variable substitution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset-varibales" class="md-nav__link">
-    Preset Varibales
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passing-an-indirect-reference-to-a-function" class="md-nav__link">
-    Passing an indirect reference to a function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-input-from-command-line" class="md-nav__link">
-    Read input from command line
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell-script-with-parameter-expansion" class="md-nav__link">
-    Shell script with parameter expansion
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1068,275 +876,116 @@
                   
 
 
-  <h1>Bash Shell Cheatsheet</h1>
+<h1 id="kth-largest-element-in-an-array">Kth Largest Element in an Array</h1>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>kth</code> <em>largest element in the array</em>.</p>
+<p>Note that it is the <code>kth</code> largest element in the sorted order, not the <code>kth</code> distinct element.</p>
+<p>You must solve it in <code>O(n)</code> time complexity.</p>
+<pre><code>Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
 
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+</code></pre>
+<h1 id="solution-1-heap-onlogk-ok">Solution 1: Heap - O(nLogk) - O(k)</h1>
+<pre><code class="language-java">class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // init heap 'the smallest element first'
+        PriorityQueue&lt;Integer&gt; heap =
+            new PriorityQueue&lt;Integer&gt;((n1, n2) -&gt; n1 - n2);
+
+        // keep k largest elements in the heap
+        for (int n: nums) {
+          heap.add(n);
+          if (heap.size() &gt; k)
+            heap.poll();
+        }
+
+        // output
+        return heap.poll();        
+  }
+}
+</code></pre>
+<h1 id="solution-2-quickselect-on-o1">Solution 2 - Quickselect - O(n) O(1)</h1>
+<p>This <a href="https://en.wikipedia.org/wiki/Quickselect">textbook algorthm</a> has \mathcal{O}(N)O(N) average time complexity. Like quicksort, it was developed by Tony Hoare, and is also known as <em>Hoare's selection algorithm</em>.</p>
+<p>The approach is basically the same as for quicksort. For simplicity let's notice that <code>k</code>th largest element is the same as <code>N - k</code>th smallest element, hence one could implement <code>k</code>th smallest algorithm for this problem.</p>
+<p>First one chooses a pivot, and defines its position in a sorted array in a linear time. This could be done with the help of <em>partition algorithm</em>.</p>
 <blockquote>
-<p><strong><em>NOTE:</em></strong>  The content in this page is my personal note which I got from multiple sources and based on my personal experience.</p>
+<p>To implement partition one moves along an array, compares each element with a pivot, and moves all elements smaller than pivot to the left of the pivot.</p>
 </blockquote>
-<h3 id="file-redirection">File Redirection</h3>
-<pre><code>&gt; file      Create file
-&gt;&gt; file     Append to file
-&lt; file      Read from file
-a | b       Pipe a as input to b
-</code></pre>
-<h3 id="read-text-file-line-by-line">Read text file line by line</h3>
-<pre><code class="language-shell">while read f; do
-    echo &quot;line is $f&quot;
-done &lt; file
-</code></pre>
-<h3 id="while-loop">While loop</h3>
-<pre><code class="language-shell">a=0
-while [ &quot;$a&quot; -lt 10 ]    # this is loop1
-do
-   b=&quot;$a&quot;
-   while [ &quot;$b&quot; -ge 0 ]  # this is loop2
-   do
-      echo -n &quot;$b &quot;
-      b=`expr $b - 1`
-   done
-   echo
-   a=`expr $a + 1`
-done
-</code></pre>
-<h3 id="for-loop">For loop</h3>
-<pre><code class="language-shell">for var in 0 1 2 3 4 5 6 7 8 9
-do
-   echo $var
-done
-</code></pre>
-<pre><code class="language-shell">for FILE in $HOME/.bash*
-do
-   echo $FILE
-done
-</code></pre>
-<h3 id="until-loop">Until loop</h3>
-<pre><code class="language-shell">a=0
-until [ ! $a -lt 10 ]
-do
-   echo $a
-   a=`expr $a + 1`
-done
-</code></pre>
-<h3 id="select-loop">Select loop</h3>
-<p>The select loop provides an easy way to create a numbered menu from which users can select options. It is useful when you need to ask the user to choose one or more items from a list of choices.</p>
-<pre><code class="language-shell">select var in word1 word2 ... wordN
-do
-   Statement(s) to be executed for every word.
-done
-</code></pre>
-<p>Here var is the name of a variable and word1 to wordN are sequences of characters separated by spaces (words). Each time the for loop executes, the value of the variable var is set to the next word in the list of words, word1 to wordN.</p>
-<p>For every selection a set of commands would be executed with-in the loop. This loop was introduced in ksh and has been adapted into bash. It is not available in sh.</p>
-<p>Here is a simple example to let the user select a drink of choice </p>
-<pre><code class="language-shell">#!/bin/ksh
+<p>As an output we have an array where pivot is on its perfect position in the ascending sorted array, all elements on the left of the pivot are smaller than pivot, and all elements on the right of the pivot are larger or equal to pivot.</p>
+<p>Hence the array is now split into two parts. If that would be a quicksort algorithm, one would proceed recursively to use quicksort for the both parts that would result in O(N log N) time complexity. Here there is no need to deal with both parts since now one knows in which part to search for <code>N - k</code>th smallest element, and that reduces average time complexity to O(N).</p>
+<p>Finally the overall algorithm is quite straightforward :</p>
+<ul>
+<li>Choose a random pivot.</li>
+<li>Use a partition algorithm to place the pivot into its perfect position <code>pos</code> in the sorted array, move smaller elements to the left of pivot, and larger or equal ones - to the right.</li>
+<li>Compare <code>pos</code> and <code>N - k</code> to choose the side of array to proceed recursively.</li>
+</ul>
+<blockquote>
+<p>! Please notice that this algorithm works well even for arrays with duplicates.</p>
+</blockquote>
+<p>![[Pasted image 20220807211806.png]]</p>
+<pre><code>import java.util.Random;
+class Solution {
+  int [] nums;
 
-select DRINK in tea cofee water juice appe all none
-do
-   case $DRINK in
-      tea|cofee|water|all) 
-         echo &quot;Go to canteen&quot;
-         ;;
-      juice|appe)
-         echo &quot;Available at home&quot;
-      ;;
-      none) 
-         break 
-      ;;
-      *) echo &quot;ERROR: Invalid selection&quot; 
-      ;;
-   esac
-done
-</code></pre>
-<p>The menu presented by the select loop looks like the following </p>
-<pre><code class="language-shell">$./test.sh
-1) tea
-2) cofee
-3) water
-4) juice
-5) appe
-6) all
-7) none
-#? juice
-Available at home
-#? none
-$
-</code></pre>
-<p>You can change the prompt displayed by the select loop by altering the variable PS3 as follows −</p>
-<pre><code>$PS3=&quot;Please make a selection =&gt; &quot; ; export PS3
-$./test.sh
-1) tea
-2) cofee
-3) water
-4) juice
-5) appe
-6) all
-7) none
-Please make a selection =&gt; juice
-Available at home
-Please make a selection =&gt; none
-$
-</code></pre>
-<p>Get output of ls into variable</p>
-<pre><code>myvar=`ls`
+  public void swap(int a, int b) {
+    int tmp = this.nums[a];
+    this.nums[a] = this.nums[b];
+    this.nums[b] = tmp;
+  }
 
-Function declaration
 
-doubleit(){
-expr $1 \* 2
+  public int partition(int left, int right, int pivot_index) {
+    int pivot = this.nums[pivot_index];
+    // 1. move pivot to end
+    swap(pivot_index, right);
+    int store_index = left;
+
+    // 2. move all smaller elements to the left
+    for (int i = left; i &lt;= right; i++) {
+      if (this.nums[i] &lt; pivot) {
+        swap(store_index, i);
+        store_index++;
+      }
+    }
+
+    // 3. move pivot to its final place
+    swap(store_index, right);
+
+    return store_index;
+  }
+
+  public int quickselect(int left, int right, int k_smallest) {
+    /*
+    Returns the k-th smallest element of list within left..right.
+    */
+
+    if (left == right) // If the list contains only one element,
+      return this.nums[left];  // return that element
+
+    // select a random pivot_index
+    Random random_num = new Random();
+    int pivot_index = left + random_num.nextInt(right - left); 
+
+    pivot_index = partition(left, right, pivot_index);
+
+    // the pivot is on (N - k)th smallest position
+    if (k_smallest == pivot_index)
+      return this.nums[k_smallest];
+    // go left side
+    else if (k_smallest &lt; pivot_index)
+      return quickselect(left, pivot_index - 1, k_smallest);
+    // go right side
+    return quickselect(pivot_index + 1, right, k_smallest);
+  }
+
+  public int findKthLargest(int[] nums, int k) {
+    this.nums = nums;
+    int size = nums.length;
+    // kth largest is (N - k)th smallest
+    return quickselect(0, size - 1, size - k);
+  }
 }
-</code></pre>
-<pre><code>doubleit 3  # return 6
-</code></pre>
-<p>Run cmd1; if fails, run cmd2</p>
-<pre><code>cmd1 || cmd2
-</code></pre>
-<p>Run cmd1; if it works, run cmd2</p>
-<pre><code>cmd1 &amp;&amp; cmd2
-</code></pre>
-<p>Test operators</p>
-<pre><code>if [ &quot;$x&quot; -lt &quot;$y&quot; ]; then
-# do something
-fi
-</code></pre>
-<p>Numeric tests</p>
-<pre><code>lt  less than
-gt
-eq
-ne
-ge
-le
-</code></pre>
-<h3 id="file-tests">File tests</h3>
-<pre><code>nt  newer than
-d   is a directory
-f   is a file
-x   executable
-r   redable
-w   writable
-</code></pre>
-<h3 id="string-tests">String tests</h3>
-<pre><code>=   equal to
-z   zero length
-n   not zero length
-</code></pre>
-<h3 id="logical-test">Logical test</h3>
-<pre><code>&amp;&amp;
-||
-!
-</code></pre>
-<h3 id="arguments">Arguments</h3>
-<pre><code>$0
-$1
-...
-$#  no of arguments
-$*  all arguments
-</code></pre>
-<h3 id="variable-substitution">Variable substitution</h3>
-<pre><code>${V:-default}   $V, or &quot;default if unset
-${V:=default}   $V (set to &quot;default&quot; if unset)
-${V:?err}   $, or &quot;err&quot; if unset
-</code></pre>
-<h3 id="preset-varibales">Preset Varibales</h3>
-<pre><code>$SHELL      What shell is running
-$RANDOM     Provides random number
-$SECONDS    Number of seconds from the time the shell is started
-$$      PID of current process
-$?      Return code from last command
-$!      PID of last background cmd
-$USER       The username of the user running the script.
-$HOSTNAME   The hostname of the machine the script is running on.
-$LINENO     Returns the current line number in the Bash script.
-</code></pre>
-<h3 id="passing-an-indirect-reference-to-a-function">Passing an indirect reference to a function</h3>
-<pre><code>#!/bin/bash
-# ind-func.sh: Passing an indirect reference to a function.
-
-echo_var ()
-{
- echo &quot;$1&quot;
-}
-
-message=Hello
-Hello=Goodbye
-
-echo_var &quot;$message&quot;        # Hello
-# Now, let's pass an indirect reference to the function.
-echo_var &quot;${!message}&quot;     # Goodbye
-
-echo &quot;-------------&quot;
-
-# What happens if we change the contents of &quot;hello&quot; variable?
-Hello=&quot;Hello, again!&quot;
-echo_var &quot;$message&quot;        # Hello
-echo_var &quot;${!message}&quot;     # Hello, again!
-
-exit 0
-</code></pre>
-<h3 id="read-input-from-command-line">Read input from command line</h3>
-<pre><code class="language-shell">read -s -p &quot;Enter your password for encryption: &quot; pass
-echo -n ${pass} | my_encoding_script
-</code></pre>
-<h3 id="shell-script-with-parameter-expansion">Shell script with parameter expansion</h3>
-<p>Here is a bash script with parameter expansion which used for managing PostgreSQL database. You can use this script as a template to create a script to manage your systems like database, cloud, etc. </p>
-<pre><code class="language-shell">#!/bin/bash
-
-[ &quot;$_FAILHARD&quot; == &quot;false&quot; ] || [ &quot;$_FAILHARD&quot; == &quot;False&quot; ] &amp;&amp; set +e || set -e
-[ &quot;$_DEBUG&quot; == &quot;true&quot; ] || [ &quot;$_DEBUG&quot; == &quot;True&quot; ]  &amp;&amp; set -x || set +x
-
-# REF LINK: http://mywiki.wooledge.org/BashSheet#Parameter_Operations
-
-export PGHOST=&quot;localhost&quot;
-export PGUSER=${POSTGRES_USER}
-export PGPASSWORD=${POSTGRES_PASSWORD}
-
-
-usage () {
-  echo &quot;This script will create new database:
-Usage: $(echo $0 | rev | cut  -f -1 -d '/' | rev) --database=&lt;database&gt; --db-user=&lt;database-user&gt; --db-password=&lt;database-password&gt;
-
-Options:
-  - database: database name to be created.
-  - db-user: the owner of database.
-  - db-password: the password for database user
-&quot;
-}
-
-# Get options from command line
-for i in &quot;$@&quot;
-do
-case $i in
-    --help)
-    usage &amp;&amp; exit
-    shift 
-    ;;
-    -u=*|--db-user=*)
-    DB_USER=&quot;${i#*=}&quot;
-    shift 
-    ;;
-    -P=*|--db-password=*)
-    DB_PASSWORD=&quot;${i#*=}&quot;
-    shift 
-    ;;
-    -d=*|--database=*)
-    DATABASE=&quot;${i#*=}&quot;
-    shift 
-    ;;
-    *)
-    # unknown option
-    ;;
-esac
-done
-
-# Check input parameters
-[ -z $DATABASE ] &amp;&amp; echo &quot;[+] --database option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
-[ -z $DB_USER ] &amp;&amp; echo &quot;[+] --db-use option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
-[ -z $DB_PASSWORD ] &amp;&amp; echo &quot;[+] --db-password option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
-
-# Create database
-psql &lt;&lt;EOF
-CREATE DATABASE $DATABASE;
-CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
-ALTER DATABASE $DATABASE OWNER TO $DB_USER;
-EOF
 </code></pre>
 
 
@@ -1376,7 +1025,7 @@ EOF
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>

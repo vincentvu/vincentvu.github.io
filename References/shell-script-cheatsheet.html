@@ -8,31 +8,36 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/openssl-cheatsheet/">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/shell-script-cheatsheet.html">
       
       
-        <link rel="prev" href="../git-submodule/">
+        <link rel="prev" href="openssl-cheatsheet.html">
       
       
-        <link rel="next" href="../shell-script-cheatsheet/">
+        <link rel="next" href="Azure%20notes/network.html">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
-        <title>OpenSSL Cheatsheet - Vincent Vu's Documents</title>
+        <title>Bash Shell Cheatsheet - Vincent Vu's Documents</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
       
       
 
 
     
     
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
       
     
     
@@ -45,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,7 +60,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -67,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate-a-new-rsa-key-only" class="md-skip">
+        <a href="#file-redirection" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +95,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,12 +115,48 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenSSL Cheatsheet
+              Bash Shell Cheatsheet
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
     
@@ -175,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -192,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -236,7 +284,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../blog/index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -308,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023/" class="md-nav__link">
+      <a href="../blog/archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -382,7 +430,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -414,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-bash-command-lines/" class="md-nav__link">
+      <a href="common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common-mini-conda-commands/" class="md-nav__link">
+      <a href="common-mini-conda-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,11 +502,31 @@
   
   
     <li class="md-nav__item">
-      <a href="../git-submodule/" class="md-nav__link">
+      <a href="git-submodule.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Git submodules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="openssl-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSL Cheatsheet
   </span>
   
 
@@ -485,18 +553,18 @@
           
   
   <span class="md-ellipsis">
-    OpenSSL Cheatsheet
+    Bash Shell Cheatsheet
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="shell-script-cheatsheet.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    OpenSSL Cheatsheet
+    Bash Shell Cheatsheet
   </span>
   
 
@@ -516,71 +584,106 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-a-new-rsa-key-only" class="md-nav__link">
-    Generate a new RSA key only
+  <a href="#file-redirection" class="md-nav__link">
+    File Redirection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-public-key-from-private-key" class="md-nav__link">
-    Create public key from private key
+  <a href="#read-text-file-line-by-line" class="md-nav__link">
+    Read text file line by line
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-ssh-key-from-private-key" class="md-nav__link">
-    Generate SSH key from private key
+  <a href="#while-loop" class="md-nav__link">
+    While loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#check-openssl-files" class="md-nav__link">
-    Check OpenSSL files
+  <a href="#for-loop" class="md-nav__link">
+    For loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-a-self-signed-certificate" class="md-nav__link">
-    Generating a Self-Signed Certificate
+  <a href="#until-loop" class="md-nav__link">
+    Until loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-a-certificate-signing-request-and-new-key" class="md-nav__link">
-    Generate a Certificate Signing Request and new Key
+  <a href="#select-loop" class="md-nav__link">
+    Select loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#encryptdecrypt-a-file-in-base64-format" class="md-nav__link">
-    Encrypt/Decrypt a file in base64 format
+  <a href="#file-tests" class="md-nav__link">
+    File tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#package-cert-in-a-pkcs12-file" class="md-nav__link">
-    Package cert in a PKCS12 file
+  <a href="#string-tests" class="md-nav__link">
+    String tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate-request" class="md-nav__link">
-    Create certificate request
+  <a href="#logical-test" class="md-nav__link">
+    Logical test
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate" class="md-nav__link">
-    Create certificate
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-substitution" class="md-nav__link">
+    Variable substitution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preset-varibales" class="md-nav__link">
+    Preset Varibales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-an-indirect-reference-to-a-function" class="md-nav__link">
+    Passing an indirect reference to a function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-input-from-command-line" class="md-nav__link">
+    Read input from command line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-script-with-parameter-expansion" class="md-nav__link">
+    Shell script with parameter expansion
   </a>
   
 </li>
@@ -589,26 +692,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../shell-script-cheatsheet/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Bash Shell Cheatsheet
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -660,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Azure%20notes/network/" class="md-nav__link">
+      <a href="Azure%20notes/network.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Comparator/" class="md-nav__link">
+      <a href="Java/Basic%20-%20Comparator.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20HashMap/" class="md-nav__link">
+      <a href="Java/Basic%20-%20HashMap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20List/" class="md-nav__link">
+      <a href="Java/Basic%20-%20List.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -800,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Quick%20Select/" class="md-nav__link">
+      <a href="Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20Set/" class="md-nav__link">
+      <a href="Java/Basic%20-%20Set.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20String/" class="md-nav__link">
+      <a href="Java/Basic%20-%20String.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -860,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java/Basic%20-%20java%20keystore%20cheatsheet/" class="md-nav__link">
+      <a href="Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -914,71 +997,106 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-a-new-rsa-key-only" class="md-nav__link">
-    Generate a new RSA key only
+  <a href="#file-redirection" class="md-nav__link">
+    File Redirection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-public-key-from-private-key" class="md-nav__link">
-    Create public key from private key
+  <a href="#read-text-file-line-by-line" class="md-nav__link">
+    Read text file line by line
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-ssh-key-from-private-key" class="md-nav__link">
-    Generate SSH key from private key
+  <a href="#while-loop" class="md-nav__link">
+    While loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#check-openssl-files" class="md-nav__link">
-    Check OpenSSL files
+  <a href="#for-loop" class="md-nav__link">
+    For loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-a-self-signed-certificate" class="md-nav__link">
-    Generating a Self-Signed Certificate
+  <a href="#until-loop" class="md-nav__link">
+    Until loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-a-certificate-signing-request-and-new-key" class="md-nav__link">
-    Generate a Certificate Signing Request and new Key
+  <a href="#select-loop" class="md-nav__link">
+    Select loop
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#encryptdecrypt-a-file-in-base64-format" class="md-nav__link">
-    Encrypt/Decrypt a file in base64 format
+  <a href="#file-tests" class="md-nav__link">
+    File tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#package-cert-in-a-pkcs12-file" class="md-nav__link">
-    Package cert in a PKCS12 file
+  <a href="#string-tests" class="md-nav__link">
+    String tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate-request" class="md-nav__link">
-    Create certificate request
+  <a href="#logical-test" class="md-nav__link">
+    Logical test
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate" class="md-nav__link">
-    Create certificate
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-substitution" class="md-nav__link">
+    Variable substitution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preset-varibales" class="md-nav__link">
+    Preset Varibales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-an-indirect-reference-to-a-function" class="md-nav__link">
+    Passing an indirect reference to a function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-input-from-command-line" class="md-nav__link">
+    Read input from command line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-script-with-parameter-expansion" class="md-nav__link">
+    Shell script with parameter expansion
   </a>
   
 </li>
@@ -998,44 +1116,275 @@
                   
 
 
-  <h1>OpenSSL Cheatsheet</h1>
+  <h1>Bash Shell Cheatsheet</h1>
 
 <blockquote>
 <p><strong><em>NOTE:</em></strong>  The content in this page is my personal note which I got from multiple sources and based on my personal experience.</p>
 </blockquote>
-<h3 id="generate-a-new-rsa-key-only">Generate a new RSA key only</h3>
-<pre><code class="language-shell">openssl genrsa -aes256 -out example.key 2048  
+<h3 id="file-redirection">File Redirection</h3>
+<pre><code>&gt; file      Create file
+&gt;&gt; file     Append to file
+&lt; file      Read from file
+a | b       Pipe a as input to b
 </code></pre>
-<h3 id="create-public-key-from-private-key">Create public key from private key</h3>
-<pre><code class="language-shell">openssl rsa -in example.key -pubout -out example.pub
+<h3 id="read-text-file-line-by-line">Read text file line by line</h3>
+<pre><code class="language-shell">while read f; do
+    echo &quot;line is $f&quot;
+done &lt; file
 </code></pre>
-<h3 id="generate-ssh-key-from-private-key">Generate SSH key from private key</h3>
-<pre><code class="language-shell">ssh-keygen  -y -f example.key
+<h3 id="while-loop">While loop</h3>
+<pre><code class="language-shell">a=0
+while [ &quot;$a&quot; -lt 10 ]    # this is loop1
+do
+   b=&quot;$a&quot;
+   while [ &quot;$b&quot; -ge 0 ]  # this is loop2
+   do
+      echo -n &quot;$b &quot;
+      b=`expr $b - 1`
+   done
+   echo
+   a=`expr $a + 1`
+done
 </code></pre>
-<h3 id="check-openssl-files">Check OpenSSL files</h3>
-<pre><code class="language-shell">openssl rsa -in example.key -noout -text
-openssl x509 -in filename.crt -text -noout
-openssl req -in filename.csr -text -noout
-openssl rsa -in filename.key -text -noout
+<h3 id="for-loop">For loop</h3>
+<pre><code class="language-shell">for var in 0 1 2 3 4 5 6 7 8 9
+do
+   echo $var
+done
 </code></pre>
-<h3 id="generating-a-self-signed-certificate">Generating a Self-Signed Certificate</h3>
-<pre><code class="language-shell">openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+<pre><code class="language-shell">for FILE in $HOME/.bash*
+do
+   echo $FILE
+done
 </code></pre>
-<h3 id="generate-a-certificate-signing-request-and-new-key">Generate a Certificate Signing Request and new Key</h3>
-<pre><code class="language-shell">openssl req -new -newkey rsa:2048 -keyout new.key -out new.csr -nodes
+<h3 id="until-loop">Until loop</h3>
+<pre><code class="language-shell">a=0
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
 </code></pre>
-<h3 id="encryptdecrypt-a-file-in-base64-format">Encrypt/Decrypt a file in base64 format</h3>
-<pre><code class="language-shell">openssl aes-256-cbc -a -in plaintext.file -out encryted.file
-openssl aes-256-cbc -a -in encryted.file
+<h3 id="select-loop">Select loop</h3>
+<p>The select loop provides an easy way to create a numbered menu from which users can select options. It is useful when you need to ask the user to choose one or more items from a list of choices.</p>
+<pre><code class="language-shell">select var in word1 word2 ... wordN
+do
+   Statement(s) to be executed for every word.
+done
 </code></pre>
-<h3 id="package-cert-in-a-pkcs12-file">Package cert in a PKCS12 file</h3>
-<pre><code class="language-shell">openssl pkcs12 -export -in example.crt -inkey example.key -out example.p12
+<p>Here var is the name of a variable and word1 to wordN are sequences of characters separated by spaces (words). Each time the for loop executes, the value of the variable var is set to the next word in the list of words, word1 to wordN.</p>
+<p>For every selection a set of commands would be executed with-in the loop. This loop was introduced in ksh and has been adapted into bash. It is not available in sh.</p>
+<p>Here is a simple example to let the user select a drink of choice </p>
+<pre><code class="language-shell">#!/bin/ksh
+
+select DRINK in tea cofee water juice appe all none
+do
+   case $DRINK in
+      tea|cofee|water|all) 
+         echo &quot;Go to canteen&quot;
+         ;;
+      juice|appe)
+         echo &quot;Available at home&quot;
+      ;;
+      none) 
+         break 
+      ;;
+      *) echo &quot;ERROR: Invalid selection&quot; 
+      ;;
+   esac
+done
 </code></pre>
-<h3 id="create-certificate-request">Create certificate request</h3>
-<pre><code class="language-shell">openssl req -new -key graylog.key -subj '/C=CA/ST=ON/L=Toronto/O=IT Insfrastructure/OU=DevOps/CN=example.com/emailAddress=admin@exampl.com' -out graylog.csr  -config openssl.cnf
+<p>The menu presented by the select loop looks like the following </p>
+<pre><code class="language-shell">$./test.sh
+1) tea
+2) cofee
+3) water
+4) juice
+5) appe
+6) all
+7) none
+#? juice
+Available at home
+#? none
+$
 </code></pre>
-<h3 id="create-certificate">Create certificate</h3>
-<pre><code class="language-shell">openssl x509 -req -days 365 -extensions v3_req -in graylog.csr -signkey graylog.key -out graylog.crt -extfile openssl.cnf
+<p>You can change the prompt displayed by the select loop by altering the variable PS3 as follows −</p>
+<pre><code>$PS3=&quot;Please make a selection =&gt; &quot; ; export PS3
+$./test.sh
+1) tea
+2) cofee
+3) water
+4) juice
+5) appe
+6) all
+7) none
+Please make a selection =&gt; juice
+Available at home
+Please make a selection =&gt; none
+$
+</code></pre>
+<p>Get output of ls into variable</p>
+<pre><code>myvar=`ls`
+
+Function declaration
+
+doubleit(){
+expr $1 \* 2
+}
+</code></pre>
+<pre><code>doubleit 3  # return 6
+</code></pre>
+<p>Run cmd1; if fails, run cmd2</p>
+<pre><code>cmd1 || cmd2
+</code></pre>
+<p>Run cmd1; if it works, run cmd2</p>
+<pre><code>cmd1 &amp;&amp; cmd2
+</code></pre>
+<p>Test operators</p>
+<pre><code>if [ &quot;$x&quot; -lt &quot;$y&quot; ]; then
+# do something
+fi
+</code></pre>
+<p>Numeric tests</p>
+<pre><code>lt  less than
+gt
+eq
+ne
+ge
+le
+</code></pre>
+<h3 id="file-tests">File tests</h3>
+<pre><code>nt  newer than
+d   is a directory
+f   is a file
+x   executable
+r   redable
+w   writable
+</code></pre>
+<h3 id="string-tests">String tests</h3>
+<pre><code>=   equal to
+z   zero length
+n   not zero length
+</code></pre>
+<h3 id="logical-test">Logical test</h3>
+<pre><code>&amp;&amp;
+||
+!
+</code></pre>
+<h3 id="arguments">Arguments</h3>
+<pre><code>$0
+$1
+...
+$#  no of arguments
+$*  all arguments
+</code></pre>
+<h3 id="variable-substitution">Variable substitution</h3>
+<pre><code>${V:-default}   $V, or &quot;default if unset
+${V:=default}   $V (set to &quot;default&quot; if unset)
+${V:?err}   $, or &quot;err&quot; if unset
+</code></pre>
+<h3 id="preset-varibales">Preset Varibales</h3>
+<pre><code>$SHELL      What shell is running
+$RANDOM     Provides random number
+$SECONDS    Number of seconds from the time the shell is started
+$$      PID of current process
+$?      Return code from last command
+$!      PID of last background cmd
+$USER       The username of the user running the script.
+$HOSTNAME   The hostname of the machine the script is running on.
+$LINENO     Returns the current line number in the Bash script.
+</code></pre>
+<h3 id="passing-an-indirect-reference-to-a-function">Passing an indirect reference to a function</h3>
+<pre><code>#!/bin/bash
+# ind-func.sh: Passing an indirect reference to a function.
+
+echo_var ()
+{
+ echo &quot;$1&quot;
+}
+
+message=Hello
+Hello=Goodbye
+
+echo_var &quot;$message&quot;        # Hello
+# Now, let's pass an indirect reference to the function.
+echo_var &quot;${!message}&quot;     # Goodbye
+
+echo &quot;-------------&quot;
+
+# What happens if we change the contents of &quot;hello&quot; variable?
+Hello=&quot;Hello, again!&quot;
+echo_var &quot;$message&quot;        # Hello
+echo_var &quot;${!message}&quot;     # Hello, again!
+
+exit 0
+</code></pre>
+<h3 id="read-input-from-command-line">Read input from command line</h3>
+<pre><code class="language-shell">read -s -p &quot;Enter your password for encryption: &quot; pass
+echo -n ${pass} | my_encoding_script
+</code></pre>
+<h3 id="shell-script-with-parameter-expansion">Shell script with parameter expansion</h3>
+<p>Here is a bash script with parameter expansion which used for managing PostgreSQL database. You can use this script as a template to create a script to manage your systems like database, cloud, etc. </p>
+<pre><code class="language-shell">#!/bin/bash
+
+[ &quot;$_FAILHARD&quot; == &quot;false&quot; ] || [ &quot;$_FAILHARD&quot; == &quot;False&quot; ] &amp;&amp; set +e || set -e
+[ &quot;$_DEBUG&quot; == &quot;true&quot; ] || [ &quot;$_DEBUG&quot; == &quot;True&quot; ]  &amp;&amp; set -x || set +x
+
+# REF LINK: http://mywiki.wooledge.org/BashSheet#Parameter_Operations
+
+export PGHOST=&quot;localhost&quot;
+export PGUSER=${POSTGRES_USER}
+export PGPASSWORD=${POSTGRES_PASSWORD}
+
+
+usage () {
+  echo &quot;This script will create new database:
+Usage: $(echo $0 | rev | cut  -f -1 -d '/' | rev) --database=&lt;database&gt; --db-user=&lt;database-user&gt; --db-password=&lt;database-password&gt;
+
+Options:
+  - database: database name to be created.
+  - db-user: the owner of database.
+  - db-password: the password for database user
+&quot;
+}
+
+# Get options from command line
+for i in &quot;$@&quot;
+do
+case $i in
+    --help)
+    usage &amp;&amp; exit
+    shift 
+    ;;
+    -u=*|--db-user=*)
+    DB_USER=&quot;${i#*=}&quot;
+    shift 
+    ;;
+    -P=*|--db-password=*)
+    DB_PASSWORD=&quot;${i#*=}&quot;
+    shift 
+    ;;
+    -d=*|--database=*)
+    DATABASE=&quot;${i#*=}&quot;
+    shift 
+    ;;
+    *)
+    # unknown option
+    ;;
+esac
+done
+
+# Check input parameters
+[ -z $DATABASE ] &amp;&amp; echo &quot;[+] --database option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
+[ -z $DB_USER ] &amp;&amp; echo &quot;[+] --db-use option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
+[ -z $DB_PASSWORD ] &amp;&amp; echo &quot;[+] --db-password option is needed.&quot; &amp;&amp; usage &amp;&amp; exit 1
+
+# Create database
+psql &lt;&lt;EOF
+CREATE DATABASE $DATABASE;
+CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
+ALTER DATABASE $DATABASE OWNER TO $DB_USER;
+EOF
 </code></pre>
 
 
@@ -1075,10 +1424,10 @@ openssl aes-256-cbc -a -in encryted.file
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>

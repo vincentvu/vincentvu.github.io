@@ -8,31 +8,36 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Java/Basic%20-%20Quick%20Select/">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Java/Basic%20-%20HashMap.html">
       
       
-        <link rel="prev" href="../Basic%20-%20List/">
+        <link rel="prev" href="Basic%20-%20Comparator.html">
       
       
-        <link rel="next" href="../Basic%20-%20Set/">
+        <link rel="next" href="Basic%20-%20List.html">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
-        <title>Kth Largest Element in an Array - Vincent Vu's Documents</title>
+        <title>Basic HashMap - Vincent Vu's Documents</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
 
     
     
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
       
     
     
@@ -45,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,7 +60,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -65,11 +77,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#kth-largest-element-in-an-array" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -83,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,12 +110,48 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kth Largest Element in an Array
+              Basic   HashMap
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
     
@@ -175,7 +218,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -192,7 +235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -236,7 +279,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../blog/" class="md-nav__link ">
+            <a href="../../blog/index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -308,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/archive/2023/" class="md-nav__link">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -382,7 +425,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -414,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common-bash-command-lines/" class="md-nav__link">
+      <a href="../common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common-mini-conda-commands/" class="md-nav__link">
+      <a href="../common-mini-conda-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git-submodule/" class="md-nav__link">
+      <a href="../git-submodule.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -474,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../openssl-cheatsheet/" class="md-nav__link">
+      <a href="../openssl-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shell-script-cheatsheet/" class="md-nav__link">
+      <a href="../shell-script-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -554,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Azure%20notes/network/" class="md-nav__link">
+      <a href="../Azure%20notes/network.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -636,51 +679,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20Comparator/" class="md-nav__link">
+      <a href="Basic%20-%20Comparator.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Basic   Comparator
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Basic%20-%20HashMap/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Basic   HashMap
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Basic%20-%20List/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Basic   List
   </span>
   
 
@@ -702,14 +705,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="Basic%20-%20HashMap.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Kth Largest Element in an Array
+    Basic   HashMap
   </span>
   
 
@@ -726,7 +727,47 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20Set/" class="md-nav__link">
+      <a href="Basic%20-%20List.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Basic%20-%20Quick%20Select.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kth Largest Element in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Basic%20-%20Set.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20String/" class="md-nav__link">
+      <a href="Basic%20-%20String.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -766,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20java%20keystore%20cheatsheet/" class="md-nav__link">
+      <a href="Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,8 +853,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -828,116 +867,38 @@
                   
 
 
-<h1 id="kth-largest-element-in-an-array">Kth Largest Element in an Array</h1>
-<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>kth</code> <em>largest element in the array</em>.</p>
-<p>Note that it is the <code>kth</code> largest element in the sorted order, not the <code>kth</code> distinct element.</p>
-<p>You must solve it in <code>O(n)</code> time complexity.</p>
-<pre><code>Input: nums = [3,2,1,5,6,4], k = 2
-Output: 5
+  <h1>Basic   HashMap</h1>
 
-Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
-Output: 4
-</code></pre>
-<h1 id="solution-1-heap-onlogk-ok">Solution 1: Heap - O(nLogk) - O(k)</h1>
-<pre><code class="language-java">class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        // init heap 'the smallest element first'
-        PriorityQueue&lt;Integer&gt; heap =
-            new PriorityQueue&lt;Integer&gt;((n1, n2) -&gt; n1 - n2);
+<p>We need to implement equals  and hashCode when we create new class as a hash key</p>
+<pre><code class="language-java">    public static class SampleClass {
+        public int i;
+        public int j;
 
-        // keep k largest elements in the heap
-        for (int n: nums) {
-          heap.add(n);
-          if (heap.size() &gt; k)
-            heap.poll();
+        public SampleClass(int i, int j) {
+            this.i = i;
+            this.j = j;
         }
 
-        // output
-        return heap.poll();        
-  }
-}
-</code></pre>
-<h1 id="solution-2-quickselect-on-o1">Solution 2 - Quickselect - O(n) O(1)</h1>
-<p>This <a href="https://en.wikipedia.org/wiki/Quickselect">textbook algorthm</a> has \mathcal{O}(N)O(N) average time complexity. Like quicksort, it was developed by Tony Hoare, and is also known as <em>Hoare's selection algorithm</em>.</p>
-<p>The approach is basically the same as for quicksort. For simplicity let's notice that <code>k</code>th largest element is the same as <code>N - k</code>th smallest element, hence one could implement <code>k</code>th smallest algorithm for this problem.</p>
-<p>First one chooses a pivot, and defines its position in a sorted array in a linear time. This could be done with the help of <em>partition algorithm</em>.</p>
-<blockquote>
-<p>To implement partition one moves along an array, compares each element with a pivot, and moves all elements smaller than pivot to the left of the pivot.</p>
-</blockquote>
-<p>As an output we have an array where pivot is on its perfect position in the ascending sorted array, all elements on the left of the pivot are smaller than pivot, and all elements on the right of the pivot are larger or equal to pivot.</p>
-<p>Hence the array is now split into two parts. If that would be a quicksort algorithm, one would proceed recursively to use quicksort for the both parts that would result in O(N log N) time complexity. Here there is no need to deal with both parts since now one knows in which part to search for <code>N - k</code>th smallest element, and that reduces average time complexity to O(N).</p>
-<p>Finally the overall algorithm is quite straightforward :</p>
-<ul>
-<li>Choose a random pivot.</li>
-<li>Use a partition algorithm to place the pivot into its perfect position <code>pos</code> in the sorted array, move smaller elements to the left of pivot, and larger or equal ones - to the right.</li>
-<li>Compare <code>pos</code> and <code>N - k</code> to choose the side of array to proceed recursively.</li>
-</ul>
-<blockquote>
-<p>! Please notice that this algorithm works well even for arrays with duplicates.</p>
-</blockquote>
-<p>![[Pasted image 20220807211806.png]]</p>
-<pre><code>import java.util.Random;
-class Solution {
-  int [] nums;
+        @Override
+        public boolean equals(Object o) {
+            if(this == o) {
+                return true;
+            }
 
-  public void swap(int a, int b) {
-    int tmp = this.nums[a];
-    this.nums[a] = this.nums[b];
-    this.nums[b] = tmp;
-  }
+            if(o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
+            SampleClass smpl = (SampleClass)o;
 
-  public int partition(int left, int right, int pivot_index) {
-    int pivot = this.nums[pivot_index];
-    // 1. move pivot to end
-    swap(pivot_index, right);
-    int store_index = left;
+            return i == smpl.i &amp;&amp; j == smpl.j;
+        }
 
-    // 2. move all smaller elements to the left
-    for (int i = left; i &lt;= right; i++) {
-      if (this.nums[i] &lt; pivot) {
-        swap(store_index, i);
-        store_index++;
-      }
+        @Override
+        public int hashCode() {
+            return i * 10 + j;
+        }
     }
-
-    // 3. move pivot to its final place
-    swap(store_index, right);
-
-    return store_index;
-  }
-
-  public int quickselect(int left, int right, int k_smallest) {
-    /*
-    Returns the k-th smallest element of list within left..right.
-    */
-
-    if (left == right) // If the list contains only one element,
-      return this.nums[left];  // return that element
-
-    // select a random pivot_index
-    Random random_num = new Random();
-    int pivot_index = left + random_num.nextInt(right - left); 
-
-    pivot_index = partition(left, right, pivot_index);
-
-    // the pivot is on (N - k)th smallest position
-    if (k_smallest == pivot_index)
-      return this.nums[k_smallest];
-    // go left side
-    else if (k_smallest &lt; pivot_index)
-      return quickselect(left, pivot_index - 1, k_smallest);
-    // go right side
-    return quickselect(pivot_index + 1, right, k_smallest);
-  }
-
-  public int findKthLargest(int[] nums, int k) {
-    this.nums = nums;
-    int size = nums.length;
-    // kth largest is (N - k)th smallest
-    return quickselect(0, size - 1, size - k);
-  }
-}
 </code></pre>
 
 
@@ -977,10 +938,10 @@ class Solution {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>

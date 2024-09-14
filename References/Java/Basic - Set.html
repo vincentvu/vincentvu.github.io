@@ -8,31 +8,36 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Java/Basic%20-%20Comparator/">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Java/Basic%20-%20Set.html">
       
       
-        <link rel="prev" href="../../Azure%20notes/network/">
+        <link rel="prev" href="Basic%20-%20Quick%20Select.html">
       
       
-        <link rel="next" href="../Basic%20-%20HashMap/">
+        <link rel="next" href="Basic%20-%20String.html">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
-        <title>Basic Comparator - Vincent Vu's Documents</title>
+        <title>Basic Set - Vincent Vu's Documents</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
 
     
     
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
       
     
     
@@ -45,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,7 +60,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -65,6 +77,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#convert-a-list-to-a-set" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -78,7 +95,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -98,12 +115,48 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic   Comparator
+              Basic   Set
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
     
@@ -170,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -187,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -231,7 +284,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../blog/" class="md-nav__link ">
+            <a href="../../blog/index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -303,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/archive/2023/" class="md-nav__link">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -377,7 +430,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -409,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common-bash-command-lines/" class="md-nav__link">
+      <a href="../common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -429,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common-mini-conda-commands/" class="md-nav__link">
+      <a href="../common-mini-conda-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git-submodule/" class="md-nav__link">
+      <a href="../git-submodule.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../openssl-cheatsheet/" class="md-nav__link">
+      <a href="../openssl-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -489,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shell-script-cheatsheet/" class="md-nav__link">
+      <a href="../shell-script-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Azure%20notes/network/" class="md-nav__link">
+      <a href="../Azure%20notes/network.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,16 +682,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="Basic%20-%20Comparator.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +693,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -659,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20HashMap/" class="md-nav__link">
+      <a href="Basic%20-%20HashMap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20List/" class="md-nav__link">
+      <a href="Basic%20-%20List.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -699,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20Quick%20Select/" class="md-nav__link">
+      <a href="Basic%20-%20Quick%20Select.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -717,9 +762,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Basic%20-%20Set/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basic   Set
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Basic%20-%20Set.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -728,6 +791,45 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convert-a-list-to-a-set" class="md-nav__link">
+    Convert a list to a set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-a-set-to-a-list" class="md-nav__link">
+    Convert a set to a list
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterate-set" class="md-nav__link">
+    Iterate set
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -739,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20String/" class="md-nav__link">
+      <a href="Basic%20-%20String.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic%20-%20java%20keystore%20cheatsheet/" class="md-nav__link">
+      <a href="Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,6 +908,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convert-a-list-to-a-set" class="md-nav__link">
+    Convert a list to a set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-a-set-to-a-list" class="md-nav__link">
+    Convert a set to a list
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterate-set" class="md-nav__link">
+    Iterate set
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -819,52 +950,31 @@
                   
 
 
-  <h1>Basic   Comparator</h1>
+  <h1>Basic   Set</h1>
 
-<p>The Comparable interface is a good choice to use for defining the default ordering, or in other words, if it's the main way of comparing objects. So why use a Comparator if we already have Comparable?</p>
-<p>There are several reasons why: 
-- Sometimes we can't modify the source code of the class whose objects we want to sort, thus making the use of Comparable impossible
-- Using Comparators allows us to avoid adding additional code to our domain classes
-- We can define multiple different comparison strategies, which isn't possible when using Comparable</p>
-<pre><code>public class Player implements Comparable&lt;Player&gt; {
-    @Override
-    public int compareTo(Player otherPlayer) {
-        return Integer.compare(getRanking(), otherPlayer.getRanking());
-    }
+<h3 id="convert-a-list-to-a-set">Convert a list to a set</h3>
+<pre><code>public void givenUsingCoreJava_whenListConvertedToSet_thenCorrect() {
+    List&lt;Integer&gt; sourceList = Arrays.asList(0, 1, 2, 3, 4, 5);
+    Set&lt;Integer&gt; targetSet = new HashSet&lt;&gt;(sourceList);
 }
 </code></pre>
-<table>
-<thead>
-<tr>
-<th>If the comparison returns</th>
-<th>Then ...</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&gt;= 1</td>
-<td>this.rank &gt; other.rank</td>
-</tr>
-<tr>
-<td>0</td>
-<td>this.rank == other.rank</td>
-</tr>
-<tr>
-<td>&lt;= -1</td>
-<td>this.rank &lt; other.rank</td>
-</tr>
-</tbody>
-</table>
-<pre><code>public class PlayerRankingComparator implements Comparator&lt;Player&gt; {
-
-    @Override
-    public int compare(Player firstPlayer, Player secondPlayer) {
-       return Integer.compare(firstPlayer.getRanking(), secondPlayer.getRanking());
-    }
+<h3 id="convert-a-set-to-a-list">Convert a set to a list</h3>
+<pre><code>public void givenUsingCoreJava_whenSetConvertedToList_thenCorrect() {
+   Set&lt;Integer&gt; sourceSet = Sets.newHashSet(0, 1, 2, 3, 4, 5);
+   List&lt;Integer&gt; targetList = new ArrayList&lt;&gt;(sourceSet);
 }
 </code></pre>
-<p>Lambda</p>
-<pre><code>Comparator&lt;Player&gt; comparator = (p1, p2) -&gt; p1.getRanking() - p2.getRanking();
+<h3 id="iterate-set">Iterate set</h3>
+<pre><code>Set&lt;String&gt; hset = new HashSet&lt;String&gt;();
+
+ //add elements to HashSet
+hset.add(&quot;Chaitanya&quot;);
+hset.add(&quot;Rahul&quot;);
+
+
+for (String temp : hset) {
+    System.out.println(temp);
+}
 </code></pre>
 
 
@@ -904,10 +1014,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>
