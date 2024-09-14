@@ -36,32 +36,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/common-bash-command-lines.html</loc>
+         <loc>https://vincentvu.ca/blog/references/Azure/network.html</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/common-mini-conda-commands.html</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/git-submodule.html</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/openssl-cheatsheet.html</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/shell-script-cheatsheet.html</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/Azure%20notes/network.html</loc>
+         <loc>https://vincentvu.ca/blog/references/Git/git-submodule.html</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -97,6 +77,26 @@
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20java%20keystore%20cheatsheet.html</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Python/common-mini-conda-commands.html</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Shell%20scripts/common-bash-command-lines.html</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Shell%20scripts/openssl-cheatsheet.html</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Shell%20scripts/shell-script-cheatsheet.html</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
