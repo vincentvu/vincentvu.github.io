@@ -1,0 +1,2008 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vincentvu.ca/blog/blog/2023/08/09/some-common-leetcode-problems-for-tech-interviews.html">
+      
+      
+        <link rel="prev" href="../08/about.html">
+      
+      
+        <link rel="next" href="../10/how-i-created-this-blog.html">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Some Common Leetcode Problems For Tech Interviews - Vincent Vu's Documents</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vincent Vu's Documents
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Some Common Leetcode Problems For Tech Interviews
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Vincent Vu's Documents
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/2023.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../references/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/common-bash-command-lines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Custom Command Lines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/common-mini-conda-commands.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common miniconda commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/git-submodule.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git submodules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/openssl-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSL Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/shell-script-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bash Shell Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Azure notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Azure%20notes/network.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20Comparator.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20HashMap.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   HashMap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20List.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kth Largest Element in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20Set.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20String.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   java keystore cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../index.html" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2023-08-09 00:00:00" class="md-ellipsis">August 9, 2023</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              6 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+  <h1>Some Common Leetcode Problems For Tech Interviews</h1>
+
+<p>To be honest, I really hate to practice Leetcode problems. But I know that it is kind of the standard of in the tech interview, it's better to practice so that we can use the same language with interviewer. </p>
+<p>Below are some common leedcode problems which cover almost all important topics for any software interview. I got the list mainly from https://seanprashad.com/leetcode-patterns/</p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>Challenge name</th>
+<th>Topics</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://leetcode.com/problems/contains-duplicate/">Contains Duplicate</a></td>
+<td>Array</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://leetcode.com/problems/missing-number/">Missing Number</a></td>
+<td>Arrays, Bit Manipulation</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">Find All Numbers Disappeared in an Array</a></td>
+<td>Arrays</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://leetcode.com/problems/single-number/">Single Number</a></td>
+<td>Arrays, Bit Manipulation</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://leetcode.com/problems/climbing-stairs/">Climbing Stairs</a></td>
+<td>Dynamic Programming</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">Best Time to Buy and Sell Stock</a></td>
+<td>Greedy</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://leetcode.com/problems/maximum-subarray/">Maximum Subarray</a></td>
+<td>Dynamic Programming</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://leetcode.com/problems/range-sum-query-immutable/">Range Sum Query - Immutable</a></td>
+<td>Dynamic Programming</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://leetcode.com/problems/counting-bits/">Counting Bits</a></td>
+<td>Dynamic Programming, Bit Manipulation</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://leetcode.com/problems/palindrome-linked-list/">Palindrome Linked List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://leetcode.com/problems/remove-linked-list-elements/">Remove Linked List Elements</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">Remove Duplicates from Sorted List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://leetcode.com/problems/reverse-linked-list/">Reverse Linked List</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://leetcode.com/problems/merge-two-sorted-lists/">Merge Two Sorted Lists</a></td>
+<td>Two Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>17</td>
+<td> <a href="https://leetcode.com/problems/meeting-rooms">Meeting Rooms</a></td>
+<td>Intervals</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://leetcode.com/problems/binary-search/">Binary Search</a></td>
+<td>Binary Search</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://leetcode.com/problems/find-smallest-letter-greater-than-target/">Find Smallest Letter Greater Than Target</a></td>
+<td>Binary Search</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/">Peak Index in a Mountain Array</a></td>
+<td>Binary Search</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="https://leetcode.com/problems/average-of-levels-in-binary-tree/">Average of Levels in Binary Tree</a></td>
+<td>BFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/">Minimum Depth of Binary Tree</a></td>
+<td>BFSDFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="https://leetcode.com/problems/same-tree/">Same Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="https://leetcode.com/problems/path-sum/">Path Sum</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">Maximum Depth of Binary Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="https://leetcode.com/problems/diameter-of-binary-tree/">Diameter of Binary Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>27</td>
+<td><a href="https://leetcode.com/problems/merge-two-binary-trees/">Merge Two Binary Trees</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>28</td>
+<td><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">Lowest Common Ancestor of a Binary Search Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>29</td>
+<td><a href="https://leetcode.com/problems/subtree-of-another-tree/">Subtree of Another Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>30</td>
+<td><a href="https://leetcode.com/problems/invert-binary-tree/">Invert Binary Tree</a></td>
+<td>DFS</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="https://leetcode.com/problems/two-sum/">Two Sum</a></td>
+<td>Two Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="https://leetcode.com/problems/squares-of-a-sorted-array/">Squares of a Sorted Array</a></td>
+<td>Two Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>33</td>
+<td><a href="https://leetcode.com/problems/backspace-string-compare/">Backspace String Compare</a></td>
+<td>Two Pointers</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>34</td>
+<td> <a href="https://leetcode.com/problems/index-pairs-of-a-string/">Index Pairs of a String</a></td>
+<td>Trie</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>35</td>
+<td><a href="https://leetcode.com/problems/majority-element/">Majority Element</a></td>
+<td>Sorting</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>36</td>
+<td><a href="https://leetcode.com/problems/convert-1d-array-into-2d-array/">Convert 1D Array Into 2D Array</a></td>
+<td>Arrays</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="https://leetcode.com/problems/product-of-array-except-self/">Product of Array Except Self</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>38</td>
+<td><a href="https://leetcode.com/problems/find-the-duplicate-number/">Find the Duplicate Number</a></td>
+<td>ArraysBinary SearchTwo Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>39</td>
+<td><a href="https://leetcode.com/problems/find-all-duplicates-in-an-array/">Find All Duplicates in an Array</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="https://leetcode.com/problems/set-matrix-zeroes/">Set Matrix Zeroes</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>41</td>
+<td><a href="https://leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>42</td>
+<td><a href="https://leetcode.com/problems/rotate-image/">Rotate Image</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>43</td>
+<td><a href="https://leetcode.com/problems/word-search/">Word Search</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>44</td>
+<td><a href="https://leetcode.com/problems/longest-consecutive-sequence/">Longest Consecutive Sequence</a></td>
+<td>Arrays</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>45</td>
+<td><a href="https://leetcode.com/problems/letter-case-permutation/">Letter Case Permutation</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="https://leetcode.com/problems/subsets/">Subsets</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>47</td>
+<td><a href="https://leetcode.com/problems/subsets-ii/">Subsets II</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>48</td>
+<td><a href="https://leetcode.com/problems/permutations/">Permutations</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>49</td>
+<td><a href="https://leetcode.com/problems/permutations-ii/">Permutations II</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>50</td>
+<td><a href="https://leetcode.com/problems/combinations/">Combinations</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>51</td>
+<td><a href="https://leetcode.com/problems/combination-sum/">Combination Sum</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>52</td>
+<td><a href="https://leetcode.com/problems/combination-sum-ii/">Combination Sum II</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>53</td>
+<td><a href="https://leetcode.com/problems/combination-sum-iii/">Combination Sum III</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>54</td>
+<td><a href="https://leetcode.com/problems/generate-parentheses/">Generate Parentheses</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>55</td>
+<td><a href="https://leetcode.com/problems/target-sum/">Target Sum</a></td>
+<td>DFSDynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>56</td>
+<td><a href="https://leetcode.com/problems/palindrome-partitioning/">Palindrome Partitioning</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>57</td>
+<td><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/">Letter Combinations of a Phone Number</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>58</td>
+<td><a href="https://leetcode.com/problems/generalized-abbreviation/">Generalized Abbreviation</a></td>
+<td>Backtracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>59</td>
+<td><a href="https://leetcode.com/problems/house-robber/">House Robber</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>60</td>
+<td><a href="https://leetcode.com/problems/house-robber-ii/">House Robber II</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>61</td>
+<td><a href="https://leetcode.com/problems/coin-change/">Coin Change</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>62</td>
+<td><a href="https://leetcode.com/problems/maximum-product-subarray/">Maximum Product Subarray</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>63</td>
+<td><a href="https://leetcode.com/problems/longest-increasing-subsequence/">Longest Increasing Subsequence</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>64</td>
+<td><a href="https://leetcode.com/problems/longest-palindromic-substring/">Longest Palindromic Substring</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>65</td>
+<td><a href="https://leetcode.com/problems/word-break/">Word Break</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>66</td>
+<td><a href="https://leetcode.com/problems/combination-sum-iv/">Combination Sum IV</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>67</td>
+<td><a href="https://leetcode.com/problems/decode-ways/">Decode Ways</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>68</td>
+<td><a href="https://leetcode.com/problems/unique-paths/">Unique Paths</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>69</td>
+<td><a href="https://leetcode.com/problems/jump-game/">Jump Game</a></td>
+<td>Dynamic ProgrammingGreedy</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>70</td>
+<td><a href="https://leetcode.com/problems/palindromic-substrings/">Palindromic Substrings</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>71</td>
+<td><a href="https://leetcode.com/problems/number-of-longest-increasing-subsequence/">Number of Longest Increasing Subsequence</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>72</td>
+<td><a href="https://leetcode.com/problems/partition-equal-subset-sum/">Partition Equal Subset Sum</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>73</td>
+<td><a href="https://leetcode.com/problems/partition-to-k-equal-sum-subsets/">Partition to K Equal Sum Subsets</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>74</td>
+<td><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">Best Time to Buy and Sell Stock with Cooldown</a></td>
+<td>Dynamic Programming</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>75</td>
+<td><a href="https://leetcode.com/problems/linked-list-cycle-ii/">Linked List Cycle II</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>76</td>
+<td><a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>77</td>
+<td><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">Remove Nth Node From End Of List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>78</td>
+<td><a href="https://leetcode.com/problems/sort-list/">Sort List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>79</td>
+<td><a href="https://leetcode.com/problems/reorder-list/">Reorder List</a></td>
+<td>Fast &amp; Slow Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>80</td>
+<td><a href="https://leetcode.com/problems/clone-graph/">Clone Graph</a></td>
+<td>BFS, DFS, Graph</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>81</td>
+<td><a href="https://leetcode.com/problems/pacific-atlantic-water-flow/">Pacific Atlantic Water Flow</a></td>
+<td>BFS, DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>82</td>
+<td><a href="https://leetcode.com/problems/number-of-islands/">Number of Islands</a></td>
+<td>BFS, DFS, Union Find</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>83</td>
+<td><a href="https://leetcode.com/problems/graph-valid-tree/">Graph Valid Tree</a></td>
+<td>BFS, DFS Graph Union Find</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>84</td>
+<td> <a href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/">Number of Connected Components in an Undirected Graph</a></td>
+<td>BFS, DFS, Graph, Union Find</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>85</td>
+<td><a href="https://leetcode.com/problems/reverse-linked-list-ii/">Reverse Linked List II</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>86</td>
+<td><a href="https://leetcode.com/problems/rotate-list/">Rotate List</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>87</td>
+<td><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">Swap Nodes in Pairs</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>88</td>
+<td><a href="https://leetcode.com/problems/odd-even-linked-list/">Odd Even Linked List</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>89</td>
+<td><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/">Kth Smallest Element in a Sorted Matrix</a></td>
+<td>Binary SearchHeap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>90</td>
+<td><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/">Find K Pairs with Smallest Sums</a></td>
+<td>Heap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>91</td>
+<td><a href="https://leetcode.com/problems/merge-intervals/">Merge Intervals</a></td>
+<td>Intervals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>92</td>
+<td><a href="https://leetcode.com/problems/interval-list-intersections/">Interval List Intersections</a></td>
+<td>Intervals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>93</td>
+<td><a href="https://leetcode.com/problems/non-overlapping-intervals/">Non-overlapping Intervals</a></td>
+<td>Intervals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>94</td>
+<td><a href="https://leetcode.com/problems/meeting-rooms-ii/">Meeting Rooms II</a></td>
+<td>HeapIntervals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>95</td>
+<td><a href="https://leetcode.com/problems/task-scheduler/">Task Scheduler</a></td>
+<td>GreedyHeap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>96</td>
+<td><a href="https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/">Minimum Number of Arrows to Burst Balloons</a></td>
+<td>Greedy</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Insert <a href="https://leetcode.com/problems/insert-interval/">Interval</a></td>
+<td>Intervals</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>98</td>
+<td><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/">Find Minimum in Rotated Sorted Array</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>99</td>
+<td><a href="https://leetcode.com/problems/find-peak-element/">Find Peak Element</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>100</td>
+<td><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">Search in Rotated Sorted Array</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>101</td>
+<td><a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/">Search in Rotated Sorted Array II</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>102</td>
+<td><a href="https://leetcode.com/problems/search-a-2d-matrix/">Search a 2D Matrix</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>103</td>
+<td><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/">Search a 2D Matrix II</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>104</td>
+<td><a href="https://leetcode.com/problems/find-k-closest-elements/">Find K Closest Elements</a></td>
+<td>Binary Search</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>105</td>
+<td><a href="https://leetcode.com/problems/minimum-size-subarray-sum/">Minimum Size Subarray Sum</a></td>
+<td>Sliding Window</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>106</td>
+<td><a href="https://leetcode.com/problems/fruit-into-baskets/">Fruit Into Baskets</a></td>
+<td>Sliding Window</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>107</td>
+<td><a href="https://leetcode.com/problems/permutation-in-string/">Permutation in String</a></td>
+<td>Sliding Window</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>108</td>
+<td><a href="https://leetcode.com/problems/longest-repeating-character-replacement/">Longest Repeating Character Replacement</a></td>
+<td>Sliding Window</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>109</td>
+<td><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters</a></td>
+<td>Sliding Window</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>110</td>
+<td><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">Kth Smallest Element in a BST</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>111</td>
+<td><a href="https://leetcode.com/problems/k-closest-points-to-origin/">K Closest Points to Origin</a></td>
+<td>Heap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>112</td>
+<td><a href="https://leetcode.com/problems/top-k-frequent-elements/">Top K Frequent Elements</a></td>
+<td>Heap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>113</td>
+<td><a href="https://leetcode.com/problems/sort-characters-by-frequency/">Sort Characters By Frequency</a></td>
+<td>Heap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>114</td>
+<td><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Kth Largest Element in an Array</a></td>
+<td>HeapQuickSelect</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>115</td>
+<td><a href="https://leetcode.com/problems/reorganize-string/">Reorganize String</a></td>
+<td>GreedyHeap</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>116</td>
+<td><a href="https://leetcode.com/problems/course-schedule/">Course Schedule</a></td>
+<td>BFS, DFS, GraphTopological Sort</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>117</td>
+<td><a href="https://leetcode.com/problems/course-schedule-ii/">Course Schedule II</a></td>
+<td>BFS, DFS, GraphTopological Sort</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>118</td>
+<td><a href="https://leetcode.com/problems/minimum-height-trees/">Minimum Height Trees</a></td>
+<td>BFS, GraphTopological Sort</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>119</td>
+<td><a href="https://leetcode.com/problems/sequence-reconstruction">Sequence Reconstruction</a></td>
+<td>Graph, Topological Sort</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>120</td>
+<td><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">Binary Tree Level Order Traversal II</a></td>
+<td>BFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>121</td>
+<td><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/">Binary Tree Level Order Traversal</a></td>
+<td>BFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>123</td>
+<td><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/">Binary Tree Zigzag Level Order Traversal</a></td>
+<td>BFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>124</td>
+<td><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/">Populating Next Right Pointers in Each Node</a></td>
+<td>BFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>125</td>
+<td><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/">Populating Next Right Pointers in Each Node II</a></td>
+<td>BFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>126</td>
+<td><a href="https://leetcode.com/problems/binary-tree-right-side-view/">Binary Tree Right Side View</a></td>
+<td>BFS, DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>127</td>
+<td><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/">All Nodes Distance K in Binary Tree</a></td>
+<td>BFS, DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>128</td>
+<td><a href="https://leetcode.com/problems/path-sum-ii/">Path Sum II</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>129</td>
+<td><a href="https://leetcode.com/problems/path-sum-iii/">Path Sum III</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>130</td>
+<td><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">Lowest Common Ancestor of a Binary Tree</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>131</td>
+<td><a href="https://leetcode.com/problems/maximum-binary-tree/">Maximum Binary Tree</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>132</td>
+<td><a href="https://leetcode.com/problems/maximum-width-of-binary-tree/">Maximum Width of Binary Tree</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>133</td>
+<td><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">Construct Binary Tree from Preorder and Inorder Traversal</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>134</td>
+<td><a href="https://leetcode.com/problems/validate-binary-search-tree/">Validate Binary Search Tree</a></td>
+<td>DFS</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>135</td>
+<td><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">Implement Trie (Prefix Tree)</a></td>
+<td>DesignTrie</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>136</td>
+<td><a href="https://leetcode.com/problems/3sum/">3 Sum</a></td>
+<td>Two Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>137</td>
+<td><a href="https://leetcode.com/problems/3sum-closest/">3 Sum Closest</a></td>
+<td>Two Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>138</td>
+<td><a href="https://leetcode.com/problems/subarray-product-less-than-k/">Subarrays with Product Less than K</a></td>
+<td>Two Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>139</td>
+<td><a href="https://leetcode.com/problems/sort-colors/">Sort Colours</a></td>
+<td>Two Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>140</td>
+<td><a href="https://leetcode.com/problems/container-with-most-water/">Container With Most Water</a></td>
+<td>Two Pointers</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>141</td>
+<td><a href="https://leetcode.com/problems/longest-word-in-dictionary/">Longest Word in Dictionary</a></td>
+<td>Trie</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>142</td>
+<td><a href="https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array">Maximum XOR of Two Numbers in an Array</a></td>
+<td>Trie</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>143</td>
+<td><a href="https://leetcode.com/problems/first-missing-positive/">First Missing Positive</a></td>
+<td>Arrays</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>144</td>
+<td><a href="https://leetcode.com/problems/sudoku-solver/">Sudoku Solver</a></td>
+<td>Backtracking</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>145</td>
+<td><a href="https://leetcode.com/problems/n-queens/">N-Queens</a></td>
+<td>Backtracking</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>146</td>
+<td><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/">Reverse Nodes in k-Group</a></td>
+<td>In-place reversal of a linked list</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>147</td>
+<td><a href="https://leetcode.com/problems/merge-k-sorted-lists/">Merge k Sorted Lists</a></td>
+<td>Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>148</td>
+<td><a href="https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/">Smallest Range Covering Elements from K Lists</a></td>
+<td>Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>149</td>
+<td> <a href="https://leetcode.com/problems/employee-free-time/">Employee Free Time</a></td>
+<td>Heap, Greedy</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>150</td>
+<td><a href="https://leetcode.com/problems/count-of-range-sum/">Count of Range Sum</a></td>
+<td>Binary Search</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>151</td>
+<td><a href="https://leetcode.com/problems/sliding-window-maximum/">Sliding Window Maximum</a></td>
+<td>Sliding Window</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>152</td>
+<td><a href="https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/">Minimum Number of K Consecutive Bit Flips</a></td>
+<td>Sliding Window</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>153</td>
+<td><a href="https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string/">Count Unique Characters of All Substrings of a Given String</a></td>
+<td>Sliding Window</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>154</td>
+<td><a href="https://leetcode.com/problems/minimum-window-substring/">Minimum Window Substring</a></td>
+<td>Sliding Window</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>155</td>
+<td><a href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/">Substring with Concatenation of All Words</a></td>
+<td>Sliding Window</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>156</td>
+<td> <a href="https://leetcode.com/problems/rearrange-string-k-distance-apart">Rearrange String k Distance Apart</a></td>
+<td>Greedy, Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>157</td>
+<td><a href="https://leetcode.com/problems/course-schedule-iii/">Course Schedule III</a></td>
+<td>Greedy, Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>158</td>
+<td><a href="https://leetcode.com/problems/maximum-frequency-stack/">Maximum Frequency Stack</a></td>
+<td>Bucket Sor, tHeap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>159</td>
+<td> <a href="https://leetcode.com/problems/alien-dictionary">Alien Dictionary</a></td>
+<td>Graph,Topological Sort</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>160</td>
+<td><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/">Binary Tree Maximum Path Sum</a></td>
+<td>DFS</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>161</td>
+<td><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/">Serialize and Deserialize Binary Tree</a></td>
+<td>Design</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>162</td>
+<td><a href="https://leetcode.com/problems/word-search-ii/">Word Search II</a></td>
+<td>DFS, Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>163</td>
+<td><a href="https://leetcode.com/problems/find-median-from-data-stream/">Find Median from Data Stream</a></td>
+<td>Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>164</td>
+<td><a href="https://leetcode.com/problems/sliding-window-median/">Sliding Window Median</a></td>
+<td>Heap</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>165</td>
+<td><a href="https://leetcode.com/problems/trapping-rain-water/">Trapping Rain Water</a></td>
+<td>Two Pointers</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>166</td>
+<td><a href="https://leetcode.com/problems/concatenated-words/">Concatenated Words</a></td>
+<td>Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>167</td>
+<td><a href="https://leetcode.com/problems/prefix-and-suffix-search/">Prefix and Suffix Search</a></td>
+<td>Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>168</td>
+<td><a href="https://leetcode.com/problems/palindrome-pairs/">Palindrome Pairs</a></td>
+<td>Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>169</td>
+<td> <a href="https://leetcode.com/problems/design-search-autocomplete-system/">Design Search Autocomplete System</a></td>
+<td>Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>170</td>
+<td> <a href="https://leetcode.com/problems/word-squares/">Word Squares</a></td>
+<td>Trie</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>171</td>
+<td><a href="https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/">Sort Items by Groups Respecting Dependencies</a></td>
+<td>DFS, Graph, Topological Sort</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>172</td>
+<td><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">Median of Two Sorted Arrays</a></td>
+<td>Binary Search</td>
+<td>Hard</td>
+</tr>
+</tbody>
+</table>
+<p>Over the time, I also try to understand what is the usage behind those problems. This leads me to an awsome course on Educative <a href="https://www.educative.io/courses/decode-coding-interview-java">Decode the Coding Interview in Java: Real-World Examples</a>.</p>
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
