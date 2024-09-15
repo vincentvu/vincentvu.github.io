@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Shell%20scripts/openssl-cheatsheet.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20storage%20account.html">
       
       
-        <link rel="prev" href="common-bash-command-lines.html">
+        <link rel="prev" href="Azure%20compute%20%28WIP%29.html">
       
       
-        <link rel="next" href="shell-script-cheatsheet.html">
+        <link rel="next" href="../Git/common-git-commands.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>OpenSSL Cheatsheet - Vincent Vu's Documents</title>
+        <title>Azure Storage Account - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate-a-new-rsa-key-only" class="md-skip">
+        <a href="#1-types-of-storage-accounts" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenSSL Cheatsheet
+              Azure Storage Account
             
           </span>
         </div>
@@ -456,6 +456,8 @@
                 
   
   
+    
+  
   
     
     
@@ -472,12 +474,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -491,7 +493,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Azure
@@ -504,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Azure/Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Azure/Azure%20Network%20%28WIP%29.html" class="md-nav__link">
+      <a href="Azure%20Network%20%28WIP%29.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Azure/Azure%20compute%20%28WIP%29.html" class="md-nav__link">
+      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,9 +564,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Azure/Azure%20storage%20account.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Storage Account
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20storage%20account.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -573,6 +593,135 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-types-of-storage-accounts" class="md-nav__link">
+    1 Types of storage accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-life-cycle" class="md-nav__link">
+    2 Life cycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-redundancy" class="md-nav__link">
+    3 Redundancy
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Redundancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-lrs" class="md-nav__link">
+    3.1 LRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-zrs" class="md-nav__link">
+    3.2 ZRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-ra-grs" class="md-nav__link">
+    3.3 RA-GRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ra-gzrs" class="md-nav__link">
+    3.4 RA-GZRS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-object-replication" class="md-nav__link">
+    4 Object replication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sas-token" class="md-nav__link">
+    5 SAS token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-stored-access-policy" class="md-nav__link">
+    6 Stored access policy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-public-access-level" class="md-nav__link">
+    7 Public Access Level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-azcopy-tool" class="md-nav__link">
+    8 AZCopy tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-copy-across-tenant" class="md-nav__link">
+    9 Copy across tenant
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
+    10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-references" class="md-nav__link">
+    11 References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -926,8 +1075,6 @@
                 
   
   
-    
-  
   
     
     
@@ -942,12 +1089,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -961,7 +1108,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Shell scripts
@@ -974,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="common-bash-command-lines.html" class="md-nav__link">
+      <a href="../Shell%20scripts/common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -992,27 +1139,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    OpenSSL Cheatsheet
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="openssl-cheatsheet.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/openssl-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1021,94 +1150,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-a-new-rsa-key-only" class="md-nav__link">
-    Generate a new RSA key only
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-public-key-from-private-key" class="md-nav__link">
-    Create public key from private key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generate-ssh-key-from-private-key" class="md-nav__link">
-    Generate SSH key from private key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-openssl-files" class="md-nav__link">
-    Check OpenSSL files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generating-a-self-signed-certificate" class="md-nav__link">
-    Generating a Self-Signed Certificate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generate-a-certificate-signing-request-and-new-key" class="md-nav__link">
-    Generate a Certificate Signing Request and new Key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#encryptdecrypt-a-file-in-base64-format" class="md-nav__link">
-    Encrypt/Decrypt a file in base64 format
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#package-cert-in-a-pkcs12-file" class="md-nav__link">
-    Package cert in a PKCS12 file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-certificate-request" class="md-nav__link">
-    Create certificate request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-certificate" class="md-nav__link">
-    Create certificate
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1120,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="shell-script-cheatsheet.html" class="md-nav__link">
+      <a href="../Shell%20scripts/shell-script-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1174,71 +1215,112 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-a-new-rsa-key-only" class="md-nav__link">
-    Generate a new RSA key only
+  <a href="#1-types-of-storage-accounts" class="md-nav__link">
+    1 Types of storage accounts
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-public-key-from-private-key" class="md-nav__link">
-    Create public key from private key
+  <a href="#2-life-cycle" class="md-nav__link">
+    2 Life cycle
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-ssh-key-from-private-key" class="md-nav__link">
-    Generate SSH key from private key
+  <a href="#3-redundancy" class="md-nav__link">
+    3 Redundancy
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Redundancy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-lrs" class="md-nav__link">
+    3.1 LRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-zrs" class="md-nav__link">
+    3.2 ZRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-ra-grs" class="md-nav__link">
+    3.3 RA-GRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ra-gzrs" class="md-nav__link">
+    3.4 RA-GZRS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-object-replication" class="md-nav__link">
+    4 Object replication
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#check-openssl-files" class="md-nav__link">
-    Check OpenSSL files
+  <a href="#5-sas-token" class="md-nav__link">
+    5 SAS token
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-a-self-signed-certificate" class="md-nav__link">
-    Generating a Self-Signed Certificate
+  <a href="#6-stored-access-policy" class="md-nav__link">
+    6 Stored access policy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-a-certificate-signing-request-and-new-key" class="md-nav__link">
-    Generate a Certificate Signing Request and new Key
+  <a href="#7-public-access-level" class="md-nav__link">
+    7 Public Access Level
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#encryptdecrypt-a-file-in-base64-format" class="md-nav__link">
-    Encrypt/Decrypt a file in base64 format
+  <a href="#8-azcopy-tool" class="md-nav__link">
+    8 AZCopy tool
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#package-cert-in-a-pkcs12-file" class="md-nav__link">
-    Package cert in a PKCS12 file
+  <a href="#9-copy-across-tenant" class="md-nav__link">
+    9 Copy across tenant
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate-request" class="md-nav__link">
-    Create certificate request
+  <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
+    10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-certificate" class="md-nav__link">
-    Create certificate
+  <a href="#11-references" class="md-nav__link">
+    11 References
   </a>
   
 </li>
@@ -1258,45 +1340,86 @@
                   
 
 
-  <h1>OpenSSL Cheatsheet</h1>
+  <h1>Azure Storage Account</h1>
 
-<blockquote>
-<p><strong><em>NOTE:</em></strong>  The content in this page is my personal note which I got from multiple sources and based on my personal experience.</p>
-</blockquote>
-<h3 id="generate-a-new-rsa-key-only">Generate a new RSA key only</h3>
-<pre><code class="language-shell">openssl genrsa -aes256 -out example.key 2048  
-</code></pre>
-<h3 id="create-public-key-from-private-key">Create public key from private key</h3>
-<pre><code class="language-shell">openssl rsa -in example.key -pubout -out example.pub
-</code></pre>
-<h3 id="generate-ssh-key-from-private-key">Generate SSH key from private key</h3>
-<pre><code class="language-shell">ssh-keygen  -y -f example.key
-</code></pre>
-<h3 id="check-openssl-files">Check OpenSSL files</h3>
-<pre><code class="language-shell">openssl rsa -in example.key -noout -text
-openssl x509 -in filename.crt -text -noout
-openssl req -in filename.csr -text -noout
-openssl rsa -in filename.key -text -noout
-</code></pre>
-<h3 id="generating-a-self-signed-certificate">Generating a Self-Signed Certificate</h3>
-<pre><code class="language-shell">openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-</code></pre>
-<h3 id="generate-a-certificate-signing-request-and-new-key">Generate a Certificate Signing Request and new Key</h3>
-<pre><code class="language-shell">openssl req -new -newkey rsa:2048 -keyout new.key -out new.csr -nodes
-</code></pre>
-<h3 id="encryptdecrypt-a-file-in-base64-format">Encrypt/Decrypt a file in base64 format</h3>
-<pre><code class="language-shell">openssl aes-256-cbc -a -in plaintext.file -out encryted.file
-openssl aes-256-cbc -a -in encryted.file
-</code></pre>
-<h3 id="package-cert-in-a-pkcs12-file">Package cert in a PKCS12 file</h3>
-<pre><code class="language-shell">openssl pkcs12 -export -in example.crt -inkey example.key -out example.p12
-</code></pre>
-<h3 id="create-certificate-request">Create certificate request</h3>
-<pre><code class="language-shell">openssl req -new -key graylog.key -subj '/C=CA/ST=ON/L=Toronto/O=IT Insfrastructure/OU=DevOps/CN=example.com/emailAddress=admin@exampl.com' -out graylog.csr  -config openssl.cnf
-</code></pre>
-<h3 id="create-certificate">Create certificate</h3>
-<pre><code class="language-shell">openssl x509 -req -days 365 -extensions v3_req -in graylog.csr -signkey graylog.key -out graylog.crt -extfile openssl.cnf
-</code></pre>
+<h2 id="1-types-of-storage-accounts">1 Types of storage accounts</h2>
+<p><img alt="Pasted image 20240914202856.png" src="attachments/Pasted%20image%2020240914202856.png" /></p>
+<h2 id="2-life-cycle">2 Life cycle</h2>
+<ul>
+<li>Lifecycle management policies are supported only for block blobs and append blobs in general-purpose 2, premium block blob, and Blob storage account.</li>
+<li>Not supported for page blobs and file shares.</li>
+<li>A premium storage account that supports only page blobs. Hence, Lifecycle management is not supported.</li>
+<li>Lifecycle management doesn't affect system containers such as the $web, $log</li>
+</ul>
+<h2 id="3-redundancy">3 Redundancy</h2>
+<ul>
+<li>Adding or removing between geo-replication (between LRS, GRS, RA-GRS OR between (ZRS, GZRS, RA-GZRS)) can be done on Azure Portal.</li>
+<li>Adding or removing zone redundancy needs a support ticket, for example: LRS &lt;-&gt; ZRS.</li>
+</ul>
+<p><img alt="Pasted image 20240914203140.png" src="attachments/Pasted%20image%2020240914203140.png" /></p>
+<h3 id="31-lrs">3.1 LRS</h3>
+<p><img alt="Pasted image 20240914203220.png" src="attachments/Pasted%20image%2020240914203220.png" /></p>
+<h3 id="32-zrs">3.2 ZRS</h3>
+<p><img alt="Pasted image 20240914203224.png" src="attachments/Pasted%20image%2020240914203224.png" /></p>
+<h3 id="33-ra-grs">3.3 RA-GRS</h3>
+<p><img alt="Pasted image 20240914203228.png" src="attachments/Pasted%20image%2020240914203228.png" /></p>
+<h3 id="34-ra-gzrs">3.4 RA-GZRS</h3>
+<p><img alt="Pasted image 20240914203232.png" src="attachments/Pasted%20image%2020240914203232.png" /></p>
+<h2 id="4-object-replication">4 Object replication</h2>
+<ul>
+<li>Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.</li>
+<li>Object replication requires that the following Azure Storage features are also enabled:<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview">Blob versioning</a>: Must be enabled on both the source and destination accounts so that any state changes to the previously replicated blobs in the source are easily preserved in the target.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed">Change feed</a>: Must be enabled on the source account so that Azure Storage can check the source feed for any change events (write or delete operations) that it would asynchronously replicate to the target account.</li>
+</ul>
+</li>
+<li>Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts.</li>
+<li>Object replication supports block blobs only; append blobs and page blobs aren't supported.</li>
+<li>Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key.</li>
+<li>Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+Reference Link: <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication">https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication</a></li>
+</ul>
+<h2 id="5-sas-token">5 SAS token</h2>
+<ul>
+<li>
+<p>A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who shouldn't be trusted with your storage account key but who need access to certain storage account resources. By distributing a SAS URI to these clients, you can grant them access to a resource for a specified period of time, with a specified set of permissions.</p>
+</li>
+<li>
+<p><strong>Note</strong>: When a user accesses blob data, the Azure portal checks if the user’s role has permission (<code>Microsoft.Storage/storageAccounts/listkeys/action</code>) to read storage account keys. If the user's role has this permission, the portal uses the keys to grant access to blob data. That’s how the <code>Owner</code> and <code>Contributor</code> roles, which do not have any permissions in the <code>DataActions</code> section (in its role definition), can access the blob data (they have <code>Microsoft.Storage/*</code> in the Actions section).</p>
+</li>
+</ul>
+<h2 id="6-stored-access-policy">6 Stored access policy</h2>
+<ul>
+<li>A stored access policy provides an additional level of control over service-level shared access signatures (SASs) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</li>
+<li>You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued.</li>
+<li>The following storage resources support stored access policies: Blob containers,  File shares, Queues, Tables</li>
+</ul>
+<h2 id="7-public-access-level">7 Public Access Level</h2>
+<p><img alt="Pasted image 20240914205640.png" src="attachments/Pasted%20image%2020240914205640.png" /></p>
+<ul>
+<li><strong>Container</strong>: Any user can read the containers and the blobs anonymously (even without any explicit permissions). Any user can connect to the container with a Container access level via Azure Storage Explorer and read the blobs within those containers.</li>
+<li><strong>Blob</strong>: any user can read only the blobs, not the containers anonymously. Unless you have permissions (either via Microsoft Entra ID, or storage account keys, or SAS), you cannot connect to a container with a Blob access level in Azure Storage Explorer.</li>
+</ul>
+<p><img alt="Pasted image 20240914205456.png" src="attachments/Pasted%20image%2020240914205456.png" /></p>
+<h2 id="8-azcopy-tool">8 AZCopy tool</h2>
+<ul>
+<li>AzCopy is available on all major operating systems like Windows, Linux, and macOS.</li>
+<li>The currently supported version of the AzCopy tool enables you to copy data only between file shares and blobs, not even tables. </li>
+</ul>
+<h2 id="9-copy-across-tenant">9 Copy across tenant</h2>
+<ul>
+<li>In order to have a copy operation across Microsoft Entra ID tenants to be successful, you need to set the Permitted scope for copy operations as From any storage account on the target storage account.</li>
+</ul>
+<p><img alt="Pasted image 20240914210437.png" src="attachments/Pasted%20image%2020240914210437.png" /></p>
+<h2 id="10-deleteretentionpolicy-containerdeleteretentionpolicy">10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy</h2>
+<ul>
+<li>In the given ARM template, the deleteRetentionPolicy and containerDeleteRetentionPolicy indicate the number of days that the deleted items should be retained in the soft-delete state.</li>
+</ul>
+<h2 id="11-references">11 References</h2>
+<ul>
+<li>https://learn.microsoft.com/en-us/azure/storage/</li>
+</ul>
+<p>END</p>
 
 
 

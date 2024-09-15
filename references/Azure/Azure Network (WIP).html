@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Storage%20account.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Network%20%28WIP%29.html">
       
       
-        <link rel="prev" href="Network.html">
+        <link rel="prev" href="Azure%20Import%20%26%20Export%20Service.html">
       
       
-        <link rel="next" href="../Git/common-git-commands.html">
+        <link rel="next" href="Azure%20compute%20%28WIP%29.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Types of storage accounts - Vincent Vu's Documents</title>
+        <title>Azure Network - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#types-of-storage-accounts" class="md-skip">
+        <a href="#1-firewall" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Types of storage accounts
+              Azure Network
             
           </span>
         </div>
@@ -468,6 +468,8 @@
       
         
       
+        
+      
     
     
     
@@ -504,31 +506,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Import%20%26%20Export%20%28continue%29.html" class="md-nav__link">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    General
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Network.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Network
+    Azure Import / Export Service
   </span>
   
 
@@ -550,19 +532,202 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Network
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <a href="Storage%20account.html" class="md-nav__link md-nav__link--active">
+      <a href="Azure%20Network%20%28WIP%29.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Types of storage accounts
+    Azure Network
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-firewall" class="md-nav__link">
+    1 Firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-basic" class="md-nav__link">
+    Azure Firewall Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-standard" class="md-nav__link">
+    Azure Firewall Standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-premium" class="md-nav__link">
+    Azure Firewall Premium
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-network-security-group-nsg" class="md-nav__link">
+    2 Network Security Group (NSG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-application-security-group" class="md-nav__link">
+    3 Application Security Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-service-tag" class="md-nav__link">
+    4 Service Tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vnet-peering" class="md-nav__link">
+    5 VNet peering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bastion-host" class="md-nav__link">
+    6 Bastion Host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-routing-preference" class="md-nav__link">
+    7 Routing Preference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dynamic-ip-addresses" class="md-nav__link">
+    8 Dynamic IP Addresses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-load-balancer" class="md-nav__link">
+    9 Load balancer
+  </a>
+  
+    <nav class="md-nav" aria-label="9 Load balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-load-balancer-rules" class="md-nav__link">
+    9.1 Load Balancer rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-service-endpoint" class="md-nav__link">
+    10 Service Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-private-link-private-endpoint" class="md-nav__link">
+    11 Private link &amp; Private endpoint
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20storage%20account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage Account
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1048,8 +1213,131 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-firewall" class="md-nav__link">
+    1 Firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-basic" class="md-nav__link">
+    Azure Firewall Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-standard" class="md-nav__link">
+    Azure Firewall Standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-firewall-premium" class="md-nav__link">
+    Azure Firewall Premium
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-network-security-group-nsg" class="md-nav__link">
+    2 Network Security Group (NSG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-application-security-group" class="md-nav__link">
+    3 Application Security Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-service-tag" class="md-nav__link">
+    4 Service Tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vnet-peering" class="md-nav__link">
+    5 VNet peering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bastion-host" class="md-nav__link">
+    6 Bastion Host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-routing-preference" class="md-nav__link">
+    7 Routing Preference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dynamic-ip-addresses" class="md-nav__link">
+    8 Dynamic IP Addresses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-load-balancer" class="md-nav__link">
+    9 Load balancer
+  </a>
+  
+    <nav class="md-nav" aria-label="9 Load balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-load-balancer-rules" class="md-nav__link">
+    9.1 Load Balancer rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-service-endpoint" class="md-nav__link">
+    10 Service Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-private-link-private-endpoint" class="md-nav__link">
+    11 Private link &amp; Private endpoint
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1064,83 +1352,57 @@
                   
 
 
-<h1 id="types-of-storage-accounts">Types of storage accounts</h1>
-<p><img alt="Pasted image 20240914202856.png" src="attachments/Pasted%20image%2020240914202856.png" /></p>
-<h1 id="life-cycle">Life cycle</h1>
+  <h1>Azure Network</h1>
+
+<h2 id="1-firewall">1 Firewall</h2>
 <ul>
-<li>Lifecycle management policies are supported only for block blobs and append blobs in general-purpose 2, premium block blob, and Blob storage account.</li>
-<li>Not supported for page blobs and file shares.</li>
-<li>A premium storage account that supports only page blobs. Hence, Lifecycle management is not supported.</li>
-<li>Lifecycle management doesn't affect system containers such as the $web, $log</li>
+<li>Azure Firewall is a cloud-native and intelligent network firewall security service that provides the threat protection for your cloud workloads running in Azure</li>
+<li>Irrespective of the Firewall SKU, you can associate only a Standard SKU public IP address with the Azure Firewall. Basic public IP address SKUs are not supported.</li>
 </ul>
-<h1 id="redundancy">Redundancy</h1>
+<h3 id="azure-firewall-basic">Azure Firewall Basic</h3>
+<p>Azure Firewall Basic is like Firewall Standard, but has the following main limitations:
+- Supports Threat Intel <em>alert mode</em> only
+- Fixed scale unit to run the service on two virtual machine backend instances
+- Recommended for environments with an estimated throughput of 250 Mbps</p>
+<p><img alt="Pasted image 20240915094429.png" src="attachments/Pasted%20image%2020240915094429.png" /></p>
+<h3 id="azure-firewall-standard">Azure Firewall Standard</h3>
+<p>Azure Firewall Standard provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security.
+<img alt="Pasted image 20240915094334.png" src="attachments/Pasted%20image%2020240915094334.png" /></p>
+<h3 id="azure-firewall-premium">Azure Firewall Premium</h3>
+<p>Azure Firewall Premium provides advanced capabilities include signature based IDPS to allow rapid detection of attacks by looking for specific patterns.</p>
+<p><img alt="Pasted image 20240915094356.png" src="attachments/Pasted%20image%2020240915094356.png" /></p>
+<h2 id="2-network-security-group-nsg">2 Network Security Group (NSG)</h2>
+<h2 id="3-application-security-group">3 Application Security Group</h2>
+<h2 id="4-service-tag">4 Service Tag</h2>
+<h2 id="5-vnet-peering">5 VNet peering</h2>
+<h2 id="6-bastion-host">6 Bastion Host</h2>
+<h2 id="7-routing-preference">7 Routing Preference</h2>
+<h2 id="8-dynamic-ip-addresses">8 Dynamic IP Addresses</h2>
+<h2 id="9-load-balancer">9 Load balancer</h2>
+<p><em>Load balancing</em> refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
+<img alt="Pasted image 20240915084354.png" src="attachments/Pasted%20image%2020240915084354.png" /></p>
 <ul>
-<li>Adding or removing between geo-replication (between LRS, GRS, RA-GRS OR between (ZRS, GZRS, RA-GZRS)) can be done on Azure Portal.</li>
-<li>Adding or removing zone redundancy needs a support ticket, for example: LRS &lt;-&gt; ZRS.</li>
+<li>For public/internal load balancers, only frontend IP configuration is required. Other associated resources can be created after the load balancer is created.</li>
+<li>For public load balancers, you define a public IP address in the frontend IP configuration. For internal load balancers, you define a virtual network in the frontend IP configuration.</li>
+<li>A load balancer rule can't span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.</li>
 </ul>
-<p><img alt="Pasted image 20240914203140.png" src="attachments/Pasted%20image%2020240914203140.png" /></p>
-<h3 id="lrs">LRS</h3>
-<p><img alt="Pasted image 20240914203220.png" src="attachments/Pasted%20image%2020240914203220.png" /></p>
-<h3 id="zrs">ZRS</h3>
-<p><img alt="Pasted image 20240914203224.png" src="attachments/Pasted%20image%2020240914203224.png" /></p>
-<h3 id="ra-grs">RA-GRS</h3>
-<p><img alt="Pasted image 20240914203228.png" src="attachments/Pasted%20image%2020240914203228.png" /></p>
-<h3 id="ra-gzrs">RA-GZRS</h3>
-<p><img alt="Pasted image 20240914203232.png" src="attachments/Pasted%20image%2020240914203232.png" /></p>
-<h1 id="object-replication">Object replication</h1>
+<p>Ref: https://learn.microsoft.com/en-us/azure/load-balancer/</p>
+<h3 id="91-load-balancer-rules">9.1 Load Balancer rules</h3>
+<p>A load balancer rule is used to define how incoming traffic is distributed to <strong>all</strong> the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. Load Balancer rules are for inbound traffic only.
+<img alt="Pasted image 20240915084459.png" src="attachments/Pasted%20image%2020240915084459.png" /></p>
+<h2 id="10-service-endpoint">10 Service Endpoint</h2>
 <ul>
-<li>Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.</li>
-<li>Object replication requires that the following Azure Storage features are also enabled:<ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview">Blob versioning</a>: Must be enabled on both the source and destination accounts so that any state changes to the previously replicated blobs in the source are easily preserved in the target.</li>
-<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed">Change feed</a>: Must be enabled on the source account so that Azure Storage can check the source feed for any change events (write or delete operations) that it would asynchronously replicate to the target account.</li>
+<li>Virtual Network (VNet) service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. </li>
+<li>Endpoints allow you to secure your critical Azure service resources to only your virtual networks.
+<img alt="Pasted image 20240915085244.png" src="attachments/Pasted%20image%2020240915085244.png" />
+Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview</a></li>
 </ul>
-</li>
-<li>Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts.</li>
-<li>Object replication supports block blobs only; append blobs and page blobs aren't supported.</li>
-<li>Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key.</li>
-<li>Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
-Reference Link: <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication">https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication</a></li>
-</ul>
-<h1 id="sas-token">SAS token</h1>
+<h2 id="11-private-link-private-endpoint">11 Private link &amp; Private endpoint</h2>
 <ul>
-<li>
-<p>A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who shouldn't be trusted with your storage account key but who need access to certain storage account resources. By distributing a SAS URI to these clients, you can grant them access to a resource for a specified period of time, with a specified set of permissions.</p>
-</li>
-<li>
-<p><strong>Note</strong>: When a user accesses blob data, the Azure portal checks if the user’s role has permission (<code>Microsoft.Storage/storageAccounts/listkeys/action</code>) to read storage account keys. If the user's role has this permission, the portal uses the keys to grant access to blob data. That’s how the <code>Owner</code> and <code>Contributor</code> roles, which do not have any permissions in the <code>DataActions</code> section (in its role definition), can access the blob data (they have <code>Microsoft.Storage/*</code> in the Actions section).</p>
-</li>
+<li>By enabling a private endpoint, you're bringing the service into your virtual network, other resources in the VNet can comunicate with the service via private IP. </li>
+<li>A private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link. </li>
 </ul>
-<h1 id="stored-access-policy">Stored access policy</h1>
-<ul>
-<li>A stored access policy provides an additional level of control over service-level shared access signatures (SASs) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</li>
-<li>You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued.</li>
-<li>The following storage resources support stored access policies: Blob containers,  File shares, Queues, Tables</li>
-</ul>
-<h1 id="public-access-level">Public Access Level</h1>
-<p><img alt="Pasted image 20240914205640.png" src="attachments/Pasted%20image%2020240914205640.png" /></p>
-<ul>
-<li><strong>Container</strong>: Any user can read the containers and the blobs anonymously (even without any explicit permissions). Any user can connect to the container with a Container access level via Azure Storage Explorer and read the blobs within those containers.</li>
-<li><strong>Blob</strong>: any user can read only the blobs, not the containers anonymously. Unless you have permissions (either via Microsoft Entra ID, or storage account keys, or SAS), you cannot connect to a container with a Blob access level in Azure Storage Explorer.</li>
-</ul>
-<p><img alt="Pasted image 20240914205456.png" src="attachments/Pasted%20image%2020240914205456.png" /></p>
-<h1 id="azcopy-tool">AZCopy tool</h1>
-<ul>
-<li>AzCopy is available on all major operating systems like Windows, Linux, and macOS.</li>
-<li>The currently supported version of the AzCopy tool enables you to copy data only between file shares and blobs, not even tables. </li>
-</ul>
-<h1 id="copy-across-tenant">Copy across tenant</h1>
-<ul>
-<li>In order to have a copy operation across Microsoft Entra ID tenants to be successful, you need to set the Permitted scope for copy operations as From any storage account on the target storage account.</li>
-</ul>
-<p><img alt="Pasted image 20240914210437.png" src="attachments/Pasted%20image%2020240914210437.png" /></p>
-<h1 id="deleteretentionpolicy-containerdeleteretentionpolicy">deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy</h1>
-<ul>
-<li>In the given ARM template, the deleteRetentionPolicy and containerDeleteRetentionPolicy indicate the number of days that the deleted items should be retained in the soft-delete state.</li>
-</ul>
-<h1 id="references">References</h1>
-<ul>
-<li>https://learn.microsoft.com/en-us/azure/storage/</li>
-</ul>
+<p><img alt="Pasted image 20240915090053.png" src="attachments/Pasted%20image%2020240915090053.png" /></p>
 <p>END</p>
 
 

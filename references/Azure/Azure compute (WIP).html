@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Network.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20compute%20%28WIP%29.html">
       
       
-        <link rel="prev" href="Import%20%26%20Export%20%28continue%29.html">
+        <link rel="prev" href="Azure%20Network%20%28WIP%29.html">
       
       
-        <link rel="next" href="Storage%20account.html">
+        <link rel="next" href="Azure%20storage%20account.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Network - Vincent Vu's Documents</title>
+        <title>Azure Compute - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#load-balancer" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Network
+              Azure Compute
             
           </span>
         </div>
@@ -468,6 +468,8 @@
       
         
       
+        
+      
     
     
     
@@ -504,11 +506,31 @@
   
   
     <li class="md-nav__item">
-      <a href="Import%20%26%20Export%20%28continue%29.html" class="md-nav__link">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    General
+    Azure Import / Export Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Network%20%28WIP%29.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network
   </span>
   
 
@@ -535,18 +557,18 @@
           
   
   <span class="md-ellipsis">
-    Network
+    Azure Compute
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="Network.html" class="md-nav__link md-nav__link--active">
+      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Network
+    Azure Compute
   </span>
   
 
@@ -566,15 +588,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#load-balancer" class="md-nav__link">
-    Load balancer
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#service-endpoint" class="md-nav__link">
-    Service Endpoint
+  <a href="#primary-secondary-nic" class="md-nav__link">
+    Primary &amp; secondary NIC
   </a>
   
 </li>
@@ -594,11 +616,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Storage%20account.html" class="md-nav__link">
+      <a href="Azure%20storage%20account.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Types of storage accounts
+    Azure Storage Account
   </span>
   
 
@@ -1096,15 +1118,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#load-balancer" class="md-nav__link">
-    Load balancer
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#service-endpoint" class="md-nav__link">
-    Service Endpoint
+  <a href="#primary-secondary-nic" class="md-nav__link">
+    Primary &amp; secondary NIC
   </a>
   
 </li>
@@ -1124,13 +1146,21 @@
                   
 
 
-  <h1>Network</h1>
-
-<h3 id="load-balancer">Load balancer</h3>
-<h3 id="service-endpoint">Service Endpoint</h3>
+<h2 id="_1"></h2>
+<h1 id="primary-secondary-nic">Primary &amp; secondary NIC</h1>
+<p>Only NICs deployed in the same virtual network can be added to a VM.</p>
+<p>You can control which network interface you send outbound traffic to. However, a VM by default sends all outbound traffic to the IP address that's assigned to the primary IP configuration of the primary network interface.</p>
+<p>Deleting a VM doesn't delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add those network interfaces to different VMs or delete them.</p>
+<p>Only the primary NIC attached to a VM is assigned a default gateway. The secondary NIC isn't. This default gateway is required for bidirectional communications outside the subnet. So, any systems from outside the subnet can communicate with the secondary NIC.</p>
+<p>You need a default gateway only for communication between subnets. For intra-subnet communication, there is no need for a default gateway. If vm02 and vm01 are deployed in the same subnet, vm02 can use its secondary NIC, nic03 (which is not assigned a default gateway) to communicate with vm01 . Further, vm01 can also communicate with nic03.</p>
 <ul>
-<li>Service endpoints allow resources in the subnet to use their private IP to communicate with the service. The service is still reached at its public endpoint.</li>
+<li>By default, the first NIC (nic01) attached to the VM is the primary network interface. All other network interfaces subsequently added to the VM are secondary network interfaces. Reference Link: <a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-vm#constraints">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-vm#constraints</a> (point 5)</li>
+<li>Each VM requires at least one dedicated NIC, irrespective of the VM’s status.</li>
+<li>You cannot attach a NIC to multiple VMs simultaneously. Each VM requires a dedicated NIC.</li>
+<li>Further, irrespective of a VM’s running status, a virtual machine must always have at least one network interface attached to it. So, even if a VM is not running, you cannot detach its NIC if that’s the only NIC attached to the VM</li>
+<li></li>
 </ul>
+<p>END</p>
 
 
 

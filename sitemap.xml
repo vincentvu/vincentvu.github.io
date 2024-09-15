@@ -36,17 +36,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/Import%20%26%20Export%20%28continue%29.html</loc>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Import%20%26%20Export%20Service.html</loc>
          <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/Network.html</loc>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Network%20%28WIP%29.html</loc>
          <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/Storage%20account.html</loc>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20compute%20%28WIP%29.html</loc>
+         <lastmod>2024-09-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20storage%20account.html</loc>
          <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>

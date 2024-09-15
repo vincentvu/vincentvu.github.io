@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Import%20%26%20Export%20%28continue%29.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Import%20%26%20Export%20Service.html">
       
       
         <link rel="prev" href="../index.html">
       
       
-        <link rel="next" href="Network.html">
+        <link rel="next" href="Azure%20Network%20%28WIP%29.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>General - Vincent Vu's Documents</title>
+        <title>Azure Import / Export Service - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#general" class="md-skip">
+        <a href="#01-general" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              General
+              Azure Import / Export Service
             
           </span>
         </div>
@@ -468,6 +468,8 @@
       
         
       
+        
+      
     
     
     
@@ -510,18 +512,113 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Import / Export Service
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <a href="Import%20%26%20Export%20%28continue%29.html" class="md-nav__link md-nav__link--active">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    General
+    Azure Import / Export Service
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-general" class="md-nav__link">
+    0.1 General
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-supported-storage-types" class="md-nav__link">
+    0.2 Supported storage types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
+    0.3 Customer-managed keys in Azure Key Vault for Import/Export service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04-waimportexport-tool" class="md-nav__link">
+    0.4 WAImportExport tool
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4 WAImportExport tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#041-datasetcsv-file" class="md-nav__link">
+    0.4.1 dataset.csv file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#042-drivesetcsv" class="md-nav__link">
+    0.4.2 driveset.csv
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05-import-flow" class="md-nav__link">
+    0.5 Import Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#06-export-flow" class="md-nav__link">
+    0.6 Export flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#07-references" class="md-nav__link">
+    0.7 References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -534,11 +631,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Network.html" class="md-nav__link">
+      <a href="Azure%20Network%20%28WIP%29.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Network
+    Azure Network
   </span>
   
 
@@ -554,11 +651,31 @@
   
   
     <li class="md-nav__item">
-      <a href="Storage%20account.html" class="md-nav__link">
+      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Types of storage accounts
+    Azure Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20storage%20account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage Account
   </span>
   
 
@@ -1048,8 +1165,83 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-general" class="md-nav__link">
+    0.1 General
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-supported-storage-types" class="md-nav__link">
+    0.2 Supported storage types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
+    0.3 Customer-managed keys in Azure Key Vault for Import/Export service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04-waimportexport-tool" class="md-nav__link">
+    0.4 WAImportExport tool
+  </a>
+  
+    <nav class="md-nav" aria-label="0.4 WAImportExport tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#041-datasetcsv-file" class="md-nav__link">
+    0.4.1 dataset.csv file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#042-drivesetcsv" class="md-nav__link">
+    0.4.2 driveset.csv
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05-import-flow" class="md-nav__link">
+    0.5 Import Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#06-export-flow" class="md-nav__link">
+    0.6 Export flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#07-references" class="md-nav__link">
+    0.7 References
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1064,24 +1256,123 @@
                   
 
 
-<h1 id="general">General</h1>
+  <h1>Azure Import / Export Service</h1>
+
+<h2 id="01-general">0.1 General</h2>
 <ul>
-<li>The Azure Import/Export service enables you to import/export large volumes of data to/from your Azure Storage account by shipping your own disk drives to the Azure data center. Azure Data Box Disk is a similar service that uses disk drives supplied by Microsoft.</li>
-<li>Microsoft documentation mentions that the Azure Import/Export service supports only general-purpose storage accounts (v1 and v2) and blob storage accounts.</li>
-<li>You can import the data only to Azure blob and file storage with the Azure Import/export tool.</li>
+<li>Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files.</li>
+<li>Azure Data Box Disk is a similar service that uses disk drives supplied by Microsoft.</li>
 </ul>
-<h1 id="waimportexport-tool">WAImportExport tool</h1>
+<p>Ref: https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service</p>
+<h2 id="02-supported-storage-types">0.2 Supported storage types</h2>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Storage Service</th>
+<th>Supported</th>
+<th>Not supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import</td>
+<td>Azure Blob Storage  <br>  <br>Azure Files storage</td>
+<td>Block blobs and Page blobs supported  <br>  <br>Files supported</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>Azure Blob Storage</td>
+<td>Block blobs, Page blobs, and Append blobs supported</td>
+<td>Azure Files not supported  <br>Export from archive tier not supported</td>
+</tr>
+<tr>
+<td>Ref: https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-requirements?source=recommendations</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="03-customer-managed-keys-in-azure-key-vault-for-importexport-service">0.3 Customer-managed keys in Azure Key Vault for Import/Export service</h2>
+<p>Azure Import/Export protects the BitLocker keys used to lock the drives via an encryption key. By default, BitLocker keys are encrypted with Microsoft-managed keys. For additional control over encryption keys, you can also provide customer-managed keys.</p>
+<p>Customer-managed keys must be created and stored in an Azure Key Vault.</p>
+<p><img alt="Pasted image 20240915083625.png" src="attachments/Pasted%20image%2020240915083625.png" /></p>
+<p>Ref: https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-encryption-key-portal</p>
+<h2 id="04-waimportexport-tool">0.4 WAImportExport tool</h2>
 <ul>
-<li>To transfer data in disk to Azure File storage, first, you need to prepare the drive using the WAImportExport tool. Once you download and extract the WAImportExport tool in your local drive, you can view the executable and a couple of CSV files: dataset.csv and driveset.csv</li>
+<li>To transfer data in disk to Azure File storage, first, you need to prepare the drive using the WAImportExport tool. Once you download and extract the WAImportExport tool in your local drive, you can view the executable and a couple of CSV files: <code>dataset.csv</code> and <code>driveset.csv</code></li>
 </ul>
-<h1 id="import-flow">Import Flow</h1>
+<h3 id="041-datasetcsv-file">0.4.1 dataset.csv file</h3>
+<p>contains a list of directories and/or a list of files to be copied to target drives. </p>
+<table>
+<thead>
+<tr>
+<th>BasePath</th>
+<th>DstBlobPathOrPrefix</th>
+<th>BlobType</th>
+<th>Disposition</th>
+<th>MetadataFile</th>
+<th>PropertiesFile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F:\50M_original\100M_1.csv.txt</td>
+<td>containername/100M_1.csv.txt</td>
+<td>BlockBlob</td>
+<td>rename</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>F:\50M_original</td>
+<td>containername/</td>
+<td>BlockBlob</td>
+<td>rename</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="042-drivesetcsv">0.4.2 driveset.csv</h3>
+<ul>
+<li>It contains the list of disks to which the drive letters are mapped so that the tool can correctly pick the list of disks to be prepared. </li>
+<li>If the data size is greater than a single disk size,  the WAImportExport tool will distribute the data across multiple disks enlisted in this CSV file in an optimized way.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DriveLetter</th>
+<th>FormatOption</th>
+<th>SilentOrPromptOnFormat</th>
+<th>Encryption</th>
+<th>ExistingBitLockerKey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>AlreadyFormatted</td>
+<td>SilentMode</td>
+<td>AlreadyEncrypted</td>
+<td>060456-014509-132033-080300-252615-584177-672089-411631</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Format</td>
+<td>SilentMode</td>
+<td>Encrypt</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="05-import-flow">0.5 Import Flow</h2>
 <p><img alt="Pasted image 20240914210853.png" src="attachments/Pasted%20image%2020240914210853.png" /></p>
-<h1 id="export-flow">Export flow</h1>
+<h2 id="06-export-flow">0.6 Export flow</h2>
 <p><img alt="Pasted image 20240914210911.png" src="attachments/Pasted%20image%2020240914210911.png" /></p>
-<ul>
-<li></li>
-</ul>
-<h1 id="references">References</h1>
+<h2 id="07-references">0.7 References</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service">https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service</a></li>
 </ul>
