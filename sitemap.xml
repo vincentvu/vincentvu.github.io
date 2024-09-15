@@ -2,107 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://vincentvu.ca/blog/index.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/index.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/08/about.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/09/some-common-leetcode-problems-for-tech-interviews.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/08/my-first-post.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/10/how-i-created-this-blog.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/index.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/network.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://vincentvu.ca/blog/references/Azure/Import%20%26%20Export%20%28continue%29.html</loc>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Git/git-submodule.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://vincentvu.ca/blog/references/Azure/Network.html</loc>
+         <lastmod>2024-09-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Azure/Storage%20account.html</loc>
+         <lastmod>2024-09-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Git/common-git-commands.html</loc>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Comparator.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20HashMap.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20List.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Quick%20Select.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Set.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20String.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20java%20keystore%20cheatsheet.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Python/common-mini-conda-commands.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/common-bash-command-lines.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/openssl-cheatsheet.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/shell-script-cheatsheet.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/archive/2023.html</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
