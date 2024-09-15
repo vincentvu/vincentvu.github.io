@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Network%20%28WIP%29.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Network.html">
       
       
         <link rel="prev" href="Azure%20Import%20%26%20Export%20Service.html">
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-firewall" class="md-skip">
+        <a href="#1-virtual-network-vnet" class="md-skip">
           Skip to content
         </a>
       
@@ -544,7 +544,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="Azure%20Network%20%28WIP%29.html" class="md-nav__link md-nav__link--active">
+      <a href="Azure%20Network.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -568,30 +568,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-firewall" class="md-nav__link">
-    1 Firewall
+  <a href="#1-virtual-network-vnet" class="md-nav__link">
+    1 Virtual Network (VNet)
   </a>
   
-    <nav class="md-nav" aria-label="1 Firewall">
+    <nav class="md-nav" aria-label="1 Virtual Network (VNet)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#azure-firewall-basic" class="md-nav__link">
-    Azure Firewall Basic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-firewall-standard" class="md-nav__link">
-    Azure Firewall Standard
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-firewall-premium" class="md-nav__link">
-    Azure Firewall Premium
+  <a href="#11-peering" class="md-nav__link">
+    1.1 Peering
   </a>
   
 </li>
@@ -602,65 +588,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-network-security-group-nsg" class="md-nav__link">
-    2 Network Security Group (NSG)
+  <a href="#2-firewall" class="md-nav__link">
+    2 Firewall
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-application-security-group" class="md-nav__link">
-    3 Application Security Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-service-tag" class="md-nav__link">
-    4 Service Tag
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-vnet-peering" class="md-nav__link">
-    5 VNet peering
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bastion-host" class="md-nav__link">
-    6 Bastion Host
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-routing-preference" class="md-nav__link">
-    7 Routing Preference
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-dynamic-ip-addresses" class="md-nav__link">
-    8 Dynamic IP Addresses
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-load-balancer" class="md-nav__link">
-    9 Load balancer
-  </a>
-  
-    <nav class="md-nav" aria-label="9 Load balancer">
+    <nav class="md-nav" aria-label="2 Firewall">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#91-load-balancer-rules" class="md-nav__link">
-    9.1 Load Balancer rules
+  <a href="#21-azure-firewall-basic" class="md-nav__link">
+    2.1 Azure Firewall Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-azure-firewall-standard" class="md-nav__link">
+    2.2 Azure Firewall Standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-azure-firewall-premium" class="md-nav__link">
+    2.3 Azure Firewall Premium
   </a>
   
 </li>
@@ -671,15 +622,144 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-service-endpoint" class="md-nav__link">
-    10 Service Endpoint
+  <a href="#3-network-security-group-nsg" class="md-nav__link">
+    3 Network Security Group (NSG)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-private-link-private-endpoint" class="md-nav__link">
-    11 Private link &amp; Private endpoint
+  <a href="#4-default-security-rules" class="md-nav__link">
+    4 Default Security rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-service-tag" class="md-nav__link">
+    5 Service Tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-application-security-group" class="md-nav__link">
+    6 Application Security Group
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Application Security Group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-deployment-basic-sku-and-higher" class="md-nav__link">
+    7.1 Deployment - Basic SKU and higher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-deployment-developer-sku" class="md-nav__link">
+    7.2 Deployment - Developer SKU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-routing-preference" class="md-nav__link">
+    8 Routing Preference
+  </a>
+  
+    <nav class="md-nav" aria-label="8 Routing Preference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-routing-over-microsoft-global-network" class="md-nav__link">
+    8.1 Routing over Microsoft global network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-routing-cover-the-public-internet" class="md-nav__link">
+    8.2 Routing cover the public Internet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ip-address" class="md-nav__link">
+    9 IP Address
+  </a>
+  
+    <nav class="md-nav" aria-label="9 IP Address">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-public-ip-address" class="md-nav__link">
+    9.1 Public IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-private-ip-address" class="md-nav__link">
+    9.2 Private IP address
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-load-balancer" class="md-nav__link">
+    10 Load balancer
+  </a>
+  
+    <nav class="md-nav" aria-label="10 Load balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-load-balancer-rules" class="md-nav__link">
+    10.1 Load Balancer rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-service-endpoint" class="md-nav__link">
+    11 Service Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-private-link-private-endpoint" class="md-nav__link">
+    12 Private link &amp; Private endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-references" class="md-nav__link">
+    13 References
   </a>
   
 </li>
@@ -1221,30 +1301,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-firewall" class="md-nav__link">
-    1 Firewall
+  <a href="#1-virtual-network-vnet" class="md-nav__link">
+    1 Virtual Network (VNet)
   </a>
   
-    <nav class="md-nav" aria-label="1 Firewall">
+    <nav class="md-nav" aria-label="1 Virtual Network (VNet)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#azure-firewall-basic" class="md-nav__link">
-    Azure Firewall Basic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-firewall-standard" class="md-nav__link">
-    Azure Firewall Standard
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-firewall-premium" class="md-nav__link">
-    Azure Firewall Premium
+  <a href="#11-peering" class="md-nav__link">
+    1.1 Peering
   </a>
   
 </li>
@@ -1255,65 +1321,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-network-security-group-nsg" class="md-nav__link">
-    2 Network Security Group (NSG)
+  <a href="#2-firewall" class="md-nav__link">
+    2 Firewall
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-application-security-group" class="md-nav__link">
-    3 Application Security Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-service-tag" class="md-nav__link">
-    4 Service Tag
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-vnet-peering" class="md-nav__link">
-    5 VNet peering
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bastion-host" class="md-nav__link">
-    6 Bastion Host
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-routing-preference" class="md-nav__link">
-    7 Routing Preference
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-dynamic-ip-addresses" class="md-nav__link">
-    8 Dynamic IP Addresses
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-load-balancer" class="md-nav__link">
-    9 Load balancer
-  </a>
-  
-    <nav class="md-nav" aria-label="9 Load balancer">
+    <nav class="md-nav" aria-label="2 Firewall">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#91-load-balancer-rules" class="md-nav__link">
-    9.1 Load Balancer rules
+  <a href="#21-azure-firewall-basic" class="md-nav__link">
+    2.1 Azure Firewall Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-azure-firewall-standard" class="md-nav__link">
+    2.2 Azure Firewall Standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-azure-firewall-premium" class="md-nav__link">
+    2.3 Azure Firewall Premium
   </a>
   
 </li>
@@ -1324,15 +1355,144 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-service-endpoint" class="md-nav__link">
-    10 Service Endpoint
+  <a href="#3-network-security-group-nsg" class="md-nav__link">
+    3 Network Security Group (NSG)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-private-link-private-endpoint" class="md-nav__link">
-    11 Private link &amp; Private endpoint
+  <a href="#4-default-security-rules" class="md-nav__link">
+    4 Default Security rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-service-tag" class="md-nav__link">
+    5 Service Tag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-application-security-group" class="md-nav__link">
+    6 Application Security Group
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Application Security Group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-deployment-basic-sku-and-higher" class="md-nav__link">
+    7.1 Deployment - Basic SKU and higher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-deployment-developer-sku" class="md-nav__link">
+    7.2 Deployment - Developer SKU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-routing-preference" class="md-nav__link">
+    8 Routing Preference
+  </a>
+  
+    <nav class="md-nav" aria-label="8 Routing Preference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-routing-over-microsoft-global-network" class="md-nav__link">
+    8.1 Routing over Microsoft global network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-routing-cover-the-public-internet" class="md-nav__link">
+    8.2 Routing cover the public Internet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-ip-address" class="md-nav__link">
+    9 IP Address
+  </a>
+  
+    <nav class="md-nav" aria-label="9 IP Address">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-public-ip-address" class="md-nav__link">
+    9.1 Public IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-private-ip-address" class="md-nav__link">
+    9.2 Private IP address
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-load-balancer" class="md-nav__link">
+    10 Load balancer
+  </a>
+  
+    <nav class="md-nav" aria-label="10 Load balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-load-balancer-rules" class="md-nav__link">
+    10.1 Load Balancer rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-service-endpoint" class="md-nav__link">
+    11 Service Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-private-link-private-endpoint" class="md-nav__link">
+    12 Private link &amp; Private endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-references" class="md-nav__link">
+    13 References
   </a>
   
 </li>
@@ -1354,31 +1514,141 @@
 
   <h1>Azure Network</h1>
 
-<h2 id="1-firewall">1 Firewall</h2>
+<h2 id="1-virtual-network-vnet">1 Virtual Network (VNet)</h2>
+<h3 id="11-peering">1.1 Peering</h3>
+<p>Virtual network peering enables you to seamlessly connect two or more <a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Virtual Networks</a> in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's <em>private</em> network only.</p>
+<p>Azure supports the following types of peering:
+- <strong>Virtual network peering</strong>: Connecting virtual networks within the same Azure region.
+- <strong>Global virtual network peering</strong>: Connecting virtual networks across Azure regions.</p>
+<h2 id="2-firewall">2 Firewall</h2>
 <ul>
 <li>Azure Firewall is a cloud-native and intelligent network firewall security service that provides the threat protection for your cloud workloads running in Azure</li>
 <li>Irrespective of the Firewall SKU, you can associate only a Standard SKU public IP address with the Azure Firewall. Basic public IP address SKUs are not supported.</li>
 </ul>
-<h3 id="azure-firewall-basic">Azure Firewall Basic</h3>
+<h3 id="21-azure-firewall-basic">2.1 Azure Firewall Basic</h3>
 <p>Azure Firewall Basic is like Firewall Standard, but has the following main limitations:
 - Supports Threat Intel <em>alert mode</em> only
 - Fixed scale unit to run the service on two virtual machine backend instances
 - Recommended for environments with an estimated throughput of 250 Mbps</p>
 <p><img alt="Pasted image 20240915094429.png" src="attachments/Pasted%20image%2020240915094429.png" /></p>
-<h3 id="azure-firewall-standard">Azure Firewall Standard</h3>
+<h3 id="22-azure-firewall-standard">2.2 Azure Firewall Standard</h3>
 <p>Azure Firewall Standard provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security.
 <img alt="Pasted image 20240915094334.png" src="attachments/Pasted%20image%2020240915094334.png" /></p>
-<h3 id="azure-firewall-premium">Azure Firewall Premium</h3>
+<h3 id="23-azure-firewall-premium">2.3 Azure Firewall Premium</h3>
 <p>Azure Firewall Premium provides advanced capabilities include signature based IDPS to allow rapid detection of attacks by looking for specific patterns.</p>
 <p><img alt="Pasted image 20240915094356.png" src="attachments/Pasted%20image%2020240915094356.png" /></p>
-<h2 id="2-network-security-group-nsg">2 Network Security Group (NSG)</h2>
-<h2 id="3-application-security-group">3 Application Security Group</h2>
-<h2 id="4-service-tag">4 Service Tag</h2>
-<h2 id="5-vnet-peering">5 VNet peering</h2>
-<h2 id="6-bastion-host">6 Bastion Host</h2>
-<h2 id="7-routing-preference">7 Routing Preference</h2>
-<h2 id="8-dynamic-ip-addresses">8 Dynamic IP Addresses</h2>
-<h2 id="9-load-balancer">9 Load balancer</h2>
+<h2 id="3-network-security-group-nsg">3 Network Security Group (NSG)</h2>
+<p>You can use an Azure network security group to filter network traffic between Azure resources in an Azure virtual network. A network security group contains <a href="https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#security-rules">security rules</a> that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources</p>
+<h2 id="4-default-security-rules">4 Default Security rules</h2>
+<p>Azure creates the following default rules in each network security group that you create.</p>
+<p><img alt="Pasted image 20240915165425.png" src="attachments/Pasted%20image%2020240915165425.png" /></p>
+<p><strong>Inbound</strong>:
+- AllowVNetInBound
+- AllowAzureLoadBalancerInBound
+- DenyAllInbound
+<strong>Outbound</strong>:
+- AllowVnetOutBound
+- AllowInternetOutBound
+- DenyAllOutBound</p>
+<h2 id="5-service-tag">5 Service Tag</h2>
+<ul>
+<li>A service tag represents a group of IP address prefixes from a given Azure service. It helps to minimize the complexity of frequent updates on network security rules.</li>
+<li>You can use service tags to define network access controls on <a href="https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#security-rules">network security groups</a>, <a href="https://learn.microsoft.com/en-us/azure/firewall/service-tags">Azure Firewall</a>, and user-defined routes.</li>
+<li>By specifying the service tag name, such as <strong>ApiManagement</strong>, in the appropriate <em>source</em> or <em>destination</em> field of a security rule, you can allow or deny the traffic for the corresponding service.
+<img alt="Pasted image 20240915145305.png" src="attachments/Pasted%20image%2020240915145305.png" /></li>
+</ul>
+<h2 id="6-application-security-group">6 Application Security Group</h2>
+<p>Application security groups enable network security group (NSG) policies to be defined using logical application groupings rather than individual VM IP addresses, allowing you to group virtual machines and define network security policies based on those groups. </p>
+<p><img alt="Pasted image 20240915150023.png" src="attachments/Pasted%20image%2020240915150023.png" /></p>
+<p>Besides default rules, NSG1 only needs the following rules using ASG. </p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Source</th>
+<th>Source ports</th>
+<th>Destination</th>
+<th>Destination ports</th>
+<th>Protocol</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Internet</td>
+<td>*</td>
+<td>AsgWeb</td>
+<td>80</td>
+<td>TCP</td>
+<td>Allow</td>
+</tr>
+<tr>
+<td>120</td>
+<td>*</td>
+<td>*</td>
+<td>AsgDb</td>
+<td>1433</td>
+<td>Any</td>
+<td>Deny</td>
+</tr>
+<tr>
+<td>110</td>
+<td>AsgLogic</td>
+<td>*</td>
+<td>AsgDb</td>
+<td>1433</td>
+<td>TCP</td>
+<td>Allow</td>
+</tr>
+<tr>
+<td>## 7 Bastion Host</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via private IP address</p>
+<h3 id="71-deployment-basic-sku-and-higher">7.1 Deployment - Basic SKU and higher</h3>
+<p>An instance is an optimized Azure VM that is created when you configure Azure Bastion. When you configure Azure Bastion using the Basic SKU, 2 instances are created. If you use the Standard SKU, you can specify the number of instances between 2-50.</p>
+<p><img alt="Pasted image 20240915170200.png" src="attachments/Pasted%20image%2020240915170200.png" />
+When working with the Basic SKU or higher, Bastion uses the following architecture and workflow.
+- The Bastion host is deployed in the virtual network that contains the <code>AzureBastionSubnet</code> subnet that has a minimum <code>/26</code> prefix.
+- The user connects to the Azure portal using any HTML5 browser and selects the virtual machine to connect to. A public IP address is not required on the Azure VM.
+- The RDP/SSH session opens in the browser with a single click.</p>
+<p><img alt="Pasted image 20240915165231.png" src="attachments/Pasted%20image%2020240915165231.png" /></p>
+<h3 id="72-deployment-developer-sku">7.2 Deployment - Developer SKU</h3>
+<p>The Bastion Developer SKU is a free, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs, but don't need additional Bastion features or host scaling. With the Developer SKU, you can connect to <strong>one Azure VM at a time</strong> directly through the virtual machine connect page.</p>
+<p><img alt="Pasted image 20240915165113.png" src="attachments/Pasted%20image%2020240915165113.png" /></p>
+<h2 id="8-routing-preference">8 Routing Preference</h2>
+<ul>
+<li>Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet).</li>
+<li>Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address isn't supported.</li>
+<li>Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.</li>
+</ul>
+<h3 id="81-routing-over-microsoft-global-network">8.1 Routing over Microsoft global network</h3>
+<p>Traffic spends the bulk of its path on the Microsoft network =&gt; less time on the Internet =&gt;  More reliable, and more expensive</p>
+<p><img alt="Pasted image 20240915171751.png" src="attachments/Pasted%20image%2020240915171751.png" /></p>
+<h3 id="82-routing-cover-the-public-internet">8.2 Routing cover the public Internet</h3>
+<p>Traffic spends the bulk of its path on the Internet =&gt; less time on the Microsoft network =&gt; Less performant and less costly. </p>
+<p><img alt="Pasted image 20240915171831.png" src="attachments/Pasted%20image%2020240915171831.png" /></p>
+<h2 id="9-ip-address">9 IP Address</h2>
+<h3 id="91-public-ip-address">9.1 Public IP address</h3>
+<p>IP addresses can also be statically assigned or dynamically assigned. Static IP addresses do not change and are best for certain situations such as:
+- DNS name resolution, where a change in the IP address would require updating host records.
+- IP address-based security models that require apps or services to have a static IP address.
+- TLS/SSL certificates linked to an IP address.
+- Firewall rules that allow or deny traffic using IP address ranges.
+- Role-based VMs such as Domain Controllers and DNS servers.</p>
+<h3 id="92-private-ip-address">9.2 Private IP address</h3>
+<p>Private IP addresses are used for communication within an Azure Virtual Network, including virtual networks and your on-premises networks. Private IP addresses can be set to dynamic (DHCP lease) or static (DHCP reservation).</p>
+<p>Dynamic private IP addresses are assigned through a DHCP lease and can change over the lifespan of the Azure resource.</p>
+<p>Static private IP addresses are assigned through a DHCP reservation and don't change throughout the lifespan of the Azure resource. Static private IP addresses persist if a resource is stopped or deallocated.</p>
+<h2 id="10-load-balancer">10 Load balancer</h2>
 <p><em>Load balancing</em> refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
 <img alt="Pasted image 20240915084354.png" src="attachments/Pasted%20image%2020240915084354.png" /></p>
 <ul>
@@ -1386,24 +1656,28 @@
 <li>For public load balancers, you define a public IP address in the frontend IP configuration. For internal load balancers, you define a virtual network in the frontend IP configuration.</li>
 <li>A load balancer rule can't span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.</li>
 </ul>
-<p>Ref: https://learn.microsoft.com/en-us/azure/load-balancer/</p>
-<h3 id="91-load-balancer-rules">9.1 Load Balancer rules</h3>
+<h3 id="101-load-balancer-rules">10.1 Load Balancer rules</h3>
 <p>A load balancer rule is used to define how incoming traffic is distributed to <strong>all</strong> the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. Load Balancer rules are for inbound traffic only.
 <img alt="Pasted image 20240915084459.png" src="attachments/Pasted%20image%2020240915084459.png" /></p>
-<h2 id="10-service-endpoint">10 Service Endpoint</h2>
+<h2 id="11-service-endpoint">11 Service Endpoint</h2>
 <ul>
 <li>Virtual Network (VNet) service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. </li>
 <li>Endpoints allow you to secure your critical Azure service resources to only your virtual networks.
-<img alt="Pasted image 20240915085244.png" src="attachments/Pasted%20image%2020240915085244.png" />
-Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview</a></li>
+<img alt="Pasted image 20240915085244.png" src="attachments/Pasted%20image%2020240915085244.png" /></li>
 </ul>
-<h2 id="11-private-link-private-endpoint">11 Private link &amp; Private endpoint</h2>
+<h2 id="12-private-link-private-endpoint">12 Private link &amp; Private endpoint</h2>
 <ul>
 <li>By enabling a private endpoint, you're bringing the service into your virtual network, other resources in the VNet can comunicate with the service via private IP. </li>
 <li>A private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link. </li>
 </ul>
 <p><img alt="Pasted image 20240915090053.png" src="attachments/Pasted%20image%2020240915090053.png" /></p>
-<p>END</p>
+<h2 id="13-references">13 References</h2>
+<ul>
+<li>https://learn.microsoft.com/en-us/azure/load-balancer/</li>
+<li><a href="https://learn.microsoft.com/en-us/answers/questions/638282/static-vs-dynamic-ip-address-for-azure-vm">https://learn.microsoft.com/en-us/answers/questions/638282/static-vs-dynamic-ip-address-for-azure-vm</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/bastion/bastion-overview">https://learn.microsoft.com/en-us/azure/bastion/bastion-overview</a></li>
+</ul>
 
 
 
