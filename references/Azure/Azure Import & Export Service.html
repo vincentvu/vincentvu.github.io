@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Import%20%26%20Export%20Service.html">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="Azure%20Entra%20ID.html">
       
       
-        <link rel="next" href="Azure%20Network.html">
+        <link rel="next" href="Azure%20Load%20balancer.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#01-general" class="md-skip">
+        <a href="#1-general" class="md-skip">
           Skip to content
         </a>
       
@@ -463,6 +463,18 @@
     
       
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -482,16 +494,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Azure
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
@@ -499,6 +519,48 @@
             Azure
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Compute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute (Virtual Machine)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Entra%20ID.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Entra ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -548,44 +610,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#01-general" class="md-nav__link">
-    0.1 General
+  <a href="#1-general" class="md-nav__link">
+    1. General
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#02-supported-storage-types" class="md-nav__link">
-    0.2 Supported storage types
+  <a href="#2-supported-storage-types" class="md-nav__link">
+    2. Supported storage types
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#03-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
-    0.3 Customer-managed keys in Azure Key Vault for Import/Export service
+  <a href="#3-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
+    3. Customer-managed keys in Azure Key Vault for Import/Export service
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#04-waimportexport-tool" class="md-nav__link">
-    0.4 WAImportExport tool
+  <a href="#4-waimportexport-tool" class="md-nav__link">
+    4. WAImportExport tool
   </a>
   
-    <nav class="md-nav" aria-label="0.4 WAImportExport tool">
+    <nav class="md-nav" aria-label="4. WAImportExport tool">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#041-datasetcsv-file" class="md-nav__link">
-    0.4.1 dataset.csv file
+  <a href="#41-datasetcsv-file" class="md-nav__link">
+    4.1. dataset.csv file
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#042-drivesetcsv" class="md-nav__link">
-    0.4.2 driveset.csv
+  <a href="#42-drivesetcsv" class="md-nav__link">
+    4.2. driveset.csv
   </a>
   
 </li>
@@ -596,22 +658,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#05-import-flow" class="md-nav__link">
-    0.5 Import Flow
+  <a href="#5-import-flow" class="md-nav__link">
+    5. Import Flow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#06-export-flow" class="md-nav__link">
-    0.6 Export flow
+  <a href="#6-export-flow" class="md-nav__link">
+    6. Export flow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#07-references" class="md-nav__link">
-    0.7 References
+  <a href="#7-references" class="md-nav__link">
+    7. References
   </a>
   
 </li>
@@ -620,6 +682,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Load%20balancer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Load balancer
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -651,11 +733,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link">
+      <a href="Azure%20RBAC.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Compute
+    Azure RBAC
   </span>
   
 
@@ -676,6 +758,26 @@
   
   <span class="md-ellipsis">
     Azure Storage Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20virtual%20machine%20%28VM%29%20availability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure virtual machine (VM) availability
   </span>
   
 
@@ -1173,44 +1275,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#01-general" class="md-nav__link">
-    0.1 General
+  <a href="#1-general" class="md-nav__link">
+    1. General
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#02-supported-storage-types" class="md-nav__link">
-    0.2 Supported storage types
+  <a href="#2-supported-storage-types" class="md-nav__link">
+    2. Supported storage types
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#03-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
-    0.3 Customer-managed keys in Azure Key Vault for Import/Export service
+  <a href="#3-customer-managed-keys-in-azure-key-vault-for-importexport-service" class="md-nav__link">
+    3. Customer-managed keys in Azure Key Vault for Import/Export service
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#04-waimportexport-tool" class="md-nav__link">
-    0.4 WAImportExport tool
+  <a href="#4-waimportexport-tool" class="md-nav__link">
+    4. WAImportExport tool
   </a>
   
-    <nav class="md-nav" aria-label="0.4 WAImportExport tool">
+    <nav class="md-nav" aria-label="4. WAImportExport tool">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#041-datasetcsv-file" class="md-nav__link">
-    0.4.1 dataset.csv file
+  <a href="#41-datasetcsv-file" class="md-nav__link">
+    4.1. dataset.csv file
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#042-drivesetcsv" class="md-nav__link">
-    0.4.2 driveset.csv
+  <a href="#42-drivesetcsv" class="md-nav__link">
+    4.2. driveset.csv
   </a>
   
 </li>
@@ -1221,22 +1323,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#05-import-flow" class="md-nav__link">
-    0.5 Import Flow
+  <a href="#5-import-flow" class="md-nav__link">
+    5. Import Flow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#06-export-flow" class="md-nav__link">
-    0.6 Export flow
+  <a href="#6-export-flow" class="md-nav__link">
+    6. Export flow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#07-references" class="md-nav__link">
-    0.7 References
+  <a href="#7-references" class="md-nav__link">
+    7. References
   </a>
   
 </li>
@@ -1258,13 +1360,13 @@
 
   <h1>Azure Import / Export Service</h1>
 
-<h2 id="01-general">0.1 General</h2>
+<h2 id="1-general">1. General</h2>
 <ul>
 <li>Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files.</li>
 <li>Azure Data Box Disk is a similar service that uses disk drives supplied by Microsoft.</li>
 </ul>
 <p>Ref: https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service</p>
-<h2 id="02-supported-storage-types">0.2 Supported storage types</h2>
+<h2 id="2-supported-storage-types">2. Supported storage types</h2>
 <table>
 <thead>
 <tr>
@@ -1295,16 +1397,16 @@
 </tr>
 </tbody>
 </table>
-<h2 id="03-customer-managed-keys-in-azure-key-vault-for-importexport-service">0.3 Customer-managed keys in Azure Key Vault for Import/Export service</h2>
+<h2 id="3-customer-managed-keys-in-azure-key-vault-for-importexport-service">3. Customer-managed keys in Azure Key Vault for Import/Export service</h2>
 <p>Azure Import/Export protects the BitLocker keys used to lock the drives via an encryption key. By default, BitLocker keys are encrypted with Microsoft-managed keys. For additional control over encryption keys, you can also provide customer-managed keys.</p>
 <p>Customer-managed keys must be created and stored in an Azure Key Vault.</p>
 <p><img alt="Pasted image 20240915083625.png" src="attachments/Pasted%20image%2020240915083625.png" /></p>
 <p>Ref: https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-encryption-key-portal</p>
-<h2 id="04-waimportexport-tool">0.4 WAImportExport tool</h2>
+<h2 id="4-waimportexport-tool">4. WAImportExport tool</h2>
 <ul>
 <li>To transfer data in disk to Azure File storage, first, you need to prepare the drive using the WAImportExport tool. Once you download and extract the WAImportExport tool in your local drive, you can view the executable and a couple of CSV files: <code>dataset.csv</code> and <code>driveset.csv</code></li>
 </ul>
-<h3 id="041-datasetcsv-file">0.4.1 dataset.csv file</h3>
+<h3 id="41-datasetcsv-file">4.1. dataset.csv file</h3>
 <p>contains a list of directories and/or a list of files to be copied to target drives. </p>
 <table>
 <thead>
@@ -1336,7 +1438,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="042-drivesetcsv">0.4.2 driveset.csv</h3>
+<h3 id="42-drivesetcsv">4.2. driveset.csv</h3>
 <ul>
 <li>It contains the list of disks to which the drive letters are mapped so that the tool can correctly pick the list of disks to be prepared. </li>
 <li>If the data size is greater than a single disk size,  the WAImportExport tool will distribute the data across multiple disks enlisted in this CSV file in an optimized way.</li>
@@ -1368,11 +1470,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="05-import-flow">0.5 Import Flow</h2>
+<h2 id="5-import-flow">5. Import Flow</h2>
 <p><img alt="Pasted image 20240914210853.png" src="attachments/Pasted%20image%2020240914210853.png" /></p>
-<h2 id="06-export-flow">0.6 Export flow</h2>
+<h2 id="6-export-flow">6. Export flow</h2>
 <p><img alt="Pasted image 20240914210911.png" src="attachments/Pasted%20image%2020240914210911.png" /></p>
-<h2 id="07-references">0.7 References</h2>
+<h2 id="7-references">7. References</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service">https://learn.microsoft.com/en-us/azure/import-export/storage-import-export-service</a></li>
 </ul>

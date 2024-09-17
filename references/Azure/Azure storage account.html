@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20storage%20account.html">
       
       
-        <link rel="prev" href="Azure%20compute%20%28WIP%29.html">
+        <link rel="prev" href="Azure%20RBAC.html">
       
       
-        <link rel="next" href="../Git/common-git-commands.html">
+        <link rel="next" href="Azure%20virtual%20machine%20%28VM%29%20availability.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -463,6 +463,18 @@
     
       
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -482,16 +494,24 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Azure
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
@@ -499,6 +519,48 @@
             Azure
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Compute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute (Virtual Machine)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Entra%20ID.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Entra ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -511,6 +573,26 @@
   
   <span class="md-ellipsis">
     Azure Import / Export Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Load%20balancer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Load balancer
   </span>
   
 
@@ -546,11 +628,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20compute%20%28WIP%29.html" class="md-nav__link">
+      <a href="Azure%20RBAC.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Compute
+    Azure RBAC
   </span>
   
 
@@ -609,50 +691,50 @@
       
         <li class="md-nav__item">
   <a href="#1-types-of-storage-accounts" class="md-nav__link">
-    1 Types of storage accounts
+    1. Types of storage accounts
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2-life-cycle" class="md-nav__link">
-    2 Life cycle
+    2. Life cycle
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3-redundancy" class="md-nav__link">
-    3 Redundancy
+    3. Redundancy
   </a>
   
-    <nav class="md-nav" aria-label="3 Redundancy">
+    <nav class="md-nav" aria-label="3. Redundancy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#31-lrs" class="md-nav__link">
-    3.1 LRS
+    3.1. LRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32-zrs" class="md-nav__link">
-    3.2 ZRS
+    3.2. ZRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#33-ra-grs" class="md-nav__link">
-    3.3 RA-GRS
+    3.3. RA-GRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#34-ra-gzrs" class="md-nav__link">
-    3.4 RA-GZRS
+    3.4. RA-GZRS
   </a>
   
 </li>
@@ -664,56 +746,56 @@
       
         <li class="md-nav__item">
   <a href="#4-object-replication" class="md-nav__link">
-    4 Object replication
+    4. Object replication
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5-sas-token" class="md-nav__link">
-    5 SAS token
+    5. SAS token
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-stored-access-policy" class="md-nav__link">
-    6 Stored access policy
+    6. Stored access policy
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-public-access-level" class="md-nav__link">
-    7 Public Access Level
+    7. Public Access Level
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8-azcopy-tool" class="md-nav__link">
-    8 AZCopy tool
+    8. AZCopy tool
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#9-copy-across-tenant" class="md-nav__link">
-    9 Copy across tenant
+    9. Copy across tenant
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
-    10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
+    10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#11-references" class="md-nav__link">
-    11 References
+    11. References
   </a>
   
 </li>
@@ -722,6 +804,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20virtual%20machine%20%28VM%29%20availability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure virtual machine (VM) availability
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1216,50 +1318,50 @@
       
         <li class="md-nav__item">
   <a href="#1-types-of-storage-accounts" class="md-nav__link">
-    1 Types of storage accounts
+    1. Types of storage accounts
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2-life-cycle" class="md-nav__link">
-    2 Life cycle
+    2. Life cycle
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3-redundancy" class="md-nav__link">
-    3 Redundancy
+    3. Redundancy
   </a>
   
-    <nav class="md-nav" aria-label="3 Redundancy">
+    <nav class="md-nav" aria-label="3. Redundancy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#31-lrs" class="md-nav__link">
-    3.1 LRS
+    3.1. LRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#32-zrs" class="md-nav__link">
-    3.2 ZRS
+    3.2. ZRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#33-ra-grs" class="md-nav__link">
-    3.3 RA-GRS
+    3.3. RA-GRS
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#34-ra-gzrs" class="md-nav__link">
-    3.4 RA-GZRS
+    3.4. RA-GZRS
   </a>
   
 </li>
@@ -1271,56 +1373,56 @@
       
         <li class="md-nav__item">
   <a href="#4-object-replication" class="md-nav__link">
-    4 Object replication
+    4. Object replication
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5-sas-token" class="md-nav__link">
-    5 SAS token
+    5. SAS token
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-stored-access-policy" class="md-nav__link">
-    6 Stored access policy
+    6. Stored access policy
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-public-access-level" class="md-nav__link">
-    7 Public Access Level
+    7. Public Access Level
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8-azcopy-tool" class="md-nav__link">
-    8 AZCopy tool
+    8. AZCopy tool
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#9-copy-across-tenant" class="md-nav__link">
-    9 Copy across tenant
+    9. Copy across tenant
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
-    10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
+    10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#11-references" class="md-nav__link">
-    11 References
+    11. References
   </a>
   
 </li>
@@ -1342,30 +1444,30 @@
 
   <h1>Azure Storage Account</h1>
 
-<h2 id="1-types-of-storage-accounts">1 Types of storage accounts</h2>
+<h2 id="1-types-of-storage-accounts">1. Types of storage accounts</h2>
 <p><img alt="Pasted image 20240914202856.png" src="attachments/Pasted%20image%2020240914202856.png" /></p>
-<h2 id="2-life-cycle">2 Life cycle</h2>
+<h2 id="2-life-cycle">2. Life cycle</h2>
 <ul>
 <li>Lifecycle management policies are supported only for block blobs and append blobs in general-purpose 2, premium block blob, and Blob storage account.</li>
 <li>Not supported for page blobs and file shares.</li>
 <li>A premium storage account that supports only page blobs. Hence, Lifecycle management is not supported.</li>
 <li>Lifecycle management doesn't affect system containers such as the $web, $log</li>
 </ul>
-<h2 id="3-redundancy">3 Redundancy</h2>
+<h2 id="3-redundancy">3. Redundancy</h2>
 <ul>
 <li>Adding or removing between geo-replication (between LRS, GRS, RA-GRS OR between (ZRS, GZRS, RA-GZRS)) can be done on Azure Portal.</li>
 <li>Adding or removing zone redundancy needs a support ticket, for example: LRS &lt;-&gt; ZRS.</li>
 </ul>
 <p><img alt="Pasted image 20240914203140.png" src="attachments/Pasted%20image%2020240914203140.png" /></p>
-<h3 id="31-lrs">3.1 LRS</h3>
+<h3 id="31-lrs">3.1. LRS</h3>
 <p><img alt="Pasted image 20240914203220.png" src="attachments/Pasted%20image%2020240914203220.png" /></p>
-<h3 id="32-zrs">3.2 ZRS</h3>
+<h3 id="32-zrs">3.2. ZRS</h3>
 <p><img alt="Pasted image 20240914203224.png" src="attachments/Pasted%20image%2020240914203224.png" /></p>
-<h3 id="33-ra-grs">3.3 RA-GRS</h3>
+<h3 id="33-ra-grs">3.3. RA-GRS</h3>
 <p><img alt="Pasted image 20240914203228.png" src="attachments/Pasted%20image%2020240914203228.png" /></p>
-<h3 id="34-ra-gzrs">3.4 RA-GZRS</h3>
+<h3 id="34-ra-gzrs">3.4. RA-GZRS</h3>
 <p><img alt="Pasted image 20240914203232.png" src="attachments/Pasted%20image%2020240914203232.png" /></p>
-<h2 id="4-object-replication">4 Object replication</h2>
+<h2 id="4-object-replication">4. Object replication</h2>
 <ul>
 <li>Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.</li>
 <li>Object replication requires that the following Azure Storage features are also enabled:<ul>
@@ -1379,7 +1481,7 @@
 <li>Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 Reference Link: <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication">https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication</a></li>
 </ul>
-<h2 id="5-sas-token">5 SAS token</h2>
+<h2 id="5-sas-token">5. SAS token</h2>
 <ul>
 <li>
 <p>A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who shouldn't be trusted with your storage account key but who need access to certain storage account resources. By distributing a SAS URI to these clients, you can grant them access to a resource for a specified period of time, with a specified set of permissions.</p>
@@ -1388,34 +1490,34 @@ Reference Link: <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/o
 <p><strong>Note</strong>: When a user accesses blob data, the Azure portal checks if the user’s role has permission (<code>Microsoft.Storage/storageAccounts/listkeys/action</code>) to read storage account keys. If the user's role has this permission, the portal uses the keys to grant access to blob data. That’s how the <code>Owner</code> and <code>Contributor</code> roles, which do not have any permissions in the <code>DataActions</code> section (in its role definition), can access the blob data (they have <code>Microsoft.Storage/*</code> in the Actions section).</p>
 </li>
 </ul>
-<h2 id="6-stored-access-policy">6 Stored access policy</h2>
+<h2 id="6-stored-access-policy">6. Stored access policy</h2>
 <ul>
 <li>A stored access policy provides an additional level of control over service-level shared access signatures (SASs) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</li>
 <li>You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued.</li>
 <li>The following storage resources support stored access policies: Blob containers,  File shares, Queues, Tables</li>
 </ul>
-<h2 id="7-public-access-level">7 Public Access Level</h2>
+<h2 id="7-public-access-level">7. Public Access Level</h2>
 <p><img alt="Pasted image 20240914205640.png" src="attachments/Pasted%20image%2020240914205640.png" /></p>
 <ul>
 <li><strong>Container</strong>: Any user can read the containers and the blobs anonymously (even without any explicit permissions). Any user can connect to the container with a Container access level via Azure Storage Explorer and read the blobs within those containers.</li>
 <li><strong>Blob</strong>: any user can read only the blobs, not the containers anonymously. Unless you have permissions (either via Microsoft Entra ID, or storage account keys, or SAS), you cannot connect to a container with a Blob access level in Azure Storage Explorer.</li>
 </ul>
 <p><img alt="Pasted image 20240914205456.png" src="attachments/Pasted%20image%2020240914205456.png" /></p>
-<h2 id="8-azcopy-tool">8 AZCopy tool</h2>
+<h2 id="8-azcopy-tool">8. AZCopy tool</h2>
 <ul>
 <li>AzCopy is available on all major operating systems like Windows, Linux, and macOS.</li>
 <li>The currently supported version of the AzCopy tool enables you to copy data only between file shares and blobs, not even tables. </li>
 </ul>
-<h2 id="9-copy-across-tenant">9 Copy across tenant</h2>
+<h2 id="9-copy-across-tenant">9. Copy across tenant</h2>
 <ul>
 <li>In order to have a copy operation across Microsoft Entra ID tenants to be successful, you need to set the Permitted scope for copy operations as From any storage account on the target storage account.</li>
 </ul>
 <p><img alt="Pasted image 20240914210437.png" src="attachments/Pasted%20image%2020240914210437.png" /></p>
-<h2 id="10-deleteretentionpolicy-containerdeleteretentionpolicy">10 deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy</h2>
+<h2 id="10-deleteretentionpolicy-containerdeleteretentionpolicy">10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy</h2>
 <ul>
 <li>In the given ARM template, the deleteRetentionPolicy and containerDeleteRetentionPolicy indicate the number of days that the deleted items should be retained in the soft-delete state.</li>
 </ul>
-<h2 id="11-references">11 References</h2>
+<h2 id="11-references">11. References</h2>
 <ul>
 <li>https://learn.microsoft.com/en-us/azure/storage/</li>
 </ul>

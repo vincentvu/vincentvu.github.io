@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/index.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20virtual%20machine%20%28VM%29%20availability.html">
       
       
-        <link rel="prev" href="../blog/archive/2023.html">
+        <link rel="prev" href="Azure%20storage%20account.html">
       
       
-        <link rel="next" href="Azure/index.html">
+        <link rel="next" href="../Git/common-git-commands.html">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
-        <title>Index - Vincent Vu's Documents</title>
+        <title>Azure virtual machine (VM) availability - Vincent Vu's Documents</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -50,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-availability-set" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -90,7 +95,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Azure virtual machine (VM) availability
             
           </span>
         </div>
@@ -218,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -235,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -279,7 +284,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../blog/index.html" class="md-nav__link ">
+            <a href="../../blog/index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -351,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blog/archive/2023.html" class="md-nav__link">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -421,7 +426,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link md-nav__link--active">
+            <a href="../index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -432,7 +437,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -451,6 +456,8 @@
                 
   
   
+    
+  
   
     
     
@@ -479,17 +486,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="Azure/index.html" class="md-nav__link ">
+            <a href="index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -506,7 +513,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Azure
@@ -521,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20Compute.html" class="md-nav__link">
+      <a href="Azure%20Compute.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20Entra%20ID.html" class="md-nav__link">
+      <a href="Azure%20Entra%20ID.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20Load%20balancer.html" class="md-nav__link">
+      <a href="Azure%20Load%20balancer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20Network.html" class="md-nav__link">
+      <a href="Azure%20Network.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -621,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20RBAC.html" class="md-nav__link">
+      <a href="Azure%20RBAC.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure/Azure%20storage%20account.html" class="md-nav__link">
+      <a href="Azure%20storage%20account.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -659,9 +666,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Azure/Azure%20virtual%20machine%20%28VM%29%20availability.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure virtual machine (VM) availability
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20virtual%20machine%20%28VM%29%20availability.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -670,6 +695,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-availability-set" class="md-nav__link">
+    1. Availability set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scale-set" class="md-nav__link">
+    2. Scale set
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Scale set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-attach-vm-to-a-scale-set" class="md-nav__link">
+    2.1. Attach VM to a scale set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-orchestration-mode" class="md-nav__link">
+    2.2. Orchestration mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-load-balancing" class="md-nav__link">
+    2.3. Load balancing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-scaling" class="md-nav__link">
+    2.4. Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-references" class="md-nav__link">
+    3. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -729,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Git/common-git-commands.html" class="md-nav__link">
+      <a href="../Git/common-git-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20Comparator.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20Comparator.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20HashMap.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20HashMap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -849,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20List.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20List.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20Set.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20Set.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20String.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20String.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
+      <a href="../Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Python/common-mini-conda-commands.html" class="md-nav__link">
+      <a href="../Python/common-mini-conda-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1069,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Shell%20scripts/common-bash-command-lines.html" class="md-nav__link">
+      <a href="../Shell%20scripts/common-bash-command-lines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Shell%20scripts/openssl-cheatsheet.html" class="md-nav__link">
+      <a href="../Shell%20scripts/openssl-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1109,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Shell%20scripts/shell-script-cheatsheet.html" class="md-nav__link">
+      <a href="../Shell%20scripts/shell-script-cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1156,6 +1254,69 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-availability-set" class="md-nav__link">
+    1. Availability set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scale-set" class="md-nav__link">
+    2. Scale set
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Scale set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-attach-vm-to-a-scale-set" class="md-nav__link">
+    2.1. Attach VM to a scale set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-orchestration-mode" class="md-nav__link">
+    2.2. Orchestration mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-load-balancing" class="md-nav__link">
+    2.3. Load balancing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-scaling" class="md-nav__link">
+    2.4. Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-references" class="md-nav__link">
+    3. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1169,9 +1330,48 @@
                   
 
 
-  <h1>Index</h1>
+  <h1>Azure virtual machine (VM) availability</h1>
 
-<p>This space contains some of my technical notes </p>
+<h2 id="1-availability-set">1. Availability set</h2>
+<p>Availability sets are logical groupings of VMs that reduce the chance of correlated failures bringing down related VMs at the same time.</p>
+<p><img alt="Pasted image 20240916201647.png" src="attachments/Pasted%20image%2020240916201647.png" /></p>
+<p>You can configure the availability set and availability zone only during VM creation. Once a VM is placed in an availability set or availability zone, there is no way to remove/update the VM's availability settings. You have to delete and recreate the VM with the updated configuration.</p>
+<p>When you create a VM in an availability set, you place the VM in a fault domain and an update domain:</p>
+<ul>
+<li>A fault domain is a physical grouping of servers in a server rack.  You can configure up to <strong>3 fault domains</strong>. </li>
+<li>An update domain is a logical grouping of servers spread across several server racks/fault domains, indicates groups of virtual machines and underlying physical hardware that can be rebooted at the same time. You can configure up to <strong>20 update domains.</strong></li>
+</ul>
+<p>If you use one fault domain, you can use only one update domain.</p>
+<p>Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform.</p>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview">https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview</a></p>
+<h2 id="2-scale-set">2. Scale set</h2>
+<p>Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.</p>
+<p>Key benefits:</p>
+<ul>
+<li>Easy to create and manage multiple VMs</li>
+<li>Provides high availability and application resiliency by distributing VMs across availability zones or fault domains</li>
+<li>Allows your application to automatically scale as resource demand changes</li>
+<li>Works at large-scale</li>
+</ul>
+<h3 id="21-attach-vm-to-a-scale-set">2.1. Attach VM to a scale set</h3>
+<ul>
+<li>You can only attach Virtual Machines to a Virtual Machine Scale Set in <strong>Flexible orchestration mode</strong>. For more information, see <a href="https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes">Orchestration modes for Virtual Machine Scale Sets</a>.</li>
+</ul>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm">https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm</a></p>
+<h3 id="22-orchestration-mode">2.2. Orchestration mode</h3>
+<p>Virtual Machine Scale Sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. Azure VMs created by the Virtual Machine Scale Set with the uniform orchestration mode expose virtual machines as <strong>scale set instances</strong>, which has limited functionality compared to the regular IaaS VMs.  </p>
+<p>VMs created with the <strong>flexible orchestration mode expose actual virtual machine resources.</strong></p>
+<p><img alt="Pasted image 20240916225728.png" src="attachments/Pasted%20image%2020240916225728.png" /></p>
+<p><img alt="Pasted image 20240916231745.png" src="attachments/Pasted%20image%2020240916231745.png" /></p>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes">https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes</a></p>
+<h3 id="23-load-balancing">2.3. Load balancing</h3>
+<p><img alt="Pasted image 20240916225806.png" src="attachments/Pasted%20image%2020240916225806.png" /></p>
+<h3 id="24-scaling">2.4. Scaling</h3>
+<p><img alt="Pasted image 20240916225825.png" src="attachments/Pasted%20image%2020240916225825.png" /></p>
+<h2 id="3-references">3. References</h2>
+<ul>
+<li>https://learn.microsoft.com/</li>
+</ul>
 
 
 
@@ -1210,10 +1410,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>
