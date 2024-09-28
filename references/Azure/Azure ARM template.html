@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20storage%20account.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20ARM%20template.html">
       
       
-        <link rel="prev" href="Azure%20RBAC.html">
+        <link rel="prev" href="Azure%20API%20Management.html">
       
       
-        <link rel="next" href="Azure%20virtual%20machine%20%28VM%29%20availability.html">
+        <link rel="next" href="Azure%20App%20Service.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Azure Storage Account - Vincent Vu's Documents</title>
+        <title>Azure ARM template - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-types-of-storage-accounts" class="md-skip">
+        <a href="#resource-iteration-in-arm-templates" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Azure Storage Account
+              Azure ARM template
             
           </span>
         </div>
@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
     
@@ -456,6 +458,26 @@
                 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../Azure%20Network%20Watcher.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network Watcher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -464,6 +486,28 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -491,7 +535,7 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           
@@ -507,14 +551,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Azure
           </label>
@@ -528,11 +572,202 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20Compute.html" class="md-nav__link">
+      <a href="Azure%20API%20Management.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Compute (Virtual Machine)
+    Azure API Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure ARM template
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20ARM%20template.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Azure ARM template
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resource-iteration-in-arm-templates" class="md-nav__link">
+    Resource iteration in ARM templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-iteration-in-arm-templates" class="md-nav__link">
+    Property iteration in ARM templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incremental-mode" class="md-nav__link">
+    Incremental mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-mode" class="md-nav__link">
+    Complete mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20App%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure App Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Application%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Application Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Backup%20Services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Container%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Container Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20DNS%20configuration.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure DNS Configuration
   </span>
   
 
@@ -568,6 +803,26 @@
   
   
     <li class="md-nav__item">
+      <a href="Azure%20ExpressRoute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure ExpressRoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
         
   
@@ -588,11 +843,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20Load%20balancer.html" class="md-nav__link">
+      <a href="Azure%20Load%20Balancer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Load balancer
+    Azure Loadbalancer
   </span>
   
 
@@ -646,164 +901,17 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Azure Storage Account
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="Azure%20storage%20account.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="Azure%20SQL%20Database.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Storage Account
+    Azure SQL Database
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-types-of-storage-accounts" class="md-nav__link">
-    1. Types of storage accounts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-life-cycle" class="md-nav__link">
-    2. Life cycle
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-redundancy" class="md-nav__link">
-    3. Redundancy
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Redundancy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-lrs" class="md-nav__link">
-    3.1. LRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-zrs" class="md-nav__link">
-    3.2. ZRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-ra-grs" class="md-nav__link">
-    3.3. RA-GRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-ra-gzrs" class="md-nav__link">
-    3.4. RA-GZRS
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-object-replication" class="md-nav__link">
-    4. Object replication
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-sas-token" class="md-nav__link">
-    5. SAS token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-stored-access-policy" class="md-nav__link">
-    6. Stored access policy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-public-access-level" class="md-nav__link">
-    7. Public Access Level
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-azcopy-tool" class="md-nav__link">
-    8. AZCopy tool
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-copy-across-tenant" class="md-nav__link">
-    9. Copy across tenant
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
-    10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-references" class="md-nav__link">
-    11. References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -815,11 +923,91 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20virtual%20machine%20%28VM%29%20availability.html" class="md-nav__link">
+      <a href="Azure%20Storage%20Account.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure virtual machine (VM) availability
+    Azure Storage Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20VPN%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure VPN Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20IP%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual IP Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20Machine%20-%20%20Availability%20%26%20Scale.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine -  Availability & Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20Machine.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine
   </span>
   
 
@@ -856,10 +1044,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -870,8 +1058,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             Git
           </label>
@@ -936,10 +1124,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -950,8 +1138,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             Java
           </label>
@@ -1124,10 +1312,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1138,8 +1326,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Python
           </label>
@@ -1196,10 +1384,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1210,8 +1398,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             Shell scripts
           </label>
@@ -1317,112 +1505,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-types-of-storage-accounts" class="md-nav__link">
-    1. Types of storage accounts
+  <a href="#resource-iteration-in-arm-templates" class="md-nav__link">
+    Resource iteration in ARM templates
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-life-cycle" class="md-nav__link">
-    2. Life cycle
+  <a href="#property-iteration-in-arm-templates" class="md-nav__link">
+    Property iteration in ARM templates
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-redundancy" class="md-nav__link">
-    3. Redundancy
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Redundancy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-lrs" class="md-nav__link">
-    3.1. LRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-zrs" class="md-nav__link">
-    3.2. ZRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-ra-grs" class="md-nav__link">
-    3.3. RA-GRS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34-ra-gzrs" class="md-nav__link">
-    3.4. RA-GZRS
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-object-replication" class="md-nav__link">
-    4. Object replication
+  <a href="#incremental-mode" class="md-nav__link">
+    Incremental mode
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-sas-token" class="md-nav__link">
-    5. SAS token
+  <a href="#complete-mode" class="md-nav__link">
+    Complete mode
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-stored-access-policy" class="md-nav__link">
-    6. Stored access policy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-public-access-level" class="md-nav__link">
-    7. Public Access Level
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-azcopy-tool" class="md-nav__link">
-    8. AZCopy tool
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-copy-across-tenant" class="md-nav__link">
-    9. Copy across tenant
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-deleteretentionpolicy-containerdeleteretentionpolicy" class="md-nav__link">
-    10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-references" class="md-nav__link">
-    11. References
+  <a href="#references" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -1442,86 +1554,184 @@
                   
 
 
-  <h1>Azure Storage Account</h1>
+  <h1>Azure ARM template</h1>
 
-<h2 id="1-types-of-storage-accounts">1. Types of storage accounts</h2>
-<p><img alt="Pasted image 20240914202856.png" src="attachments/Pasted%20image%2020240914202856.png" /></p>
-<h2 id="2-life-cycle">2. Life cycle</h2>
+<p>You can create multiple instances of a resource by adding a copy loop. You can add a copy loop to any four sections: resources, properties, variables, and outputs.</p>
+<p>https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources</p>
+<p>You cannot use a copy loop in the child resource to create multiple subnets. https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource</p>
+<h2 id="resource-iteration-in-arm-templates">Resource iteration in ARM templates</h2>
+<p>Add the <code>copy</code> element to the resources section of your template to deploy multiple instances of the resource. The <code>copy</code> element has the following general format:</p>
+<pre><code class="language-JSON">&quot;copy&quot;: {
+  &quot;name&quot;: &quot;&lt;name-of-loop&gt;&quot;,
+  &quot;count&quot;: &lt;number-of-iterations&gt;,
+  &quot;mode&quot;: &quot;serial&quot; &lt;or&gt; &quot;parallel&quot;,
+  &quot;batchSize&quot;: &lt;number-to-deploy-serially&gt;
+}
+</code></pre>
+<p>The following example creates the number of storage accounts specified in the <code>storageCount</code> parameter.</p>
+<pre><code class="language-JSON">{
+  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
+  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
+  &quot;parameters&quot;: {
+    &quot;location&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;defaultValue&quot;: &quot;[resourceGroup().location]&quot;
+    },
+    &quot;storageCount&quot;: {
+      &quot;type&quot;: &quot;int&quot;,
+      &quot;defaultValue&quot;: 3
+    }
+  },
+  &quot;resources&quot;: [
+    {
+      &quot;copy&quot;: {
+        &quot;name&quot;: &quot;storagecopy&quot;,
+        &quot;count&quot;: &quot;[length(range(0, parameters('storageCount')))]&quot;
+      },
+      &quot;type&quot;: &quot;Microsoft.Storage/storageAccounts&quot;,
+      &quot;apiVersion&quot;: &quot;2022-09-01&quot;,
+      &quot;name&quot;: &quot;[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]&quot;,
+      &quot;location&quot;: &quot;[parameters('location')]&quot;,
+      &quot;sku&quot;: {
+        &quot;name&quot;: &quot;Standard_LRS&quot;
+      },
+      &quot;kind&quot;: &quot;Storage&quot;,
+      &quot;properties&quot;: {}
+    }
+  ]
+}
+</code></pre>
+<h2 id="property-iteration-in-arm-templates">Property iteration in ARM templates</h2>
+<p>Add the <code>copy</code> element to the resources section of your template to set the number of items for a property.</p>
+<pre><code class="language-JSON">&quot;copy&quot;: [
+  {
+    &quot;name&quot;: &quot;&lt;name-of-property&gt;&quot;,
+    &quot;count&quot;: &lt;number-of-iterations&gt;,
+    &quot;input&quot;: &lt;values-for-the-property&gt;
+  }
+]
+</code></pre>
+<p>The <code>input</code> property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the <code>input</code> property.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-JSON">{
+  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
+  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
+  &quot;parameters&quot;: {
+    &quot;numberOfDataDisks&quot;: {
+      &quot;type&quot;: &quot;int&quot;,
+      &quot;minValue&quot;: 0,
+      &quot;maxValue&quot;: 16,
+      &quot;defaultValue&quot;: 3,
+      &quot;metadata&quot;: {
+        &quot;description&quot;: &quot;The number of dataDisks to create.&quot;
+      }
+    },
+    ...
+  },
+  &quot;resources&quot;: [
+    {
+      &quot;type&quot;: &quot;Microsoft.Compute/virtualMachines&quot;,
+      &quot;apiVersion&quot;: &quot;2022-11-01&quot;,
+      ...
+      &quot;properties&quot;: {
+        &quot;storageProfile&quot;: {
+          ...
+          &quot;copy&quot;: [
+            {
+              &quot;name&quot;: &quot;dataDisks&quot;,
+              &quot;count&quot;: &quot;[parameters('numberOfDataDisks')]&quot;,
+              &quot;input&quot;: {
+                &quot;lun&quot;: &quot;[copyIndex('dataDisks')]&quot;,
+                &quot;createOption&quot;: &quot;Empty&quot;,
+                &quot;diskSizeGB&quot;: 1023
+              }
+            }
+          ]
+        }
+        ...
+      }
+    }
+  ]
+}
+</code></pre>
+<h2 id="incremental-mode">Incremental mode</h2>
 <ul>
-<li>Lifecycle management policies are supported only for block blobs and append blobs in general-purpose 2, premium block blob, and Blob storage account.</li>
-<li>Not supported for page blobs and file shares.</li>
-<li>A premium storage account that supports only page blobs. Hence, Lifecycle management is not supported.</li>
-<li>Lifecycle management doesn't affect system containers such as the $web, $log</li>
+<li>When redeploying an existing resource in incremental mode, all properties are reapplied.</li>
+<li>Properties that aren't included in the template are reset to the default values.</li>
 </ul>
-<h2 id="3-redundancy">3. Redundancy</h2>
-<ul>
-<li>Adding or removing between geo-replication (between LRS, GRS, RA-GRS OR between (ZRS, GZRS, RA-GZRS)) can be done on Azure Portal.</li>
-<li>Adding or removing zone redundancy needs a support ticket, for example: LRS &lt;-&gt; ZRS.</li>
-</ul>
-<p><img alt="Pasted image 20240914203140.png" src="attachments/Pasted%20image%2020240914203140.png" /></p>
-<h3 id="31-lrs">3.1. LRS</h3>
-<p><img alt="Pasted image 20240914203220.png" src="attachments/Pasted%20image%2020240914203220.png" /></p>
-<h3 id="32-zrs">3.2. ZRS</h3>
-<p><img alt="Pasted image 20240914203224.png" src="attachments/Pasted%20image%2020240914203224.png" /></p>
-<h3 id="33-ra-grs">3.3. RA-GRS</h3>
-<p><img alt="Pasted image 20240914203228.png" src="attachments/Pasted%20image%2020240914203228.png" /></p>
-<h3 id="34-ra-gzrs">3.4. RA-GZRS</h3>
-<p><img alt="Pasted image 20240914203232.png" src="attachments/Pasted%20image%2020240914203232.png" /></p>
-<h2 id="4-object-replication">4. Object replication</h2>
-<ul>
-<li>Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.</li>
-<li>Object replication requires that the following Azure Storage features are also enabled:<ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview">Blob versioning</a>: Must be enabled on both the source and destination accounts so that any state changes to the previously replicated blobs in the source are easily preserved in the target.</li>
-<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed">Change feed</a>: Must be enabled on the source account so that Azure Storage can check the source feed for any change events (write or delete operations) that it would asynchronously replicate to the target account.</li>
-</ul>
-</li>
-<li>Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts.</li>
-<li>Object replication supports block blobs only; append blobs and page blobs aren't supported.</li>
-<li>Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key.</li>
-<li>Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
-Reference Link: <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication">https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview#prerequisites-and-caveats-for-object-replication</a></li>
-</ul>
-<h2 id="5-sas-token">5. SAS token</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Child resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Properties of a resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="complete-mode">Complete mode</h2>
 <ul>
 <li>
-<p>A shared access signature (SAS) is a URI that grants restricted access rights to Azure Storage resources. You can provide a shared access signature to clients who shouldn't be trusted with your storage account key but who need access to certain storage account resources. By distributing a SAS URI to these clients, you can grant them access to a resource for a specified period of time, with a specified set of permissions.</p>
+<p>In complete mode, Resource Manager <strong>deletes</strong> resources that exist in the resource group but aren't specified in the template.</p>
 </li>
 <li>
-<p><strong>Note</strong>: When a user accesses blob data, the Azure portal checks if the user’s role has permission (<code>Microsoft.Storage/storageAccounts/listkeys/action</code>) to read storage account keys. If the user's role has this permission, the portal uses the keys to grant access to blob data. That’s how the <code>Owner</code> and <code>Contributor</code> roles, which do not have any permissions in the <code>DataActions</code> section (in its role definition), can access the blob data (they have <code>Microsoft.Storage/*</code> in the Actions section).</p>
+<p>There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted.</p>
 </li>
 </ul>
-<h2 id="6-stored-access-policy">6. Stored access policy</h2>
-<ul>
-<li>A stored access policy provides an additional level of control over service-level shared access signatures (SASs) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</li>
-<li>You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued.</li>
-<li>The following storage resources support stored access policies: Blob containers,  File shares, Queues, Tables</li>
-</ul>
-<h2 id="7-public-access-level">7. Public Access Level</h2>
-<p><img alt="Pasted image 20240914205640.png" src="attachments/Pasted%20image%2020240914205640.png" /></p>
-<ul>
-<li><strong>Container</strong>: Any user can read the containers and the blobs anonymously (even without any explicit permissions). Any user can connect to the container with a Container access level via Azure Storage Explorer and read the blobs within those containers.</li>
-<li><strong>Blob</strong>: any user can read only the blobs, not the containers anonymously. Unless you have permissions (either via Microsoft Entra ID, or storage account keys, or SAS), you cannot connect to a container with a Blob access level in Azure Storage Explorer.</li>
-</ul>
-<p><img alt="Pasted image 20240914205456.png" src="attachments/Pasted%20image%2020240914205456.png" /></p>
-<h2 id="8-azcopy-tool">8. AZCopy tool</h2>
-<ul>
-<li>AzCopy is available on all major operating systems like Windows, Linux, and macOS.</li>
-<li>The currently supported version of the AzCopy tool enables you to copy data only between file shares and blobs, not even tables. </li>
-</ul>
-<h2 id="9-copy-across-tenant">9. Copy across tenant</h2>
-<ul>
-<li>In order to have a copy operation across Microsoft Entra ID tenants to be successful, you need to set the Permitted scope for copy operations as From any storage account on the target storage account.</li>
-</ul>
-<p><img alt="Pasted image 20240914210437.png" src="attachments/Pasted%20image%2020240914210437.png" /></p>
-<h2 id="10-deleteretentionpolicy-containerdeleteretentionpolicy">10. deleteRetentionPolicy  &amp; containerDeleteRetentionPolicy</h2>
-<ul>
-<li>In the given ARM template, the deleteRetentionPolicy and containerDeleteRetentionPolicy indicate the number of days that the deleted items should be retained in the soft-delete state.</li>
-</ul>
-<h2 id="11-references">11. References</h2>
-<ul>
-<li>https://learn.microsoft.com/en-us/azure/storage/</li>
-</ul>
-<p>END</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Child resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Properties of a resource</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<pre><code>For example, if your resource group contains a DNS zone (`Microsoft.Network/dnsZones` resource type) and a CNAME record (`Microsoft.Network/dnsZones/CNAME` resource type), the DNS zone is the parent resource for the CNAME record. If you deploy with complete mode and don't include the DNS zone in your template, the DNS zone and the CNAME record are both deleted. If you include the DNS zone in your template but don't include the CNAME record, the CNAME isn't deleted.
+</code></pre>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes#complete-mode">https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes#complete-mode</a></p>
+<h2 id="references">References</h2>
 
 
 
