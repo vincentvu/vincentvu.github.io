@@ -1,0 +1,2242 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Event%20-%20Message%20services.html">
+      
+      
+        <link rel="prev" href="Azure%20Entra%20ID.html">
+      
+      
+        <link rel="next" href="Azure%20ExpressRoute.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Azure Event - Message services - Vincent Vu's Documents</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#events-vs-messages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vincent Vu's Documents
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Azure Event - Message services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Vincent Vu's Documents
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Azure%20Network%20Watcher.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network Watcher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Azure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20API%20Management.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure API Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20ARM%20template.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure ARM template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20App%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure App Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Application%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Application Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Backup%20Services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Container%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Container Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20DNS%20configuration.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure DNS Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Entra%20ID.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Entra ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Event - Message services
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20Event%20-%20Message%20services.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Azure Event - Message services
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events-vs-messages" class="md-nav__link">
+    Events vs. messages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-grid" class="md-nav__link">
+    Azure Event Grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-grid-use-cases" class="md-nav__link">
+    Azure Event Grid - Use cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Event Grid - Use cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt-messaging" class="md-nav__link">
+    MQTT messaging
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT messaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingest-iot-telemetry" class="md-nav__link">
+    Ingest IoT telemetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-and-control" class="md-nav__link">
+    Command and control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-alerts" class="md-nav__link">
+    Broadcast alerts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-mqtt-data" class="md-nav__link">
+    Integrate MQTT data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-delivery-of-events" class="md-nav__link">
+    Push delivery of events
+  </a>
+  
+    <nav class="md-nav" aria-label="Push delivery of events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-event-driven-serverless-solutions" class="md-nav__link">
+    Build event-driven serverless solutions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-azure-services" class="md-nav__link">
+    Receive events from Azure services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-your-applications" class="md-nav__link">
+    Receive events from your applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-partner-saas-providers" class="md-nav__link">
+    Receive events from partner (SaaS providers)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-delivery-of-discrete-events" class="md-nav__link">
+    Pull delivery of discrete events
+  </a>
+  
+    <nav class="md-nav" aria-label="Pull delivery of discrete events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-at-your-own-pace" class="md-nav__link">
+    Receive events at your own pace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consume-events-over-a-private-link" class="md-nav__link">
+    Consume events over a private link
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-hubs" class="md-nav__link">
+    Azure Event Hubs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-service-bus" class="md-nav__link">
+    Azure Service Bus
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Service Bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queues" class="md-nav__link">
+    Queues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topics" class="md-nav__link">
+    Topics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-services-together" class="md-nav__link">
+    Use the services together
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#01-references" class="md-nav__link">
+    0.1. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20ExpressRoute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure ExpressRoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Import / Export Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Kubernetes%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Kubernetes Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Load%20Balancer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Loadbalancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Load%20Balancing%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Load Balancing Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Monitor%20solutions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Monitor solutions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Network.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20RBAC.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20SQL%20Database.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure SQL Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Storage%20Account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Traffic%20Manager.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Traffic Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20VPN%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure VPN Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20IP%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual IP Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20Machine%20-%20%20Availability%20%26%20Scale.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine -  Availability & Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20Machine.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20WAN.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual WAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_27" id="__nav_3_3_27_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Attachments
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_27">
+            <span class="md-nav__icon md-icon"></span>
+            Attachments
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="attachments/Azure%20Compute%20Service%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute Service Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/common-git-commands.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common git commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Comparator.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20HashMap.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   HashMap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20List.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kth Largest Element in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Set.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20String.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   java keystore cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/common-mini-conda-commands.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common miniconda commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shell scripts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Shell scripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/common-bash-command-lines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Custom Command Lines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/openssl-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSL Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/shell-script-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bash Shell Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events-vs-messages" class="md-nav__link">
+    Events vs. messages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-grid" class="md-nav__link">
+    Azure Event Grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-grid-use-cases" class="md-nav__link">
+    Azure Event Grid - Use cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Event Grid - Use cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt-messaging" class="md-nav__link">
+    MQTT messaging
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT messaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingest-iot-telemetry" class="md-nav__link">
+    Ingest IoT telemetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-and-control" class="md-nav__link">
+    Command and control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-alerts" class="md-nav__link">
+    Broadcast alerts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-mqtt-data" class="md-nav__link">
+    Integrate MQTT data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-delivery-of-events" class="md-nav__link">
+    Push delivery of events
+  </a>
+  
+    <nav class="md-nav" aria-label="Push delivery of events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-event-driven-serverless-solutions" class="md-nav__link">
+    Build event-driven serverless solutions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-azure-services" class="md-nav__link">
+    Receive events from Azure services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-your-applications" class="md-nav__link">
+    Receive events from your applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-from-partner-saas-providers" class="md-nav__link">
+    Receive events from partner (SaaS providers)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-delivery-of-discrete-events" class="md-nav__link">
+    Pull delivery of discrete events
+  </a>
+  
+    <nav class="md-nav" aria-label="Pull delivery of discrete events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#receive-events-at-your-own-pace" class="md-nav__link">
+    Receive events at your own pace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consume-events-over-a-private-link" class="md-nav__link">
+    Consume events over a private link
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-event-hubs" class="md-nav__link">
+    Azure Event Hubs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-service-bus" class="md-nav__link">
+    Azure Service Bus
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Service Bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queues" class="md-nav__link">
+    Queues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topics" class="md-nav__link">
+    Topics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-services-together" class="md-nav__link">
+    Use the services together
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#01-references" class="md-nav__link">
+    0.1. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Azure Event - Message services</h1>
+
+<h2 id="events-vs-messages">Events vs. messages</h2>
+<p><strong>An even</strong>t is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.</p>
+<p><strong>A message</strong> is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. The publisher of the message has an expectation about how the consumer handles the message</p>
+<h2 id="azure-event-grid">Azure Event Grid</h2>
+<p>Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the Message Queueing Telemetry Transport (MQTT) and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures.</p>
+<p><img alt="Pasted image 20240928101107.png" src="attachments/Pasted%20image%2020240928101107.png" /></p>
+<h2 id="azure-event-grid-use-cases">Azure Event Grid - Use cases</h2>
+<h3 id="mqtt-messaging">MQTT messaging</h3>
+<p>Event Grid enables your clients to communicate on <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107">custom MQTT topic names</a> using a publish-subscribe messaging model
+<img alt="Pasted image 20240928104922.png" src="attachments/Pasted%20image%2020240928104922.png" /></p>
+<h4 id="ingest-iot-telemetry">Ingest IoT telemetry</h4>
+<p>Ingest telemetry using a <strong>many-to-one messaging</strong> pattern. For example, use Event Grid to send telemetry from multiple IoT devices to a cloud application.</p>
+<p><img alt="Pasted image 20240928104952.png" src="attachments/Pasted%20image%2020240928104952.png" /></p>
+<h4 id="command-and-control">Command and control</h4>
+<p>Control your MQTT clients using the <strong>request-response</strong> (one-to-one) message pattern. For example, use Event Grid to send a command from a cloud application to an IoT device.</p>
+<p><img alt="Pasted image 20240928105019.png" src="attachments/Pasted%20image%2020240928105019.png" /></p>
+<h4 id="broadcast-alerts">Broadcast alerts</h4>
+<p>Broadcast alerts to a fleet of clients using the <strong>one-to-many</strong> messaging pattern. For example, use Event Grid to send an alert from a cloud application to multiple IoT devices. This pattern enables the application to publish only one message that the service replicates for every interested client.</p>
+<p><img alt="Pasted image 20240928105040.png" src="attachments/Pasted%20image%2020240928105040.png" /></p>
+<h4 id="integrate-mqtt-data">Integrate MQTT data</h4>
+<p><img alt="Pasted image 20240928105105.png" src="attachments/Pasted%20image%2020240928105105.png" />
+Integrate data from your MQTT clients by routing MQTT messages to Azure services and custom endpoints through <a href="https://learn.microsoft.com/en-us/azure/event-grid/overview#push-delivery-of-events">push delivery</a> or <a href="https://learn.microsoft.com/en-us/azure/event-grid/overview#pull-delivery-of-discrete-events">pull delivery</a>. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.</p>
+<h3 id="push-delivery-of-events">Push delivery of events</h3>
+<h4 id="build-event-driven-serverless-solutions">Build event-driven serverless solutions</h4>
+<p><img alt="Pasted image 20240928105228.png" src="attachments/Pasted%20image%2020240928105228.png" /></p>
+<p>For example, Using serverless services with Event Grid affords you a level of productivity, effort economy, and integration superior to that of classical computing models where you have to procure, manage, secure, and maintain all infrastructure deployed.</p>
+<h4 id="receive-events-from-azure-services">Receive events from Azure services</h4>
+<p><a href="https://learn.microsoft.com/en-us/azure/event-grid/media/overview/receive-events-azure-high-res.png#lightbox"><img alt="Diagram that shows Blob Storage publishing events to Event Grid over HTTP. Event Grid sends those events to event handlers, which are either webhooks or Azure services." src="https://learn.microsoft.com/en-us/azure/event-grid/media/overview/receive-events-azure.png" /></a></p>
+<p>Event Grid can receive events from 20+ Azure services so that you can automate your operations. </p>
+<h4 id="receive-events-from-your-applications">Receive events from your applications</h4>
+<p><a href="https://learn.microsoft.com/en-us/azure/event-grid/media/overview/receive-events-apps-high-res.png#lightbox"><img alt="Diagram that shows customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." src="https://learn.microsoft.com/en-us/azure/event-grid/media/overview/receive-events-apps.png" /></a></p>
+<p>Your own service or application publishes events to Event Grid that subscriber applications process. Event Grid features <a href="https://learn.microsoft.com/en-us/azure/event-grid/concepts-event-grid-namespaces#namespace-topics">Namespace Topics</a> to address integration and routing requirements at scale with a simple resource model. You can also use <a href="https://learn.microsoft.com/en-us/azure/event-grid/custom-topics">Custom Topics</a> to meet basic integration requirements and <a href="https://learn.microsoft.com/en-us/azure/event-grid/event-domains">Domains</a> for a simple management and routing model when you need to distribute events to hundreds or thousands of different groups.</p>
+<h4 id="receive-events-from-partner-saas-providers">Receive events from partner (SaaS providers)</h4>
+<p><img alt="Pasted image 20240928105407.png" src="attachments/Pasted%20image%2020240928105407.png" /></p>
+<h3 id="pull-delivery-of-discrete-events">Pull delivery of discrete events</h3>
+<h4 id="receive-events-at-your-own-pace">Receive events at your own pace</h4>
+<p><img alt="Pasted image 20240928105431.png" src="attachments/Pasted%20image%2020240928105431.png" />
+One or more clients can connect to Azure Event Grid to read messages at their own pace.</p>
+<h4 id="consume-events-over-a-private-link">Consume events over a private link</h4>
+<p><img alt="Pasted image 20240928105521.png" src="attachments/Pasted%20image%2020240928105521.png" /></p>
+<h2 id="azure-event-hubs">Azure Event Hubs</h2>
+<p>Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. Event Hubs is compatible with Apache Kafka. It enables you to run existing Kafka workloads without any code changes.</p>
+<p><img alt="Pasted image 20240928105701.png" src="attachments/Pasted%20image%2020240928105701.png" /></p>
+<ul>
+<li>Event Hubs is a multi-protocol event streaming engine that natively supports Advanced Message Queuing Protocol (AMQP), Apache Kafka, and HTTPS protocols</li>
+<li>Azure Schema Registry in Event Hubs provides a centralized repository for managing schemas of event streaming applications</li>
+<li>Event Hubs integrates with Azure Stream Analytics to enable real-time stream processing.</li>
+</ul>
+<h2 id="azure-service-bus">Azure Service Bus</h2>
+<p>Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:</p>
+<ul>
+<li>Load-balancing work across competing workers</li>
+<li>Safely routing and transferring data and control across service and application boundaries</li>
+<li>Coordinating transactional work that requires a high-degree of reliability</li>
+</ul>
+<h3 id="queues">Queues</h3>
+<p>Messages are sent to and received from <strong>queues</strong>. Queues store messages until the receiving application is available to receive and process them.</p>
+<p><img alt="Pasted image 20240928110355.png" src="attachments/Pasted%20image%2020240928110355.png" /></p>
+<h3 id="topics">Topics</h3>
+<p>You can also use <strong>topics</strong> to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish-subscribe scenarios.</p>
+<p><img alt="Pasted image 20240928110419.png" src="attachments/Pasted%20image%2020240928110419.png" /></p>
+<h3 id="namespaces">Namespaces</h3>
+<p>A namespace is a container for all messaging components (queues and topics). A namespace can have one or more queues and topics and it often serves as an application container.</p>
+<h2 id="comparison">Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+<th>Type</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event Grid</td>
+<td>Reactive programming<br><br>is a powerful event routing service provided by Azure that simplifies the implementation of event-driven architectures</td>
+<td>Event distribution (discrete events)</td>
+<td>React to status changes</td>
+</tr>
+<tr>
+<td>Event Hubs</td>
+<td>Big data pipeline<br><br>Central hub for ingesting and processing large volumes of events from multiple sources.</td>
+<td>Event streaming (series)</td>
+<td>Telemetry and distributed data streaming</td>
+</tr>
+<tr>
+<td>Service Bus</td>
+<td>High-value enterprise messaging<br><br>is a reliable messaging service that provides scalability for messaging scenarios.</td>
+<td>Message</td>
+<td>Order processing and financial transactions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-the-services-together">Use the services together</h2>
+<p><img alt="Pasted image 20240928100701.png" src="attachments/Pasted%20image%2020240928100701.png" />
+This diagram depicts the workflow of the solution you build in this tutorial:</p>
+<ol>
+<li>Data sent to an Azure event hub is captured in an Azure blob storage.</li>
+<li>When the data capture is complete, an event is generated and sent to Azure Event Grid.</li>
+<li>Azure Event Grid forwards this event data to an Azure function app.</li>
+<li>The function app uses the blob URL in the event data to retrieve the blob from the storage.</li>
+<li>The function app migrates the blob data to an Azure Synapse Analytics.</li>
+</ol>
+<h2 id="01-references">0.1. References</h2>
+<ul>
+<li><a href="https://www.linkedin.com/pulse/demystifying-azures-eventing-services-comparison-event-arindam-das-1ejhf/">Demystifying Azure’s Eventing Services: A Comparison of Event Hub, Event Grid, and Service Bus</a></li>
+<li>https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services</li>
+<li>https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
