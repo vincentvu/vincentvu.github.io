@@ -1,0 +1,2323 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Compute%20-%20Virtual%20Machine.html">
+      
+      
+        <link rel="prev" href="Azure%20Compute%20-%20Virtual%20Machine%20-%20%20Availability%20%26%20Scale.html">
+      
+      
+        <link rel="next" href="Azure%20Container%20Service.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Azure Virtual Machine - Vincent Vu's Documents</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-virtual-machine-vm-components" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-header__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vincent Vu's Documents
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Azure Virtual Machine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Vincent Vu&#39;s Documents" class="md-nav__button md-logo" aria-label="Vincent Vu's Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Vincent Vu's Documents
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2023.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20API%20Management.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure API Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20ARM%20template.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure ARM template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20App%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure App Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Application%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Application Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Backup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Backup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Compute%20-%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute - Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Compute%20-%20Virtual%20Machine%20-%20%20Availability%20%26%20Scale.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine -  Availability & Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20Compute%20-%20Virtual%20Machine.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual Machine
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-virtual-machine-vm-components" class="md-nav__link">
+    1. Virtual Machine (VM) components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nic-network-interface" class="md-nav__link">
+    2. NIC (Network Interface)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-disk" class="md-nav__link">
+    3. Disk
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-disk-types" class="md-nav__link">
+    3.1. Disk types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-redundancy" class="md-nav__link">
+    3.2. Redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-disk-roles" class="md-nav__link">
+    3.3. Disk roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm-sizefamily" class="md-nav__link">
+    VM size/family
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resource-group" class="md-nav__link">
+    4. Resource group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vm-agent" class="md-nav__link">
+    5. VM Agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-extension" class="md-nav__link">
+    6. Extension
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-quotas" class="md-nav__link">
+    7. Quotas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resize" class="md-nav__link">
+    8. Resize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-moving-vm" class="md-nav__link">
+    9. Moving VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-adding-and-removing-components" class="md-nav__link">
+    10. Adding and removing components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reapply" class="md-nav__link">
+    11. Reapply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-redeploy" class="md-nav__link">
+    12. Redeploy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-bastion-host" class="md-nav__link">
+    13. Bastion Host
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Bastion Host">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-deployment-basic-sku-and-higher" class="md-nav__link">
+    13.1. Deployment - Basic SKU and higher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-deployment-developer-sku" class="md-nav__link">
+    13.2. Deployment - Developer SKU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-dedicated-hosts" class="md-nav__link">
+    Azure Dedicated Hosts
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Dedicated Hosts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groups-hosts-and-vms" class="md-nav__link">
+    Groups, hosts, and VMs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-references" class="md-nav__link">
+    14. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Container%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Container Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Cosmos%20DB.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Cosmos DB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20DNS%20configuration.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure DNS Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Entra%20ID.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Entra ID
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Event%20-%20Message%20services.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Event - Message services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20ExpressRoute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure ExpressRoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Files.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Import%20%26%20Export%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Import / Export Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Kubernetes%20Service%20%28AKS%29.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Kubernetes Service (AKS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Load%20Balancer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Loadbalancer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Monitor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Monitor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Network%20Watcher.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network Watcher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Network.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Options%20-%20Load%20Balancing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Options - Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20RBAC.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20SQL%20Database.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure SQL Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Site%20Recovery.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Site Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Storage%20Account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Storage Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Synapse%20Analytics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Synapse Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Traffic%20Manager.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Traffic Manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20VPN%20Gateway.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure VPN Gateway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20IP%20Service.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual IP Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Virtual%20WAN.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Virtual WAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_34" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_34" id="__nav_3_2_34_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Attachments
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_34_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_34">
+            <span class="md-nav__icon md-icon"></span>
+            Attachments
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="attachments/Azure%20Compute%20Service%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute Service Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/Common%20git%20Commands.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common git Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Comparator.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20HashMap.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   HashMap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20List.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Quick%20Select.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kth Largest Element in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20Set.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   Set
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20String.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java/Basic%20-%20java%20keystore%20cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic   java keystore cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/common-mini-conda-commands.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common miniconda commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shell scripts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Shell scripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/common-bash-command-lines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Custom Command Lines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/openssl-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSL Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell%20scripts/shell-script-cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bash Shell Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-virtual-machine-vm-components" class="md-nav__link">
+    1. Virtual Machine (VM) components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nic-network-interface" class="md-nav__link">
+    2. NIC (Network Interface)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-disk" class="md-nav__link">
+    3. Disk
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-disk-types" class="md-nav__link">
+    3.1. Disk types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-redundancy" class="md-nav__link">
+    3.2. Redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-disk-roles" class="md-nav__link">
+    3.3. Disk roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm-sizefamily" class="md-nav__link">
+    VM size/family
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resource-group" class="md-nav__link">
+    4. Resource group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vm-agent" class="md-nav__link">
+    5. VM Agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-extension" class="md-nav__link">
+    6. Extension
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-quotas" class="md-nav__link">
+    7. Quotas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resize" class="md-nav__link">
+    8. Resize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-moving-vm" class="md-nav__link">
+    9. Moving VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-adding-and-removing-components" class="md-nav__link">
+    10. Adding and removing components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reapply" class="md-nav__link">
+    11. Reapply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-redeploy" class="md-nav__link">
+    12. Redeploy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-bastion-host" class="md-nav__link">
+    13. Bastion Host
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Bastion Host">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-deployment-basic-sku-and-higher" class="md-nav__link">
+    13.1. Deployment - Basic SKU and higher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-deployment-developer-sku" class="md-nav__link">
+    13.2. Deployment - Developer SKU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-dedicated-hosts" class="md-nav__link">
+    Azure Dedicated Hosts
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Dedicated Hosts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groups-hosts-and-vms" class="md-nav__link">
+    Groups, hosts, and VMs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-references" class="md-nav__link">
+    14. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Azure Virtual Machine</h1>
+
+<h2 id="1-virtual-machine-vm-components">1. Virtual Machine (VM) components</h2>
+<p>Provisioning a virtual machine (VM) in Azure requires additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a secure Windows VM on Azure.
+<img alt="Pasted image 20240915175043.png" src="attachments/Pasted%20image%2020240915175043.png" /></p>
+<h2 id="2-nic-network-interface">2. NIC (Network Interface)</h2>
+<ul>
+<li>Each VM requires at least one dedicated NIC, irrespective of the VM’s status, even if a VM is not running, you cannot detach its last NIC. </li>
+<li>Only NICs deployed in the same virtual network can be added to a VM.</li>
+<li>Deleting a VM doesn't delete the network interfaces that are attached to it. </li>
+<li>By default, the first NIC attached to the VM is the primary network interface. All other NICs subsequently added to the VM are secondary ones.</li>
+<li>You can control which network interface you send outbound traffic to. However, a VM by default <strong>sends all outbound traffic to the IP address that's assigned to the primary IP</strong> configuration of the primary network interface.</li>
+<li>You need a <strong>default gateway</strong> only for communication between subnets. For intra-subnet communication, there is no need for a default gateway.</li>
+<li>Only <strong>the primary NIC attached to a VM is assigned a default gateway</strong>. The secondary NIC isn't. This default gateway is required for bidirectional communications outside the subnet. So, any systems from outside the subnet can communicate with the secondary NIC.</li>
+</ul>
+<h2 id="3-disk">3. Disk</h2>
+<h3 id="31-disk-types">3.1. Disk types</h3>
+<p><img alt="Pasted image 20240916093652.png" src="attachments/Pasted%20image%2020240916093652.png" /></p>
+<h3 id="32-redundancy">3.2. Redundancy</h3>
+<ul>
+<li>Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS), and locally redundant storage.</li>
+</ul>
+<h3 id="33-disk-roles">3.3. Disk roles</h3>
+<p>There are three disk roles in Azure:</p>
+<ol>
+<li>The OS disk, which has the Operating System and is generally a C drive in Windows VM.</li>
+<li>Temporary disk, which provides short-term storage for your apps and processes, and is generally a D drive on Windows VM.</li>
+<li>Finally, any number of data disks attached to the VM, dependent on the virtual machine size. In the given scenario, they are drives, E and F.</li>
+</ol>
+<h2 id="vm-sizefamily">VM size/family</h2>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview">Sizes for virtual machines in Azure</a></p>
+<ul>
+<li>Lsv2 are high disk throughput and IO virtual machines. </li>
+<li>F are high CPU to memory ratio virtual machines used for web servers and such. </li>
+<li>Esv3 are high memory to CPU ratio virtual machines used for databases, but not optimized for throughput and IO. </li>
+<li>NCv2 are GPU based virtual machines.</li>
+</ul>
+<h2 id="4-resource-group">4. Resource group</h2>
+<ul>
+<li>VM resources have links with each other, however, you can move any of those resources to a different resource group in the same subscription. It's a  good practice to move all VM resources together. </li>
+</ul>
+<h2 id="5-vm-agent">5. VM Agent</h2>
+<ul>
+<li>The VM Agent is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure fabric controller.<ul>
+<li>The Azure Windows VM Agent has a primary role in enabling and executing Azure virtual machine extensions.</li>
+<li>The Linux agent providing provisioning functionality, Azure provides the option of using cloud-init for some Linux operating systems.<ul>
+<li>Creates a user account</li>
+<li>Configures SSH authentication types</li>
+<li>Manages routes to improve compatibility with platform DHCP servers</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-extension">6. Extension</h2>
+<ul>
+<li>Extensions are small applications that provide post-deployment configuration and automation on Azure virtual machines (VMs). </li>
+<li>The Azure platform hosts many extensions covering VM configuration, monitoring, security, and utility applications. Publishers take an application, wrap it into an extension, and simplify the installation.</li>
+<li>The VM Agent is required to manage, install and execute extensions. If the VM Agent isn't running or is failing to report a Ready status to the Azure platform, then the extensions won't work correctly.</li>
+</ul>
+<h2 id="7-quotas">7. Quotas</h2>
+<ul>
+<li>The vCPU quotas for virtual machines and scale sets are arranged in two tiers for each subscription, in each region. The first tier is the Total Regional vCPUs, and the second tier is the various VM size family cores such as the D-series vCPUs.</li>
+<li>Quota is calculated based on the total number of cores in use both allocated and deallocated. If you need additional cores, <a href="https://learn.microsoft.com/en-us/azure/azure-portal/supportability/regional-quota-requests">request a quota increase</a> or delete VMs that are no longer needed.</li>
+</ul>
+<h2 id="8-resize">8. Resize</h2>
+<ul>
+<li>In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available on the <strong>same hardware cluster that is currently hosting the VM</strong>.</li>
+<li>It is important to understand that even when deallocation is not necessary, if the virtual machine is currently running, changing its size will cause it to restart. For this reason you should consider <strong>changing VM size as a disruptive procedure</strong>, especially for stateful workloads that are hosted on the VM.</li>
+<li>Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.</li>
+</ul>
+<h2 id="9-moving-vm">9. Moving VM</h2>
+<p>To move across subscriptions, the resource &amp; its dependent resources must be located in the same resource group and they must be moved together. For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.</p>
+<h2 id="10-adding-and-removing-components">10. Adding and removing components</h2>
+<ul>
+<li>VM must be <strong>stopped</strong> before adding a NIC to a VM</li>
+<li>You need azure VM agent on a running VM before adding a VM extension. </li>
+<li>You can attach/detach a disk to/from a VM in any VM status.</li>
+</ul>
+<h2 id="11-reapply">11. Reapply</h2>
+<p>You can reapply your virtual machine’s state. The reapply operation will provision the VM again on the same host (server) using the previously stable virtual machine configuration.</p>
+<h2 id="12-redeploy">12. Redeploy</h2>
+<p>Since a redeploy operation deploys the VM on a different host, you will lose all the data on the temp disk (e.g. Drive D) is located on the same physical server where the VM is originally hosted.</p>
+<h2 id="13-bastion-host">13. Bastion Host</h2>
+<p>Azure Bastion is a fully managed PaaS service that you provision to securely connect to virtual machines via private IP address</p>
+<h3 id="131-deployment-basic-sku-and-higher">13.1. Deployment - Basic SKU and higher</h3>
+<p>An instance is an optimized Azure VM that is created when you configure Azure Bastion. When you configure Azure Bastion using the Basic SKU, 2 instances are created. If you use the Standard SKU, you can specify the number of instances between 2-50.</p>
+<p><img alt="Pasted image 20240915170200.png" src="attachments/Pasted%20image%2020240915170200.png" />
+When working with the Basic SKU or higher, Bastion uses the following architecture and workflow.
+- The Bastion host is deployed in the virtual network that contains the <code>AzureBastionSubnet</code> subnet that has a minimum <code>/26</code> prefix.
+- The user connects to the Azure portal using any HTML5 browser and selects the virtual machine to connect to. A public IP address is not required on the Azure VM.
+- The RDP/SSH session opens in the browser with a single click.</p>
+<p><img alt="Pasted image 20240915165231.png" src="attachments/Pasted%20image%2020240915165231.png" /></p>
+<h3 id="132-deployment-developer-sku">13.2. Deployment - Developer SKU</h3>
+<p>The Bastion Developer SKU is a free, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs, but don't need additional Bastion features or host scaling. With the Developer SKU, you can connect to <strong>one Azure VM at a time</strong> directly through the virtual machine connect page.</p>
+<p><img alt="Pasted image 20240915165113.png" src="attachments/Pasted%20image%2020240915165113.png" /></p>
+<h2 id="azure-dedicated-hosts">Azure Dedicated Hosts</h2>
+<p>Ref: https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#groups-hosts-and-vms</p>
+<p>Azure Dedicated Host is a service that provides physical servers able to host one or more virtual machines assigned to one Azure subscription</p>
+<h3 id="groups-hosts-and-vms">Groups, hosts, and VMs</h3>
+<p><img alt="Pasted image 20240923200835.png" src="attachments/Pasted%20image%2020240923200835.png" /></p>
+<p>A <strong>host group</strong> is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.</p>
+<p>A <strong>host</strong> is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. </p>
+<h2 id="14-references">14. References</h2>
+<ul>
+<li>https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/quotas?tabs=cl">https://learn.microsoft.com/en-us/azure/virtual-machines/quotas?tabs=cli</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/overview">https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot">https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/troubleshoot</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#disk-roles">https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#disk-roles</a></li>
+</ul>
+<p>END</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.path"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
