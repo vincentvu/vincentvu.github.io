@@ -2,272 +2,277 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://vincentvu.ca/blog/index.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/index.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/08/about.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/09/some-common-leetcode-problems-for-tech-interviews.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/08/my-first-post.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/2023/08/10/how-i-created-this-blog.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/index.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/index.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20API%20Management.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20ARM%20template.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20App%20Service.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Application%20Gateway.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Backup.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Compute%20-%20Options.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Cloud%20Adoption%20Framework.html</loc>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Compute%20-%20Virtual%20Machine%20-%20%20Availability%20%26%20Scale.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Compute%20-%20Virtual%20Machine.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Compute%20Service%20-%20Options.html</loc>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Container%20Service.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Cosmos%20DB.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20DNS%20configuration.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Entra%20ID.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Event%20-%20Message%20services.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20ExpressRoute.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Files.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Functions.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Import%20%26%20Export%20Service.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Kubernetes%20Service%20%28AKS%29.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Load%20Balancer.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Load%20Balancing%20-%20Options.html</loc>
+         <lastmod>2024-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Monitor%20-%20Options.html</loc>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Monitor.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Network%20Watcher.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Network.html</loc>
-         <lastmod>2024-10-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Options%20-%20Load%20Balancing.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20RBAC.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20SQL%20Database.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Site%20Recovery.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Storage%20Account.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Synapse%20Analytics.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Traffic%20Manager.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20VPN%20Gateway.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Virtual%20IP%20Service.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Azure/Azure%20Virtual%20WAN.html</loc>
-         <lastmod>2024-10-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://vincentvu.ca/blog/references/Azure/attachments/Azure%20Compute%20Service%20Options.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Git/Common%20git%20Commands.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Comparator.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20HashMap.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20List.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Quick%20Select.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20Set.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20String.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Java/Basic%20-%20java%20keystore%20cheatsheet.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Python/common-mini-conda-commands.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/common-bash-command-lines.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/openssl-cheatsheet.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/references/Shell%20scripts/shell-script-cheatsheet.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://vincentvu.ca/blog/blog/archive/2023.html</loc>
-         <lastmod>2024-10-16</lastmod>
+         <lastmod>2024-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

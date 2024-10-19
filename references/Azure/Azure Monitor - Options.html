@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Site%20Recovery.html">
+        <link rel="canonical" href="https://vincentvu.ca/blog/references/Azure/Azure%20Monitor%20-%20Options.html">
       
       
-        <link rel="prev" href="Azure%20SQL%20Database.html">
+        <link rel="prev" href="Azure%20Load%20Balancing%20-%20Options.html">
       
       
-        <link rel="next" href="Azure%20Storage%20Account.html">
+        <link rel="next" href="Azure%20Monitor.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Azure Site Recovery - Vincent Vu's Documents</title>
+        <title>Azure Monitoring - Options - Vincent Vu's Documents</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#01-references" class="md-skip">
+        <a href="#summary-of-each-tool" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Azure Site Recovery
+              Azure Monitoring - Options
             
           </span>
         </div>
@@ -998,9 +998,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Azure%20Monitor%20-%20Options.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure Monitoring - Options
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Azure%20Monitor%20-%20Options.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1009,6 +1027,31 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-each-tool" class="md-nav__link">
+    Summary of Each Tool:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1118,27 +1161,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Azure Site Recovery
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="Azure%20Site%20Recovery.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="Azure%20Site%20Recovery.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1147,31 +1172,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#01-references" class="md-nav__link">
-    0.1. References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1785,8 +1785,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#01-references" class="md-nav__link">
-    0.1. References
+  <a href="#summary-of-each-tool" class="md-nav__link">
+    Summary of Each Tool:
   </a>
   
 </li>
@@ -1806,10 +1806,148 @@
                   
 
 
-  <h1>Azure Site Recovery</h1>
+  <h1>Azure Monitoring - Options</h1>
 
-<p>Azure Site Recovery is disaster recovery solution for on-premises workloads.</p>
-<h2 id="01-references">0.1. References</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Azure Monitor</strong></th>
+<th><strong>Azure Application Insights</strong></th>
+<th><strong>Azure Workbooks</strong></th>
+<th><strong>Azure Log Analytics</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Purpose</strong></td>
+<td>Comprehensive monitoring solution for all Azure resources and applications</td>
+<td>Performance monitoring, diagnostics, and insights for applications</td>
+<td>Interactive, customizable data visualization and analysis tool</td>
+<td>Log data collection, querying, and analysis service</td>
+</tr>
+<tr>
+<td><strong>Data Sources</strong></td>
+<td>VMs, containers, networks, databases, applications, custom sources</td>
+<td>Web apps, APIs, services, cloud applications, custom events</td>
+<td>Logs, metrics, custom telemetry from Azure Monitor, Application Insights, and Log Analytics</td>
+<td>Logs from VMs, Azure resources, custom telemetry, and services</td>
+</tr>
+<tr>
+<td><strong>Metrics Collection</strong></td>
+<td>Yes, collects and aggregates metrics from Azure resources and custom metrics</td>
+<td>Yes, collects application-specific performance and telemetry metrics</td>
+<td>No, visualizes data from other sources like Monitor or Log Analytics</td>
+<td>No, it provides powerful log querying and analysis</td>
+</tr>
+<tr>
+<td><strong>Log Collection</strong></td>
+<td>Yes, integrates with Log Analytics for log data collection</td>
+<td>Limited (can export logs to Log Analytics)</td>
+<td>No, visualizes data from logs stored in other services</td>
+<td>Yes, collects logs from multiple sources across Azure services</td>
+</tr>
+<tr>
+<td><strong>Query Language</strong></td>
+<td>Kusto Query Language (KQL)</td>
+<td>Kusto Query Language (KQL)</td>
+<td>KQL (when querying Log Analytics data)</td>
+<td>Kusto Query Language (KQL)</td>
+</tr>
+<tr>
+<td><strong>Alerts and Notifications</strong></td>
+<td>Yes, creates alerts based on metrics and logs</td>
+<td>Yes, supports alerting on performance and availability issues</td>
+<td>No, but can visualize alerts from other services</td>
+<td>Yes, supports alert creation based on log data</td>
+</tr>
+<tr>
+<td><strong>Dashboards</strong></td>
+<td>Yes, integrates with Azure Dashboard to provide visual insights</td>
+<td>Yes, supports custom dashboards for application performance</td>
+<td>Yes, allows creating custom dashboards using data from multiple sources</td>
+<td>No, primarily used for log analysis, but integrates with dashboards</td>
+</tr>
+<tr>
+<td><strong>Application Performance Monitoring (APM)</strong></td>
+<td>No (uses Application Insights for APM)</td>
+<td>Yes, full support for APM, tracing, and dependency tracking</td>
+<td>No, visualizes APM data from Application Insights</td>
+<td>No, but can query and analyze performance data from logs</td>
+</tr>
+<tr>
+<td><strong>End-to-End Transaction Tracing</strong></td>
+<td>No (Application Insights handles this)</td>
+<td>Yes, supports end-to-end tracing for distributed applications</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Custom Queries</strong></td>
+<td>Yes, via Log Analytics integration (KQL)</td>
+<td>Yes, supports custom telemetry and queries via KQL</td>
+<td>Yes, uses KQL for interactive data querying from other sources</td>
+<td>Yes, custom log queries using KQL</td>
+</tr>
+<tr>
+<td><strong>Custom Metrics</strong></td>
+<td>Yes, supports collection of custom metrics</td>
+<td>Yes, collects custom application telemetry</td>
+<td>No (visualizes data, does not collect)</td>
+<td>No (uses logs and metrics collected by Azure Monitor)</td>
+</tr>
+<tr>
+<td><strong>Visualizations</strong></td>
+<td>Yes, provides charts, graphs, and time series analytics</td>
+<td>Yes, provides application-centric performance charts and reports</td>
+<td>Yes, fully customizable and interactive visualizations</td>
+<td>Limited (text-based query results, but integrates with Workbooks and Dashboards)</td>
+</tr>
+<tr>
+<td><strong>Integration with Azure Services</strong></td>
+<td>Fully integrates with Azure services (VMs, containers, databases, etc.)</td>
+<td>Integrates primarily with application services (App Service, AKS, etc.)</td>
+<td>Fully integrates with Monitor, Log Analytics, and App Insights</td>
+<td>Fully integrates with Azure services (VMs, App Service, etc.)</td>
+</tr>
+<tr>
+<td><strong>Built-in Analytics</strong></td>
+<td>Yes, provides insights from collected metrics and logs</td>
+<td>Yes, includes built-in analytics and performance reports</td>
+<td>No (relies on insights from data queried via Log Analytics or App Insights)</td>
+<td>Yes, provides powerful querying and analysis for log data</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Pay-as-you-go based on data ingestion and retention</td>
+<td>Pay-as-you-go based on data ingestion and retention</td>
+<td>No cost (built into Azure Monitor; cost depends on data sources like Log Analytics)</td>
+<td>Pay-as-you-go based on log ingestion and data retention</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Overall monitoring of Azure resources and infrastructure</td>
+<td>Application-level performance monitoring, troubleshooting, and diagnostics</td>
+<td>Visualizing custom analytics, metrics, and log data for interactive reporting</td>
+<td>In-depth querying and analysis of log and telemetry data from multiple sources</td>
+</tr>
+</tbody>
+</table>
+<h3 id="summary-of-each-tool"><strong>Summary of Each Tool:</strong></h3>
+<ul>
+<li>
+<p><strong>Azure Monitor</strong>: A broad monitoring solution that collects, analyzes, and visualizes data from Azure resources, applications, and services. It integrates with Log Analytics and Workbooks for deeper insights.</p>
+</li>
+<li>
+<p><strong>Azure Application Insights</strong>: Best for application performance monitoring (APM), providing detailed insights into web apps, APIs, and services. It supports telemetry collection, tracing, and dependency tracking.</p>
+</li>
+<li>
+<p><strong>Azure Workbooks</strong>: Primarily used for visualizing data from Azure Monitor, Application Insights, and Log Analytics. It allows customizable, interactive reports and dashboards.</p>
+</li>
+<li>
+<p><strong>Azure Log Analytics</strong>: Used for log management and analysis, collecting log data from various Azure resources and allowing advanced querying and troubleshooting using Kusto Query Language (KQL).</p>
+</li>
+</ul>
 
 
 

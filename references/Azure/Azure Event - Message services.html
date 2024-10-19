@@ -532,6 +532,8 @@
       
         
       
+        
+      
     
     
     
@@ -678,11 +680,11 @@
   
   
     <li class="md-nav__item">
-      <a href="Azure%20Compute%20-%20Options.html" class="md-nav__link">
+      <a href="Azure%20Cloud%20Adoption%20Framework.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Azure Compute - Options
+    Azure Cloud Adoption Framework
   </span>
   
 
@@ -723,6 +725,26 @@
   
   <span class="md-ellipsis">
     Azure Virtual Machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Compute%20Service%20-%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Compute Service - Options
   </span>
   
 
@@ -1044,13 +1066,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-use-the-services-together" class="md-nav__link">
-    7. Use the services together
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#8-references" class="md-nav__link">
     8. References
   </a>
@@ -1192,6 +1207,46 @@
   
   
     <li class="md-nav__item">
+      <a href="Azure%20Load%20Balancing%20-%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Load Balancing - Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Azure%20Monitor%20-%20Options.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure Monitoring - Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="Azure%20Monitor.html" class="md-nav__link">
         
   
@@ -1237,26 +1292,6 @@
   
   <span class="md-ellipsis">
     Azure Network
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Azure%20Options%20-%20Load%20Balancing.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Azure Options - Load Balancing
   </span>
   
 
@@ -1441,74 +1476,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_34" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2_34" id="__nav_3_2_34_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Attachments
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_34_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_34">
-            <span class="md-nav__icon md-icon"></span>
-            Attachments
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="attachments/Azure%20Compute%20Service%20Options.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Azure Compute Service Options
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -2186,13 +2153,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-use-the-services-together" class="md-nav__link">
-    7. Use the services together
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#8-references" class="md-nav__link">
     8. References
   </a>
@@ -2310,7 +2270,32 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 </tr>
 </tbody>
 </table>
-<h2 id="7-use-the-services-together">7. Use the services together</h2>
+<table>
+<thead>
+<tr>
+<th>Messaging solution</th>
+<th>Example scenarios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Azure Queue Storage</strong></td>
+<td><em>You want a simple queue to organize messages</em>.  <br>  <br><em>You need an audit trail of all messages that pass through the queue</em>.  <br>  <br><em>You expect the queue storage to exceed 80 GB</em>.  <br>  <br><em>You'd like to track progress for processing a message inside of the queue</em>.</td>
+</tr>
+<tr>
+<td><strong>Azure Service Bus</strong>  <br><em>message queues</em></td>
+<td><em>You require an at-most-once delivery guarantee</em>.  <br>  <br><em>You require at-least-once message processing (PeekLock receive mode)</em>.  <br>  <br><em>You require at-most-once message processing (ReceiveAndDelete receive mode)</em>.  <br>  <br><em>You want to group messages into transactions</em>.  <br>  <br><em>You want to receive messages without polling the queue</em>.  <br>  <br><em>You need to handle messages larger than 64 KB</em>.  <br>  <br><em>You expect the queue storage won't exceed 80 GB</em>.  <br>  <br><em>You'd like to publish and consume batches of messages</em>.</td>
+</tr>
+<tr>
+<td><strong>Azure Service Bus</strong>  <br><em>publish-subscribe topics</em></td>
+<td><em>You need multiple receivers to handle each message</em>.  <br>  <br><em>You expect multiple destinations for a single message but need queue-like behavior</em>.</td>
+</tr>
+<tr>
+<td>## 7. Use the services together</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><img alt="Pasted image 20240928100701.png" src="attachments/Pasted%20image%2020240928100701.png" />
 This diagram depicts the workflow of the solution you build in this tutorial:</p>
 <ol>
